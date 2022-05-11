@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="JoystickGVL" Id="{c5fc08f0-4592-482b-9add-8cf54496cd90}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	state : JoystickState := JoystickState.NoCalib;
+	xConst : LREAL := -0.3; //x y z max speeds
+	yConst : LREAL := 0.2;
+	zConst : LREAL := 0.4;
+	
+	xSpeed : LREAL := 0.0;
+	ySpeed : LREAL := 0.0;
+	zSpeed : LREAL := 0.0;
+	
+	speedScale : LREAL := 1.0;
+	
+	intState : InternalState := InternalState.passive;
+	
+	lastUpdate : BOOL := FALSE;
+	lastExec : BOOL := FALSE;
+END_VAR
+
+VAR_GLOBAL PERSISTENT
+	calibration : ST_Calibration_Parameters;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

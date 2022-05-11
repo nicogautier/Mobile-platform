@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="SensorField" Id="{5d540180-ba5b-4817-b248-b59c84290fa8}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE SensorField :
+(
+	DEFAULT := 0,
+	LEFT := 1,
+	UP := 2,	
+	UP_LEFT := 3,
+	DOWN_LEFT := 4,	
+	UP_RIGHT := 5
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

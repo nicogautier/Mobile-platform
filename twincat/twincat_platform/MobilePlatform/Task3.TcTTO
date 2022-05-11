@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <Task Name="Task3" Id="{245d5d73-baf0-489a-bd15-8e2d567146c6}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>10000</CycleTime>
+    <Priority>12</Priority>
+    <PouCall>
+      <Name>JoystickMain</Name>
+    </PouCall>
+    <TaskFBGuid>{e05326de-ffa6-47be-a408-ebc63acf2a54}</TaskFBGuid>
+    <Fb_init>{c1c84994-8d4f-438a-a89f-6fde1d9f9e01}</Fb_init>
+    <Fb_exit>{96557406-e62b-4078-b7fd-3e7e90594083}</Fb_exit>
+    <CycleUpdate>{73c36632-146d-4ae4-af64-d2dbbb6289fe}</CycleUpdate>
+    <PostCycleUpdate>{24d5cd0b-d96e-49d8-bfb9-e3ae503a4235}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>

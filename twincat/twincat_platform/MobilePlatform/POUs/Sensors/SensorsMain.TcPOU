@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="SensorsMain" Id="{a5b3c758-f6ce-48b5-b926-741f9ad72276}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM SensorsMain
+VAR
+	
+	angleDir : LREAL;
+	
+
+	
+	sensor1_D AT %Q* : BOOL;
+	sensor1_E AT %Q* : BOOL;
+	sensor1_F AT %Q* : BOOL;
+	
+	
+	sensor2_D AT %Q* : BOOL;
+	sensor2_E AT %Q* : BOOL;
+	sensor2_F AT %Q* : BOOL;
+	
+	
+	
+	en_sensor1_D AT %Q* : BOOL ;
+	en_sensor1_E AT %Q* : BOOL ;
+	en_sensor1_F AT %Q* : BOOL ;
+	en_sensor2_D AT %Q* : BOOL ;
+	en_sensor2_E AT %Q* : BOOL ;
+	en_sensor2_F AT %Q* : BOOL ;	
+
+	sensor1_UO1 AT %I* : BOOL;
+	sensor1_UO2 AT %I* : BOOL;
+	sensor1_UO3 AT %I* : BOOL;
+	
+	sensor2_UO1 AT %I* : BOOL;
+	sensor2_UO2 AT %I* : BOOL;
+	sensor2_UO3 AT %I* : BOOL;
+	
+	tmr1 : TON;
+	
+	
+	
+END_VAR
+
+VAR CONSTANT
+	PI_8 : LREAL := 0.39269908169872414;
+	VMAX : LREAL := 1.2;
+	VTHMAX : LREAL := 0.5;
+	
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Compute acctual direction of the mobile platform
+IF(ABS(ControlGVL.forwardReverse)<0.002) THEN
+	IF(ControlGVL.leftRight>0.002) THEN
+		SensorsGVL.platformDir := DirPlatform.PLUS_Y;
+	ELSIF(ControlGVL.leftRight<-0.002) THEN
+		SensorsGVL.platformDir := DirPlatform.MINUS_Y;
+	ELSE
+		SensorsGVL.platformDir := DirPlatform.STOP;
+	END_IF
+
+ELSE
+	angleDir := ATAN(-ControlGVL.leftRight/ControlGVL.forwardReverse);
+	IF(ControlGVL.forwardReverse<0) THEN
+		angleDir := angleDir + 3.141592;
+	END_IF
+
+	IF((angleDir>=PI_8)AND(angleDir<3*PI_8)) THEN
+		SensorsGVL.platformDir := DirPlatform.PLUS_X_MINUS_Y;
+	ELSIF((angleDir>=3*PI_8)AND(angleDir<5*PI_8)) THEN
+		SensorsGVL.platformDir := DirPlatform.MINUS_Y;
+	ELSIF((angleDir>=5*PI_8)AND(angleDir<7*PI_8)) THEN
+		SensorsGVL.platformDir := DirPlatform.MINUS_X_MINUS_Y;
+	ELSIF((angleDir>=7*PI_8)AND(angleDir<9*PI_8)) THEN
+		SensorsGVL.platformDir := DirPlatform.MINUS_X;
+	ELSIF((angleDir>=9*PI_8)AND(angleDir<11*PI_8)) THEN
+		SensorsGVL.platformDir := DirPlatform.MINUS_X_PLUS_Y;
+	ELSIF(((angleDir>=11*PI_8)AND(angleDir<12*PI_8))OR((angleDir>=-4*PI_8)AND(angleDir<-3*PI_8))) THEN
+		SensorsGVL.platformDir := DirPlatform.PLUS_Y;
+	ELSIF((angleDir>=-3*PI_8)AND(angleDir<-1*PI_8)) THEN
+		SensorsGVL.platformDir := DirPlatform.PLUS_X_PLUS_Y;
+	ELSE
+		SensorsGVL.platformDir := DirPlatform.PLUS_X;
+	END_IF
+END_IF
+
+
+//Select required fields for sensors
+IF(SensorsGVL.platformDir = DirPlatform.PLUS_X) THEN
+	SensorsGVL.sensor1_MonitoringCase := SensorField.UP;
+	SensorsGVL.sensor2_MonitoringCase := SensorField.DEFAULT;
+ELSIF(SensorsGVL.platformDir = DirPlatform.PLUS_X_MINUS_Y) THEN
+	SensorsGVL.sensor1_MonitoringCase := SensorField.UP_LEFT;
+	SensorsGVL.sensor2_MonitoringCase := SensorField.DEFAULT;
+ELSIF(SensorsGVL.platformDir = DirPlatform.MINUS_Y) THEN
+	SensorsGVL.sensor1_MonitoringCase := SensorField.LEFT;
+	SensorsGVL.sensor2_MonitoringCase := SensorField.DEFAULT;
+ELSIF(SensorsGVL.platformDir = DirPlatform.MINUS_X_MINUS_Y) THEN
+	SensorsGVL.sensor1_MonitoringCase := SensorField.DOWN_LEFT;
+	SensorsGVL.sensor2_MonitoringCase := SensorField.UP_RIGHT;
+ELSIF(SensorsGVL.platformDir = DirPlatform.MINUS_X) THEN
+	SensorsGVL.sensor1_MonitoringCase := SensorField.DEFAULT;
+	SensorsGVL.sensor2_MonitoringCase := SensorField.UP;
+ELSIF(SensorsGVL.platformDir = DirPlatform.MINUS_X_PLUS_Y) THEN
+	SensorsGVL.sensor1_MonitoringCase := SensorField.DEFAULT;
+	SensorsGVL.sensor2_MonitoringCase := SensorField.UP_LEFT;
+ELSIF(SensorsGVL.platformDir = DirPlatform.PLUS_Y) THEN
+	SensorsGVL.sensor1_MonitoringCase := SensorField.DEFAULT;
+	SensorsGVL.sensor2_MonitoringCase := SensorField.LEFT;
+ELSIF(SensorsGVL.platformDir = DirPlatform.PLUS_X_PLUS_Y) THEN
+	SensorsGVL.sensor1_MonitoringCase := SensorField.UP_RIGHT;
+	SensorsGVL.sensor2_MonitoringCase := SensorField.DOWN_LEFT;
+ELSE
+	SensorsGVL.sensor1_MonitoringCase := SensorField.DEFAULT;
+	SensorsGVL.sensor2_MonitoringCase := SensorField.DEFAULT;
+END_IF
+
+
+//emable writting output
+en_sensor1_D := TRUE;
+en_sensor1_E := TRUE;
+en_sensor1_F := TRUE;
+en_sensor2_D := TRUE;
+en_sensor2_E := TRUE;
+en_sensor2_F := TRUE;
+
+
+//Update fields on sensors
+sensor1_D := (SensorsGVL.sensor1_MonitoringCase / 4)>0;
+sensor1_E := ((SensorsGVL.sensor1_MonitoringCase MOD 4)/2)>0;
+sensor1_F := (SensorsGVL.sensor1_MonitoringCase MOD 2) >0;
+
+sensor2_D := (SensorsGVL.sensor2_MonitoringCase / 4)>0;
+sensor2_E := ((SensorsGVL.sensor2_MonitoringCase MOD 4)/2)>0;
+sensor2_F := (SensorsGVL.sensor2_MonitoringCase MOD 2) >0;
+
+
+
+//Adapt maximum speed if obstacles
+IF (sensor1_UO1 OR sensor2_UO1) THEN
+	ControlGVL.currentVelMax := 0;
+	ControlGVL.currentThVelMax :=0;
+ELSIF (sensor1_UO2 OR sensor2_UO2) THEN
+	ControlGVL.currentVelMax := VMAX/4;
+	ControlGVL.currentThVelMax :=VTHMAX;
+ELSIF (sensor1_UO3 OR sensor2_UO3) THEN
+	ControlGVL.currentVelMax := VMAX/2;
+	ControlGVL.currentThVelMax :=VTHMAX;
+ELSE
+	ControlGVL.currentVelMax := VMAX;
+	ControlGVL.currentThVelMax :=VTHMAX;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="SensorsMain">
+      <LineId Id="337" Count="8" />
+      <LineId Id="530" Count="0" />
+      <LineId Id="346" Count="3" />
+      <LineId Id="352" Count="75" />
+      <LineId Id="479" Count="0" />
+      <LineId Id="428" Count="1" />
+      <LineId Id="480" Count="0" />
+      <LineId Id="430" Count="1" />
+      <LineId Id="482" Count="0" />
+      <LineId Id="432" Count="1" />
+      <LineId Id="483" Count="0" />
+      <LineId Id="208" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

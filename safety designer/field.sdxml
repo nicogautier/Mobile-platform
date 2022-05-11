@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdImportExport Timestamp="2022-05-06T10:33:58.5039511Z" Commentary="" Hash="54D6D599FEFBA863D01EAC6860FED90B7BD453F24915BEA2839F59E0019551E8C599F5FFB1261397DF6E4332D70B4740598F8AC81FDAC64100B89D4A5FE6324D">
+  <FileInfo>
+    <ContentId>Scanner Field Export</ContentId>
+    <ContentVersion>1.1</ContentVersion>
+    <Company>SICK AG</Company>
+    <CreationToolName>SAFETY DESIGNER ENGINEERING TOOL</CreationToolName>
+    <CreationToolVersion>1.12.0.49</CreationToolVersion>
+    <CreationComponentName>nanoScan3</CreationComponentName>
+    <CreationComponentVersion>1.12.0.49</CreationComponentVersion>
+  </FileInfo>
+  <Devices>
+    <Device Typekey="NANS3-CAAZ30AN1P02" TypekeyVersion="1.0" TypekeyDisplayVersion="V 1.0.0" PositionX="0" PositionY="0" Rotation="45" StandingUpsideDown="false" />
+  </Devices>
+  <Fieldsets>
+    <Fieldset Name="LEFT ">
+      <Field Name="Field speed 1" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <Rectangle Type="Field" OriginX="-160" OriginY="160" Height="1220" Width="160" Rotation="0" />
+      </Field>
+      <Field Name="Field speed 2" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <Rectangle Type="Field" OriginX="-1000" OriginY="400" Height="1700" Width="1000" Rotation="0" />
+      </Field>
+      <Field Name="Field speed 3" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <Rectangle Type="Field" OriginX="-2500" OriginY="700" Height="2300" Width="2500" Rotation="0" />
+      </Field>
+    </Fieldset>
+    <Fieldset Name="UP ">
+      <Field Name="Field speed 1" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <Rectangle Type="Field" OriginX="-160" OriginY="160" Height="160" Width="940" Rotation="0" />
+      </Field>
+      <Field Name="Field speed 2" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <Rectangle Type="Field" OriginX="-400" OriginY="1000" Height="1000" Width="1420" Rotation="0" />
+      </Field>
+      <Field Name="Field speed 3" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <Rectangle Type="Field" OriginX="-700" OriginY="2500" Height="2500" Width="2020" Rotation="0" />
+      </Field>
+    </Fieldset>
+    <Fieldset Name="DIAGONAL UP/LEFT">
+      <Field Name="Field speed 1" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="-4" CenterY="4" Radius="220" StartAngle="90" EndAngle="180" />
+        <Rectangle Type="Field" OriginX="0" OriginY="160" Height="160" Width="620" Rotation="0" />
+        <Rectangle Type="Field" OriginX="-160" OriginY="0" Height="900" Width="160" Rotation="0" />
+      </Field>
+      <Field Name="Field speed 2" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="0" CenterY="0" Radius="1000" StartAngle="90" EndAngle="180" />
+        <Rectangle Type="Field" OriginX="0" OriginY="700" Height="700" Width="620" Rotation="0" />
+        <Rectangle Type="Field" OriginX="-700" OriginY="0" Height="900" Width="700" Rotation="0" />
+      </Field>
+      <Field Name="Field speed 3" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="0" CenterY="0" Radius="2000" StartAngle="90" EndAngle="180" />
+        <Rectangle Type="Field" OriginX="0" OriginY="1700" Height="1700" Width="620" Rotation="0" />
+        <Rectangle Type="Field" OriginX="-1700" OriginY="0" Height="900" Width="1700" Rotation="0" />
+      </Field>
+    </Fieldset>
+    <Fieldset Name="ALL">
+      <Field Name="protective" Fieldtype="ProtectiveSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="0" CenterY="0" Radius="120" StartAngle="0" EndAngle="270" />
+        <Rectangle Type="Field" OriginX="-90" OriginY="90" Height="1080" Width="90" Rotation="0" />
+        <Rectangle Type="Field" OriginX="-90" OriginY="0" Height="800" Width="90" Rotation="90" />
+      </Field>
+      <Field Name="Field " Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="0" CenterY="0" Radius="170" StartAngle="0" EndAngle="270" />
+        <Rectangle Type="Field" OriginX="-119" OriginY="120" Height="120" Width="840" Rotation="0" />
+        <Rectangle Type="Field" OriginX="-120" OriginY="120" Height="1140" Width="120" Rotation="0" />
+      </Field>
+    </Fieldset>
+    <Fieldset Name="DIAGONAL DOWN/LEFT">
+      <Field Name="Field speed 1" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="0" CenterY="0" Radius="1080" StartAngle="260" EndAngle="270" />
+        <Rectangle Type="Field" OriginX="-160" OriginY="0" Height="900" Width="160" Rotation="0" />
+      </Field>
+      <Field Name="Field speed 2" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="0" CenterY="0" Radius="1900" StartAngle="250" EndAngle="270" />
+        <Rectangle Type="Field" OriginX="-800" OriginY="0" Height="900" Width="800" Rotation="0" />
+      </Field>
+      <Field Name="Field speed 3" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="0" CenterY="0" Radius="2900" StartAngle="240" EndAngle="270" />
+        <Rectangle Type="Field" OriginX="-1700" OriginY="0" Height="900" Width="1700" Rotation="0" />
+      </Field>
+    </Fieldset>
+    <Fieldset Name="DIAGONAL UP/RIGHT">
+      <Field Name="Field speed 1" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="-4" CenterY="0" Radius="800" StartAngle="0" EndAngle="10" />
+        <Rectangle Type="Field" OriginX="0" OriginY="156" Height="160" Width="620" Rotation="0" />
+      </Field>
+      <Field Name="Field speed 2" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="0" CenterY="-4" Radius="1620" StartAngle="0" EndAngle="20" />
+        <Rectangle Type="Field" OriginX="0" OriginY="800" Height="800" Width="620" Rotation="0" />
+      </Field>
+      <Field Name="Field speed 3" Fieldtype="WarningSafeBlanking" MultipleSampling="2" Resolution="20" TolerancePositive="0" ToleranceNegative="0">
+        <CircleSector Type="Field" CenterX="0" CenterY="0" Radius="2620" StartAngle="0" EndAngle="30" />
+        <Rectangle Type="Field" OriginX="0" OriginY="1700" Height="1700" Width="620" Rotation="0" />
+      </Field>
+    </Fieldset>
+  </Fieldsets>
+</SdImportExport>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="LEDtype" Id="{8e579c38-0979-486a-a881-03d7567bfad9}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE LEDtype :
+(
+	OFF := 0,
+	ON := 1,
+	Pulse := 2,
+	BlinkOnce := 3,
+	BlinkContinious := 4
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

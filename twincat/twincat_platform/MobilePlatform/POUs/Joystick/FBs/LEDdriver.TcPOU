@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="LEDdriver" Id="{63d6069d-0186-49e2-85bb-3117e0ee761d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK LEDdriver
+VAR_INPUT
+	ledBlink : LEDtype;
+	blinkInterval : TIME;
+	
+	ledChannel : UINT := 1;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	ch1 AT %Q* : BOOL ;
+	ch2 AT %Q* : BOOL ;
+	ch3 AT %Q* : BOOL ;
+	ch4 AT %Q* : BOOL ;
+	ch5 AT %Q* : BOOL ;
+	ch6 AT %Q* : BOOL ;
+	ch7 AT %Q* : BOOL ;
+	ch8 AT %Q* : BOOL ;
+	
+	ch1mode AT %Q* : BOOL;
+	ch2mode AT %Q* : BOOL;
+	ch3mode AT %Q* : BOOL;
+	ch4mode AT %Q* : BOOL;
+	ch5mode AT %Q* : BOOL;
+	ch6mode AT %Q* : BOOL;
+	ch7mode AT %Q* : BOOL;
+	ch8mode AT %Q* : BOOL;
+	
+	tmr1 : TON;
+	
+	value : BOOL := FALSE;
+	currentValue : BOOL := FALSE;
+	executed : BOOL := FALSE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE ledChannel OF
+	1:
+		currentValue := ch1;
+	2:
+		currentValue := ch2;
+	3:
+		currentValue := ch3;
+	4:
+		currentValue := ch4;
+	5:
+		currentValue := ch5;
+	6:
+		currentValue := ch6;
+	7:
+		currentValue := ch7;
+	8:
+		currentValue := ch8;
+END_CASE
+
+CASE ledBlink OF
+	LEDtype.OFF:
+		value := FALSE;
+		executed := FALSE;
+	LEDtype.ON:
+		value := TRUE;
+	LEDtype.BlinkOnce:
+		IF currentValue AND tmr1.Q THEN
+			value := FALSE;
+			tmr1(IN := FALSE);
+			executed := TRUE;
+		ELSIF NOT executed THEN
+			value := TRUE;
+			tmr1(IN := TRUE, PT := T#0.5S);
+		END_IF
+	LEDtype.BlinkContinious:
+		IF currentValue AND tmr1.Q THEN
+			value := FALSE;
+			tmr1(IN := FALSE);
+			tmr1(IN := TRUE, PT := blinkInterval);
+			executed := TRUE;
+		ELSIF NOT currentValue AND tmr1.Q THEN
+			value := TRUE;
+			tmr1(IN := FALSE);
+			tmr1(IN := TRUE, PT := blinkInterval);
+		ELSIF NOT executed THEN
+			executed := TRUE;
+			tmr1(IN := TRUE, PT := T#0.01S);
+		ELSE
+			tmr1();
+		END_IF
+	LEDtype.Pulse:
+		IF currentValue AND tmr1.Q THEN
+			value := FALSE;
+			tmr1(IN := FALSE);
+			tmr1(IN := TRUE, PT := blinkInterval);
+			executed := TRUE;
+		ELSIF NOT currentValue AND tmr1.Q THEN
+			value := TRUE;
+			tmr1(IN := FALSE);
+			tmr1(IN := TRUE, PT := T#0.01S);
+		ELSIF NOT executed THEN
+			executed := TRUE;
+			tmr1(IN := TRUE, PT := T#0.01S);
+		ELSE
+			tmr1();
+		END_IF
+END_CASE
+
+CASE ledChannel OF
+	1:
+		ch1mode := TRUE;
+		ch1 := value;
+	2:
+		ch2mode := TRUE;
+		ch2 := value;
+	3:
+		ch3mode := TRUE;
+		ch3 := value;
+	4:
+		ch4mode := TRUE;
+		ch4 := value;
+	5:
+		ch5mode := TRUE;
+		ch5 := value;
+	6:
+		ch6mode := TRUE;
+		ch6 := value;
+	7:
+		ch7mode := TRUE;
+		ch7 := value;
+	8:
+		ch8mode := TRUE;
+		ch8 := value;
+	9:
+		ch1mode := FALSE;
+		ch2mode := FALSE;
+		ch3mode := FALSE;
+		ch4mode := FALSE;
+		ch5mode := FALSE;
+		ch6mode := FALSE;
+		ch7mode := FALSE;
+		ch8mode := FALSE;
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="LEDdriver">
+      <LineId Id="120" Count="2" />
+      <LineId Id="124" Count="1" />
+      <LineId Id="127" Count="1" />
+      <LineId Id="130" Count="1" />
+      <LineId Id="133" Count="1" />
+      <LineId Id="136" Count="1" />
+      <LineId Id="139" Count="1" />
+      <LineId Id="142" Count="1" />
+      <LineId Id="118" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="114" Count="0" />
+      <LineId Id="165" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="115" Count="0" />
+      <LineId Id="110" Count="0" />
+      <LineId Id="116" Count="0" />
+      <LineId Id="154" Count="0" />
+      <LineId Id="162" Count="0" />
+      <LineId Id="164" Count="0" />
+      <LineId Id="156" Count="0" />
+      <LineId Id="159" Count="0" />
+      <LineId Id="161" Count="0" />
+      <LineId Id="155" Count="0" />
+      <LineId Id="111" Count="0" />
+      <LineId Id="167" Count="2" />
+      <LineId Id="177" Count="0" />
+      <LineId Id="170" Count="2" />
+      <LineId Id="178" Count="0" />
+      <LineId Id="173" Count="1" />
+      <LineId Id="191" Count="0" />
+      <LineId Id="193" Count="0" />
+      <LineId Id="192" Count="0" />
+      <LineId Id="175" Count="0" />
+      <LineId Id="166" Count="0" />
+      <LineId Id="112" Count="0" />
+      <LineId Id="180" Count="8" />
+      <LineId Id="195" Count="1" />
+      <LineId Id="194" Count="0" />
+      <LineId Id="189" Count="1" />
+      <LineId Id="179" Count="0" />
+      <LineId Id="108" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="92" Count="2" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="95" Count="1" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="97" Count="1" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="99" Count="1" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="101" Count="1" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="103" Count="1" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="105" Count="1" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="81" Count="5" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="70" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

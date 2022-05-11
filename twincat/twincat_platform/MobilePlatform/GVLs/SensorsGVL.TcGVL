@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="SensorsGVL" Id="{51284672-4be5-4935-832c-7936a77761c0}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+
+	sensor1_MonitoringCase : INT := 0;
+	sensor2_MonitoringCase : INT := 0;
+	
+	platformDir : INT := 0;
+
+END_VAR
+
+]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <Task Name="Task2" Id="{ed1fa655-3f16-4854-953b-99c311698513}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>500</CycleTime>
+    <Priority>4</Priority>
+    <PouCall>
+      <Name>SensorsMain</Name>
+    </PouCall>
+    <TaskFBGuid>{916370dd-67df-402e-b081-a6688a8a1553}</TaskFBGuid>
+    <Fb_init>{74dd745f-9216-4012-92e0-05f9806de82a}</Fb_init>
+    <Fb_exit>{77fd0938-a95b-4ae4-8633-fd1359a877b6}</Fb_exit>
+    <CycleUpdate>{28a5189d-a93b-4923-a735-c2dffbdd6406}</CycleUpdate>
+    <PostCycleUpdate>{1d3748a0-b147-486e-a376-031e601affbd}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>

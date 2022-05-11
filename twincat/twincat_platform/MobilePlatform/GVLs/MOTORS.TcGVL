@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="MOTORS" Id="{5c5389fc-01a3-440f-ab27-6274a61ffa23}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+
+VAR_GLOBAL
+	
+    // Axis reference 
+    fbAxisRef_BL:				AXIS_REF;
+	fbAxisRef_BR:				AXIS_REF;
+	fbAxisRef_FL:				AXIS_REF;
+	fbAxisRef_FR:				AXIS_REF;
+	// Motors' Power
+	fbPOWER_BL : 				MC_Power;
+    fbPOWER_BR : 				MC_Power;	
+    fbPOWER_FL : 				MC_Power;
+    fbPOWER_FR : 				MC_Power;		
+	// Reset Motors
+	fbRESET_BL : 				MC_Reset;
+	fbRESET_BR : 				MC_Reset;
+	// Stop Motors
+	fbSTOP_BL :	 				MC_Stop;
+	fbSTOP_BR :	 				MC_Stop;
+	// Velocity Controllers 
+	fbVELOCITY_BL : 			MC_MoveVelocity;
+	fbVELOCITY_BR : 			MC_MoveVelocity;
+	fbVELOCITY_FL : 			MC_MoveVelocity;
+	fbVELOCITY_FR : 			MC_MoveVelocity;
+	// Move absolute - it will move the axis to an absolute position 
+	fbMOVEABSOLUTE_LB : 		MC_MoveAbsolute;
+	fbMOVEABSOLUTE_RB : 		MC_MoveAbsolute;
+	// Set position if mode relative
+	fbSETPOSITION_BL : 			MC_SetPosition;
+	fbSETPOSITION_BR : 			MC_SetPosition;
+    // Move relative - it will move the axis to a relative position
+	fbMOVERELATIVE_BL : 		MC_MoveRelative;
+	fbMOVERELATIVE_BR : 		MC_MoveRelative;
+	// Read actual position of the axis
+	fbACTUALPOSITION_BL : 		MC_ReadActualPosition;
+	fbACTUALPOSITION_BR : 		MC_ReadActualPosition;
+	// Direction enumeration
+	fbDirection_BL: 			MC_Direction := MC_Positive_Direction;  // MC_Positive_Direction or MC_Negative_Direction
+	fbDirection_BR: 			MC_Direction := MC_Positive_Direction; 
+	fbDirection_FL: 			MC_Direction := MC_Positive_Direction;  // MC_Positive_Direction or MC_Negative_Direction
+	fbDirection_FR: 			MC_Direction := MC_Positive_Direction; 
+	
+	// Control Values
+	bAxis_Ready : 				BOOL;
+	b_Move_Absolut_Aborted : 	BOOL;
+	bReset_Done : 				BOOL;
+    lrAcc_Axis_1 : 				LREAL;
+	lrActual_Position : 		LREAL;
+	lrDecel_Axis_1 :			LREAL;
+	lrJerk_Axis_1 : 			LREAL;
+	lrPosition_Drive_to : 		LREAL;
+	lrVelocity_Move_Ab_Axis: 	LREAL;	
+	
+	//External set point generators enable
+	MC_ExtSetPointGenEnableBL : MC_ExtSetPointGenEnable;
+	MC_ExtSetPointGenEnableBR : MC_ExtSetPointGenEnable;
+	MC_ExtSetPointGenEnableFL : MC_ExtSetPointGenEnable;
+	MC_ExtSetPointGenEnableFR : MC_ExtSetPointGenEnable;
+	
+	//External set point generators disable
+	MC_ExtSetPointGenDisableBL : MC_ExtSetPointGenDisable;
+	MC_ExtSetPointGenDisableBR : MC_ExtSetPointGenDisable;
+	MC_ExtSetPointGenDisableFL : MC_ExtSetPointGenDisable;
+	MC_ExtSetPointGenDisableFR : MC_ExtSetPointGenDisable;
+
+
+	
+
+END_VAR
+]]></Declaration>
+  </GVL>
+</TcPlcObject>

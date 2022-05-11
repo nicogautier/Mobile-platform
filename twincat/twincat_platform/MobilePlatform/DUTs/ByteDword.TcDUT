@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="ByteDword" Id="{bc3f0e61-5084-4b76-a3a4-1fcce635e463}">
+    <Declaration><![CDATA[TYPE ByteDword :
+UNION
+	dValue : DWORD;    // Needs 4 Bytes in memory
+    abValue:  ARRAY [1..4] OF BYTE;
+END_UNION
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

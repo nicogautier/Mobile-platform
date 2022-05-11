@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_RESET_MOTORS" Id="{86121d54-c361-46c8-8303-2d1f4e6e759e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RESET_MOTORS
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+	EstopOut : BOOL := TRUE;
+END_VAR
+VAR
+	tmr1 : TON;
+	
+	tmr1val : BOOL := FALSE;
+	
+	reset1 : MC_Reset;
+	reset2 : MC_Reset;
+	reset3 : MC_Reset;
+	reset4 : MC_Reset;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[tmr1(IN := tmr1val, PT :=T#2S);
+
+IF tmr1.Q = FALSE THEN
+	
+	reset1(Axis := MOTORS.fbAxisRef_BL, Execute := TRUE);
+	reset2(Axis := MOTORS.fbAxisRef_BR, Execute := TRUE);
+	reset3(Axis := MOTORS.fbAxisRef_FR, Execute := TRUE);
+	reset4(Axis := MOTORS.fbAxisRef_FL, Execute := TRUE);
+	tmr1val := TRUE;
+	EstopOut := TRUE;
+	
+	//disable use of external set point generator
+	MOTORS.MC_ExtSetPointGenDisableBL(Axis:=MOTORS.fbAxisRef_BL,
+		Execute := TRUE);
+	MOTORS.MC_ExtSetPointGenDisableBR(Axis:=MOTORS.fbAxisRef_BR,
+		Execute := TRUE);
+	MOTORS.MC_ExtSetPointGenDisableFR(Axis:=MOTORS.fbAxisRef_FR,
+		Execute := TRUE);
+	MOTORS.MC_ExtSetPointGenDisableFL(Axis:=MOTORS.fbAxisRef_FL,
+		Execute := TRUE);
+			
+	//reset enable
+	MOTORS.MC_ExtSetPointGenEnableBL(Axis:=MOTORS.fbAxisRef_BL,
+		Execute:=FALSE);
+	MOTORS.MC_ExtSetPointGenEnableBR(Axis:=MOTORS.fbAxisRef_BR,
+		Execute:=FALSE);
+	MOTORS.MC_ExtSetPointGenEnableFL(Axis:=MOTORS.fbAxisRef_FL,
+		Execute:=FALSE);
+	MOTORS.MC_ExtSetPointGenEnableFR(Axis:=MOTORS.fbAxisRef_FR,
+		Execute:=FALSE);
+	
+	
+END_IF
+
+IF tmr1.Q = TRUE THEN
+	
+	reset1(Axis := MOTORS.fbAxisRef_BL, Execute := FALSE);
+	reset2(Axis := MOTORS.fbAxisRef_BR, Execute := FALSE);
+	reset3(Axis := MOTORS.fbAxisRef_FR, Execute := FALSE);
+	reset4(Axis := MOTORS.fbAxisRef_FL, Execute := FALSE);
+	tmr1val := FALSE;
+	EstopOut := FALSE;
+	
+	
+		
+		//Enable use of external set point generator
+	MOTORS.MC_ExtSetPointGenEnableBL(Axis:=MOTORS.fbAxisRef_BL,
+		Execute:=TRUE,
+		Position := 0,
+		PositionType:=POSITIONTYPE_ABSOLUTE);
+		
+	MOTORS.MC_ExtSetPointGenEnableBR(Axis:=MOTORS.fbAxisRef_BR,
+		Execute:=TRUE,
+		Position := 0,
+		PositionType:=POSITIONTYPE_ABSOLUTE);
+			
+	MOTORS.MC_ExtSetPointGenEnableFL(Axis:=MOTORS.fbAxisRef_FL,
+		Execute:=TRUE,
+		Position := 0,
+		PositionType:=POSITIONTYPE_ABSOLUTE);
+			
+	MOTORS.MC_ExtSetPointGenEnableFR(Axis:=MOTORS.fbAxisRef_FR,
+		Execute:=TRUE,
+		Position := 0,
+		PositionType:=POSITIONTYPE_ABSOLUTE);
+			
+	//reset disable external setpoint
+	MOTORS.MC_ExtSetPointGenDisableBL(Axis:=MOTORS.fbAxisRef_BL,
+		Execute := FALSE);
+	MOTORS.MC_ExtSetPointGenDisableBR(Axis:=MOTORS.fbAxisRef_BR,
+		Execute := FALSE);	
+	MOTORS.MC_ExtSetPointGenDisableFR(Axis:=MOTORS.fbAxisRef_FR,
+		Execute := FALSE);	
+	MOTORS.MC_ExtSetPointGenDisableFL(Axis:=MOTORS.fbAxisRef_FL,
+		Execute := FALSE);
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_RESET_MOTORS">
+      <LineId Id="10" Count="9" />
+      <LineId Id="128" Count="0" />
+      <LineId Id="130" Count="17" />
+      <LineId Id="129" Count="0" />
+      <LineId Id="46" Count="1" />
+      <LineId Id="20" Count="9" />
+      <LineId Id="77" Count="1" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="99" Count="28" />
+      <LineId Id="98" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

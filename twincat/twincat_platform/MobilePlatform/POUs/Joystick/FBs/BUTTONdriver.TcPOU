@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="BUTTONdriver" Id="{ef721045-7985-4393-8e0d-8008f95e668b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK BUTTONdriver
+VAR_INPUT
+	buttonChannel : UINT := 1;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	ch1 AT %I* : BOOL;
+	ch2 AT %I* : BOOL;
+	ch3 AT %I* : BOOL;
+	ch4 AT %I* : BOOL;
+	ch5 AT %I* : BOOL;
+	ch6 AT %I* : BOOL;
+	ch7 AT %I* : BOOL;
+	ch8 AT %I* : BOOL;
+	
+	tmr1 : TON;
+	currentValue : BOOL := FALSE;
+	executed : BOOL := FALSE;
+	
+	state : ButtonType := ButtonType.notPressed;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE buttonChannel OF
+	1:
+		currentValue := ch1;
+	2:
+		currentValue := ch2;
+	3:
+		currentValue := ch3;
+	4:
+		currentValue := ch4;
+	5:
+		currentValue := ch5;
+	6:
+		currentValue := ch6;
+	7:
+		currentValue := ch7;
+	8:
+		currentValue := ch8;
+END_CASE
+
+IF currentValue AND NOT executed THEN
+	tmr1(IN := TRUE, PT := T#10S);
+	executed := TRUE;
+ELSIF executed AND NOT currentValue AND (tmr1.ET < T#2S) THEN
+	//momentary press
+	tmr1(IN := FALSE);
+	executed := FALSE;
+	state := buttonType.pressed;
+ELSIF executed AND NOT currentValue AND (tmr1.ET > T#2S) AND (tmr1.ET < T#5S) THEN
+	//2S press
+	tmr1(IN := FALSE);
+	executed := FALSE;
+	state := buttonType.hold2s;
+ELSIF executed AND NOT currentValue AND (tmr1.ET > T#5S) THEN
+	//5S press
+	tmr1(IN := FALSE);
+	executed := FALSE;
+	state := buttonType.hold5s;
+ELSIF executed AND tmr1.Q THEN
+	//longer than 10S
+	tmr1(IN := FALSE);
+	executed := FALSE;
+	state := buttonType.hold5s;
+END_IF
+tmr1();]]></ST>
+    </Implementation>
+    <Method Name="getValue" Id="{1fbeb37e-6e19-43b4-920d-be92c6c5c331}">
+      <Declaration><![CDATA[METHOD getValue : BOOL
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+	stateOut : ButtonType;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[stateOut := state;
+state := ButtonType.notPressed;
+getValue := TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="BUTTONdriver">
+      <LineId Id="9" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="50" Count="1" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="59" Count="1" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="61" Count="1" />
+      <LineId Id="68" Count="1" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="63" Count="1" />
+      <LineId Id="70" Count="1" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="65" Count="1" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="56" Count="0" />
+    </LineIds>
+    <LineIds Name="BUTTONdriver.getValue">
+      <LineId Id="20" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="21" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

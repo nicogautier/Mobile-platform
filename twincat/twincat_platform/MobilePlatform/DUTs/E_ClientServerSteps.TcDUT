@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="E_ClientServerSteps" Id="{8acfacde-24dc-4ccf-892d-5a49f64fdcb3}">
+    <Declaration><![CDATA[TYPE E_ClientServerSteps :
+(
+	eUDP_STATE_IDLE		:= 0,
+	eUDP_STATE_CREATE_START,
+	eUDP_STATE_CREATE_WAIT,
+	eUDP_STATE_SEND_START,
+	eUDP_STATE_SEND_WAIT,
+	eUDP_STATE_RECEIVE_START,
+	eUDP_STATE_RECEIVE_WAIT,
+	eUDP_STATE_CLOSE_START,
+	eUDP_STATE_CLOSE_WAIT,
+	eUDP_STATE_ERROR
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

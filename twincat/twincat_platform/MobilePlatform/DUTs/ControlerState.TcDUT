@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="ControlerState" Id="{b25b1080-3ed6-47e1-ab36-7db6146c99b9}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE ControlerState :
+(
+	UDPcontrol := 0,
+	LocalOverride := 1,
+	Blocked := 2
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

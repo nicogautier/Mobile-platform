@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_RUN_MOTOR" Id="{55b82508-9a3d-42ba-ab63-0fd55e0d146a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RUN_MOTOR
+
+VAR
+	fbTMR : TON;
+    Count : INT := 0;
+    
+    EnableMoveMotor : BOOL := FALSE;	
+
+	Enabled: BOOL := TRUE;
+	Error: BOOL := FALSE;
+	ErrorState: BOOL := FALSE;
+	oDone: BOOL := FALSE;
+	
+	userReset : BOOL := FALSE;
+	
+	xVelocity: LREAL := 0;
+	yVelocity: LREAL := 0;
+	thVelocity: LREAL := 0;
+	
+
+
+	
+	ControlState: INT := eControlState_Preinit;
+
+	Kf: LREAL := 1.0;
+	
+	
+	v_BL_goal : LREAL := 0; // back left motor velocity goal
+	v_BR_goal : LREAL := 0; // back right motor velocity goal
+	v_FL_goal : LREAL := 0; // front left motor velocity goal
+	v_FR_goal : LREAL := 0; // front right motor velocity goal
+	
+	p_BL : LREAL := 0; // back left motor position
+	p_BR : LREAL := 0; // back right motor position
+	p_FL : LREAL := 0; // front left motor position
+	p_FR : LREAL := 0; // front right motor position
+	
+	
+	v_BL : LREAL := 0; // back left motor velocity 
+	v_BR : LREAL := 0; // back right motor velocity
+	v_FL : LREAL := 0; // front left motor velocity
+	v_FR : LREAL := 0; // front right motor velocity
+	
+	a_BL : LREAL := 0; // back left motor acceleration
+	a_BR : LREAL := 0; // back right motor acceleration
+	a_FL : LREAL := 0; // front lefa motor acceleration
+	a_FR : LREAL := 0; // front right motor acceleration
+	
+
+	CCW : LREAL := 0; // rotation speed command
+	
+	radioVD : LREAL := 0; // vd from joystick
+	radioTH : LREAL := 0; // Theta from joystick
+	
+	speedC : LREAL := 1.0;
+	
+	lastTimeStamp : LREAL := -1;
+	
+	fbReadActualVelocityBL : MC_ReadActualVelocity;
+	fbReadActualVelocityBR : MC_ReadActualVelocity;
+	fbReadActualVelocityFL : MC_ReadActualVelocity;
+	fbReadActualVelocityFR : MC_ReadActualVelocity;
+	
+	fbReadActualPositionBL : MC_ReadActualPosition;
+	fbReadActualPositionBR : MC_ReadActualPosition;
+	fbReadActualPositionFL : MC_ReadActualPosition;
+	fbReadActualPositionFR : MC_ReadActualPosition;
+	
+	x : LREAL := 0.0; //real x position
+	y : LREAL := 0.0; //real y position
+	th : LREAL := 0.0; //real theta position
+	
+	xV : LREAL := 0.0; //real x velocity
+	yV : LREAL := 0.0; //real y velocity
+	thV : LREAL := 0.0; //real theta velocity
+	
+	w_BL : LREAL := 0.0; //back left motor speed
+	w_BR : LREAL := 0.0; //back right motor speed
+	w_FL : LREAL := 0.0; //front left motor speed
+	w_FR : LREAL := 0.0; //front right motor speed
+	
+	norm : LREAL;
+	normWheels : LREAL;
+
+	
+	
+END_VAR
+
+
+
+VAR CONSTANT
+	
+//slip values
+	ax : LREAL := 1.0; //wheel slip
+	ar : LREAL := 1.0; //axis/bearing effect
+	az : LREAL := 1.0; //rotational grip
+	
+	//wheel parameters
+	rw : LREAL := 0.075; //wheel radius in m
+	a  : LREAL := 0.570; //half distance between wheels in y direction
+	b  : LREAL := 0.520; //half distance between wheels in x direction
+	
+	timeSlice: LREAL := 0.00005;
+	
+	ACC_MAX : LREAL := 50000000;
+	VEL_WHEEL_MAX : LREAL := 18000;
+	
+	//reductor ratio
+	RED : LREAL := 16.0;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE ControlState OF
+	eControlState_Preinit:
+	
+		// Power on All Motors
+    	IF MOTORS.fbPOWER_BL.Active = FALSE THEN
+    		MOTORS.fbPOWER_BL(
+    			Axis := MOTORS.fbAxisRef_BL, 
+    			Enable := Enabled, 
+    			Enable_Positive := Enabled, 
+    			Enable_Negative := Enabled,
+    			BufferMode := MC_Aborting,
+    			Override := 100);	
+    	END_IF
+		
+		IF MOTORS.fbPOWER_BR.Active = FALSE THEN
+    		MOTORS.fbPOWER_BR(
+    			Axis := MOTORS.fbAxisRef_BR, 
+    			Enable := Enabled, 
+    			Enable_Positive := Enabled, 
+    			Enable_Negative := Enabled,
+    			BufferMode := MC_Aborting,
+    			Override := 100);	
+    	END_IF
+		
+		// Power on All Motors
+    	IF MOTORS.fbPOWER_FL.Active = FALSE THEN
+    		MOTORS.fbPOWER_FL(
+    			Axis := MOTORS.fbAxisRef_FL, 
+    			Enable := Enabled, 
+    			Enable_Positive := Enabled, 
+    			Enable_Negative := Enabled,
+    			BufferMode := MC_Aborting,
+    			Override := 100);	
+    	END_IF
+		
+		IF MOTORS.fbPOWER_FR.Active = FALSE THEN
+    		MOTORS.fbPOWER_FR(
+    			Axis := MOTORS.fbAxisRef_FR, 
+    			Enable := Enabled, 
+    			Enable_Positive := Enabled, 
+    			Enable_Negative := Enabled,
+    			BufferMode := MC_Aborting,
+    			Override := 100);	
+    	END_IF
+
+		
+		fbTMR(IN:=TRUE, PT:=T#1S);
+		
+		IF fbTMR.Q THEN
+			ControlState := eControlState_Move_Omni;
+      		fbTMR(IN:=FALSE);
+      	END_IF
+		
+	eControlState_Move_Omni:
+		
+		//read actual velocity of motors
+		fbReadActualVelocityBL(Axis:= MOTORS.fbAxisRef_BL, Enable := TRUE);
+		fbReadActualVelocityBR(Axis:= MOTORS.fbAxisRef_BR, Enable := TRUE);
+		fbReadActualVelocityFL(Axis:= MOTORS.fbAxisRef_FL, Enable := TRUE);
+		fbReadActualVelocityFR(Axis:= MOTORS.fbAxisRef_FR, Enable := TRUE);
+		
+		ControlGVL.vel_BL := fbReadActualVelocityBL.ActualVelocity/RED;
+		ControlGVL.vel_BR := fbReadActualVelocityBR.ActualVelocity/RED;
+		ControlGVL.vel_FL := fbReadActualVelocityFL.ActualVelocity/RED;
+		ControlGVL.vel_FR := fbReadActualVelocityFR.ActualVelocity/RED;
+
+		
+		//read actual position of motors
+		fbReadActualPositionBL(Axis:= MOTORS.fbAxisRef_BL, Enable := TRUE);
+		fbReadActualPositionBR(Axis:= MOTORS.fbAxisRef_BR, Enable := TRUE);
+		fbReadActualPositionFL(Axis:= MOTORS.fbAxisRef_FL, Enable := TRUE);
+		fbReadActualPositionFR(Axis:= MOTORS.fbAxisRef_FR, Enable := TRUE);
+		
+		ControlGVL.pos_BL :=fbReadActualPositionBL.Position;
+		ControlGVL.pos_BR :=fbReadActualPositionBR.Position;
+		ControlGVL.pos_FL :=fbReadActualPositionFL.Position;
+		ControlGVL.pos_FR :=fbReadActualPositionFR.Position;
+		
+		//compute odometry
+		w_BL := DEG_TO_RAD(ControlGVL.vel_BL);
+		w_BR := DEG_TO_RAD(ControlGVL.vel_BR);
+		w_FL := DEG_TO_RAD(ControlGVL.vel_FL);
+		w_FR := DEG_TO_RAD(ControlGVL.vel_FR);
+		
+		xV :=    (ax*rw*w_FR)/4 - (ax*rw*w_BL)/4 + (ax*rw*w_BR)/4 - (ax*rw*w_FL)/4;
+        yV :=    (ar*ax*rw*w_BL)/4 - (ar*ax*rw*w_FR)/4 + (ar*ax*rw*w_BR)/4 - (ar*ax*rw*w_FL)/4;
+ 		thV := - (ax*az*2*rw*w_FR)/(4*(a + b)) - (ax*az*2*rw*w_BL)/(4*(a + b)) - (ax*az*rw*2*w_BR)/(4*(a + b)) - (ax*az*2*rw*w_FL)/(4*(a + b));
+		
+		th := th + thV * timeSlice;
+		x := x + xV * timeSlice * COS(th) - yV * timeSlice * SIN(th);
+		y := y + yV * timeSlice * COS(th) + xV * timeSlice * SIN(th);
+		
+		//prepare values to be sent to ROS
+		ControlGVL.robot_odom[1] := x;
+		ControlGVL.robot_odom[2] := y;
+		ControlGVL.robot_odom[3] := th;
+		ControlGVL.robot_odom[4] := xV;
+		ControlGVL.robot_odom[5] := yV;
+		ControlGVL.robot_odom[6] := thV;
+		
+		//ControlGVL.TimeStamp := ControlGVL.vel_robot[4];
+		ControlGVL.TimeStamp := ControlGVL.TimeStamp + 1;
+		
+		IF (ControlGVL.TimeStamp <> lastTimeStamp OR (JoystickGVL.intState = InternalState.override AND JoystickGVL.state = JoystickState.Operational)) OR JoystickGVL.lastUpdate OR JoystickGVL.lastExec THEN	//If the current instruction has not been executed yet, set speed
+		
+			
+			IF JoystickGVL.lastUpdate THEN
+				JoystickGVL.lastUpdate := FALSE;
+				ControlGVL.forwardReverse := 0.0;
+				ControlGVL.leftRight := 0.0;
+				ControlGVL.rotLeftRight := 0.0;
+				
+			ELSIF (JoystickGVL.state = JoystickState.Operational AND JoystickGVL.intState = InternalState.passive) OR JoystickGVL.state = JoystickState.NoCalib THEN
+				//ROS control mode
+				ControlGVL.forwardReverse := ControlGVL.vel_robot[1];
+				ControlGVL.leftRight := ControlGVL.vel_robot[2];
+				ControlGVL.rotLeftRight := ControlGVL.vel_robot[3];
+				
+				
+			ELSIF (JoystickGVL.state = JoystickState.Operational AND JoystickGVL.intState = InternalState.override) THEN
+				//Joystick control mode
+				ControlGVL.forwardReverse := JoystickGVL.xSpeed * JoystickGVL.xConst * JoystickGVL.speedScale;
+				ControlGVL.leftRight := JoystickGVL.ySpeed * JoystickGVL.yConst * JoystickGVL.speedScale;
+				ControlGVL.rotLeftRight := JoystickGVL.zSpeed * JoystickGVL.zConst * JoystickGVL.speedScale;
+
+			END_IF
+		END_IF
+		
+		xVelocity := ControlGVL.forwardReverse;
+		yVelocity := ControlGVL.leftRight;
+		thVelocity := ControlGVL.rotLeftRight;
+		
+		IF (NOT(JoystickGVL.state = JoystickState.Operational AND JoystickGVL.intState = InternalState.override)) THEN
+			//ensure that speed is not too high and adjust it if necessary
+				IF( SQRT(xVelocity*xVelocity + yVelocity*yVelocity)>ControlGVL.currentVelMax)THEN
+					norm := ABS(xVelocity) + ABS(yVelocity);
+					xVelocity := xVelocity*ControlGVL.currentVelMax/norm;
+					yVelocity := yVelocity*ControlGVL.currentVelMax/norm;
+				END_IF
+				
+				IF (ABS(thVelocity)>ControlGVL.currentThVelMax) THEN
+					thVelocity := thVelocity*ControlGVL.currentThVelMax/ABS(thVelocity);
+				END_IF
+		END_IF
+		
+		
+		
+			
+		//set last executed time stamp
+		lastTimeStamp := ControlGVL.TimeStamp;
+			
+		
+		//compute velocity goal
+		//                     x translation                y translation                 rotation
+		v_BL_goal := RAD_TO_DEG(- (ax*xVelocity*RED)/rw + (ax*yVelocity*RED)/(ar*rw) - (ax*thVelocity*RED*(a + b))/(2*az*rw));
+		v_BR_goal := RAD_TO_DEG(  (ax*xVelocity*RED)/rw + (ax*yVelocity*RED)/(ar*rw) - (ax*thVelocity*RED*(a + b))/(2*az*rw));
+		v_FL_goal := RAD_TO_DEG(- (ax*xVelocity*RED)/rw - (ax*yVelocity*RED)/(ar*rw) - (ax*thVelocity*RED*(a + b))/(2*az*rw));
+		v_FR_goal := RAD_TO_DEG(  (ax*xVelocity*RED)/rw - (ax*yVelocity*RED)/(ar*rw) - (ax*thVelocity*RED*(a + b))/(2*az*rw));	
+		
+		//limit maximum speed of the wheels 
+		IF((ABS(v_BL_goal)>VEL_WHEEL_MAX) OR (ABS(v_BR_goal)>VEL_WHEEL_MAX) OR (ABS(v_FL_goal)>VEL_WHEEL_MAX) OR (ABS(v_FR_goal)>VEL_WHEEL_MAX)) THEN
+			
+			normWheels := VEL_WHEEL_MAX/MAX(ABS(v_BL_goal), ABS(v_BR_goal),ABS(v_FL_goal), ABS(v_FR_goal)); 
+
+			v_BL_goal := v_BL_goal*normWheels;
+			v_BR_goal := v_BR_goal*normWheels;
+			v_FL_goal := v_FL_goal*normWheels;
+			v_FR_goal := v_FR_goal*normWheels;
+		END_IF
+			
+		//derivate to get new acceleration
+		a_BL := (v_BL_goal - ControlGVL.vel_BL*RED)/timeSlice;
+		a_BR := (v_BR_goal - ControlGVL.vel_BR*RED)/timeSlice;
+		a_FL := (v_FL_goal -  ControlGVL.vel_FL*RED)/timeSlice;
+		a_FR := (v_FR_goal - ControlGVL.vel_FR*RED)/timeSlice;
+		
+		IF ABS(a_BL) > ACC_MAX THEN
+			a_BL := a_BL*ACC_MAX/ABS(a_BL);
+		END_IF
+		IF ABS(a_BR) > ACC_MAX THEN
+			a_BR := a_BR*ACC_MAX/ABS(a_BR);
+		END_IF
+		IF ABS(a_FL) > ACC_MAX THEN
+			a_FL := a_FL*ACC_MAX/ABS(a_FL);
+		END_IF
+		IF ABS(a_FR) > ACC_MAX THEN
+			a_FR := a_FR*ACC_MAX/ABS(a_FR);
+		END_IF
+
+		//integrate to get new velocity
+		v_BL := ControlGVL.vel_BL*RED + timeSlice*a_BL;
+		v_BR := ControlGVL.vel_BR*RED + timeSlice*a_BR;
+		v_FL := ControlGVL.vel_FL*RED + timeSlice*a_FL;
+		v_FR := ControlGVL.vel_FR*RED + timeSlice*a_FR;
+		
+		
+		//limit maximum speed of the wheels 
+		IF((ABS(v_BL)>VEL_WHEEL_MAX) OR (ABS(v_BR)>VEL_WHEEL_MAX) OR (ABS(v_FL)>VEL_WHEEL_MAX) OR (ABS(v_FR)>VEL_WHEEL_MAX)) THEN
+			normWheels := VEL_WHEEL_MAX/MAX(ABS(v_BL), ABS(v_BR),ABS(v_FL), ABS(v_FR)); 
+
+			v_BL := v_BL*normWheels;
+			v_BR := v_BR*normWheels;
+			v_FL := v_FL*normWheels;
+			v_FR := v_FR*normWheels;
+		END_IF
+		
+		//integrate to get new position
+		p_BL := ControlGVL.pos_BL + timeSlice*v_BL;
+		p_BR := ControlGVL.pos_BR + timeSlice*v_BR;
+		p_FL := ControlGVL.pos_FL + timeSlice*v_FL;
+		p_FR := ControlGVL.pos_FR + timeSlice*v_FR;
+		
+		//update values
+		MC_ExtSetPointGenFeed(Position := p_BL,
+			Velocity := v_BL,
+			Acceleration := a_BL,
+			Direction := 1,
+			Axis := MOTORS.fbAxisRef_BL);
+			
+		MC_ExtSetPointGenFeed(Position := p_BR,
+			Velocity := v_BR,
+			Acceleration := a_BR,
+			Direction := 1,
+			Axis := MOTORS.fbAxisRef_BR);
+			
+		MC_ExtSetPointGenFeed(Position := p_FL,
+			Velocity := v_FL,
+			Acceleration := a_FL,
+			Direction := 1,
+			Axis := MOTORS.fbAxisRef_FL);
+			
+				
+		MC_ExtSetPointGenFeed(Position := p_FR,
+			Velocity := v_FR,
+			Acceleration := a_FR,
+			Direction := 1,
+			Axis := MOTORS.fbAxisRef_FR);
+			
+			
+		
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="FB_RUN_MOTOR">
+      <LineId Id="2981" Count="43" />
+      <LineId Id="3029" Count="15" />
+      <LineId Id="3046" Count="0" />
+      <LineId Id="3979" Count="3" />
+      <LineId Id="3049" Count="26" />
+      <LineId Id="3381" Count="0" />
+      <LineId Id="3076" Count="5" />
+      <LineId Id="4208" Count="0" />
+      <LineId Id="4344" Count="0" />
+      <LineId Id="4463" Count="0" />
+      <LineId Id="4209" Count="0" />
+      <LineId Id="4211" Count="7" />
+      <LineId Id="4501" Count="0" />
+      <LineId Id="4219" Count="1" />
+      <LineId Id="4462" Count="0" />
+      <LineId Id="4221" Count="1" />
+      <LineId Id="4497" Count="0" />
+      <LineId Id="4452" Count="0" />
+      <LineId Id="4223" Count="5" />
+      <LineId Id="4210" Count="0" />
+      <LineId Id="3384" Count="0" />
+      <LineId Id="4505" Count="0" />
+      <LineId Id="4507" Count="1" />
+      <LineId Id="4506" Count="0" />
+      <LineId Id="4479" Count="1" />
+      <LineId Id="4484" Count="8" />
+      <LineId Id="4482" Count="1" />
+      <LineId Id="4481" Count="0" />
+      <LineId Id="3586" Count="1" />
+      <LineId Id="3089" Count="3" />
+      <LineId Id="3138" Count="0" />
+      <LineId Id="3488" Count="4" />
+      <LineId Id="3487" Count="0" />
+      <LineId Id="4629" Count="0" />
+      <LineId Id="4631" Count="1" />
+      <LineId Id="4753" Count="0" />
+      <LineId Id="4755" Count="0" />
+      <LineId Id="4754" Count="0" />
+      <LineId Id="4634" Count="3" />
+      <LineId Id="4630" Count="0" />
+      <LineId Id="3493" Count="0" />
+      <LineId Id="4207" Count="0" />
+      <LineId Id="4042" Count="0" />
+      <LineId Id="4077" Count="2" />
+      <LineId Id="4464" Count="1" />
+      <LineId Id="4468" Count="1" />
+      <LineId Id="4471" Count="1" />
+      <LineId Id="4470" Count="0" />
+      <LineId Id="4474" Count="1" />
+      <LineId Id="4473" Count="0" />
+      <LineId Id="4477" Count="1" />
+      <LineId Id="4476" Count="0" />
+      <LineId Id="4206" Count="0" />
+      <LineId Id="4068" Count="0" />
+      <LineId Id="3139" Count="0" />
+      <LineId Id="3733" Count="2" />
+      <LineId Id="4617" Count="0" />
+      <LineId Id="4638" Count="0" />
+      <LineId Id="4628" Count="0" />
+      <LineId Id="4618" Count="0" />
+      <LineId Id="4756" Count="4" />
+      <LineId Id="4626" Count="0" />
+      <LineId Id="3999" Count="0" />
+      <LineId Id="4627" Count="0" />
+      <LineId Id="3741" Count="4" />
+      <LineId Id="3140" Count="27" />
+      <LineId Id="3274" Count="0" />
+      <LineId Id="94" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="ButtonType" Id="{c3ecb2aa-3bee-4029-87a2-1f3a1c77b9f8}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+//{attribute 'strict'}
+TYPE ButtonType :
+(
+	notPressed := 0,
+	pressed := 1,
+	hold2s := 2,
+	hold5s := 5
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

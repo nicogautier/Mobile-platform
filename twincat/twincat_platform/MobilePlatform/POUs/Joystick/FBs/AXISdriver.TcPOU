@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="AXISdriver" Id="{42227495-8348-45b8-bc8d-231b6793f8e4}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK AXISdriver
+VAR_INPUT
+	calibParameters : ST_Calibration_Parameters;
+END_VAR
+VAR_OUTPUT
+	xAxis : LREAL := 0.0;
+	yAxis : LREAL := 0.0;
+	zAxis : LREAL := 0.0;
+	
+	xRawOut : INT := 0;
+	yRawOut : INT := 0;
+	zRawOut : INT := 0;
+	
+	xFilterOut : LREAL := 0.0;
+	yFilterOut : LREAL := 0.0;
+	zFilterOut : LREAL := 0.0;
+END_VAR
+VAR
+	xRaw AT %I* : INT;
+	yRaw AT %I* : INT;
+	zRaw AT %I* : INT;
+	
+	xFilter : LREAL := 0.0;
+	yFilter : LREAL := 0.0;
+	zFilter : LREAL := 0.0;
+END_VAR
+VAR CONSTANT
+	filter : LREAL := 0.1;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[xRawOut := xRaw;
+yRawOut := zRaw;
+zRawOut := yRaw;
+
+xFilter := xFilter * filter + (1 - filter) * INT_TO_LREAL(xRaw);
+yFilter := yFilter * filter + (1 - filter) * INT_TO_LREAL(zRaw);
+zFilter := zFilter * filter + (1 - filter) * INT_TO_LREAL(yRaw);
+
+xFilterOut := xFilter;
+yFilterOut := yFilter;
+zFilterOut := zFilter;
+
+IF JoystickGVL.state = JoystickState.Operational THEN
+	IF (calibParameters.deadband[1] - ABS(xFilter - calibPArameters.zero[1])) > 0 THEN
+		xAxis := 0.0;		
+	ELSE
+		xAxis := xFilter/(INT_TO_LREAL(calibParameters.maximums[1])-INT_TO_LREAL(calibParameters.zero[1]))+(-INT_TO_LREAL(calibParameters.zero[1])/(INT_TO_LREAL(calibParameters.maximums[1])-INT_TO_LREAL(calibParameters.zero[1])));
+	END_IF
+	
+	IF (calibParameters.deadband[2] - ABS(yFilter - calibPArameters.zero[2])) > 0 THEN
+		yAxis := 0.0;		
+	ELSE
+		yAxis := yFilter/(INT_TO_LREAL(calibParameters.maximums[2])-INT_TO_LREAL(calibParameters.zero[2]))+(-INT_TO_LREAL(calibParameters.zero[2])/(INT_TO_LREAL(calibParameters.maximums[2])-INT_TO_LREAL(calibParameters.zero[2])));
+	END_IF
+	
+	IF (calibParameters.deadband[3] - ABS(zFilter - calibPArameters.zero[3])) > 0 THEN
+		zAxis := 0.0;		
+	ELSE
+		zAxis := zFilter/(INT_TO_LREAL(calibParameters.maximums[3])-INT_TO_LREAL(calibParameters.zero[3]))+(-INT_TO_LREAL(calibParameters.zero[3])/(INT_TO_LREAL(calibParameters.maximums[3])-INT_TO_LREAL(calibParameters.zero[3])));
+	END_IF
+
+END_IF ]]></ST>
+    </Implementation>
+    <LineIds Name="AXISdriver">
+      <LineId Id="9" Count="0" />
+      <LineId Id="26" Count="1" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="45" Count="1" />
+      <LineId Id="53" Count="2" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="35" Count="3" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="58" Count="3" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="64" Count="3" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="32" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

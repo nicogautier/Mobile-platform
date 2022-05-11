@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="E_CONTROL_STATES" Id="{254f7ad6-8608-4ff5-8ac0-896a771c2acb}">
+    <Declaration><![CDATA[TYPE E_CONTROL_STATES :
+(
+	eControlState_Preinit := 100,
+	eControlState_Init := 110,
+	eControlState_Hold := 120,
+	eControlState_Move := 130,
+	eControlState_Move_Omni := 140,
+	eControlState_Move_Omni_Rot := 150
+	);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="ByteReal" Id="{ee93410b-e195-4eac-a529-5c07e892c104}">
+    <Declaration><![CDATA[TYPE ByteReal :
+UNION
+	rValue : REAL;    // Needs 4 Bytes in memory
+    abValue:  ARRAY [1..4] OF BYTE;
+END_UNION
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="MAIN" Id="{12ea9046-9eed-4dbc-ad85-e58a69a32026}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	
+
+	tmr1 : TON;
+	tmr1val : BOOL := FALSE;
+	
+	estopActive : BOOL := FALSE;
+	
+	reset1 : FB_RESET_MOTORS;
+	
+	Enabled : BOOL := TRUE;
+	
+	fbRunMotor : FB_RUN_MOTOR;
+	//leddriver : LEDdriver;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF SafetyGVL.ComErr = TRUE THEN
+	//Safety needs to be reset - reset safety
+	SafetyGVL.ErrAck := TRUE;
+	tmr1val := TRUE;
+END_IF
+
+IF SafetyGVL.EStop = FALSE THEN
+		//EStop was activated
+		estopActive := TRUE;
+		ControlGVL.status := ControlGVL.status OR 2#00000000000000000000000000000001;
+END_IF
+
+tmr1(IN := tmr1val, PT := T#1S);
+
+IF (estopActive = TRUE) AND (SafetyGVL.EStop = TRUE) THEN
+	//EStop over - reset motor drivers
+	reset1();
+	IF reset1.EstopOut = FALSE THEN
+		ControlGVL.status := ControlGVL.status AND 2#11111111111111111111111111111110;
+		estopActive := FALSE;
+	END_IF
+END_IF
+
+IF tmr1.Q = TRUE THEN
+	
+	//Safety online - run program
+	SafetyGVL.ErrAck := FALSE;
+	fbRunMotor();
+	//leddriver(ledBlink := LEDtype.ON, blinkInterval := T#1S, ledChannel := 3);
+	
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="14" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="15" Count="4" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="22" Count="6" />
+      <LineId Id="97" Count="1" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="30" Count="3" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="116" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

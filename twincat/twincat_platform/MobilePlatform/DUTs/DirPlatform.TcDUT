@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="DirPlatform" Id="{af9b4420-a1ef-4c2f-8e87-5a765d94f9f2}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE DirPlatform :
+(
+	STOP  := 0,
+	PLUS_X := 1,
+	PLUS_X_MINUS_Y := 2,
+	MINUS_Y := 3,
+	MINUS_X_MINUS_Y := 4,
+	MINUS_X := 5,
+	MINUS_X_PLUS_Y := 6,
+	PLUS_Y := 7,
+	PLUS_X_PLUS_Y := 8
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

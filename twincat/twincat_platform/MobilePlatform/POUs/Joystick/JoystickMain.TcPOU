@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="JoystickMain" Id="{f10c2cc5-948a-4d58-9c5b-d1dfdbbf2cfb}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM JoystickMain
+VAR
+	
+	axDr : AXISdriver;
+	btDR : BUTTONdriver;
+	ldDr1 : LEDdriver;
+	ldDr2 : LEDdriver;
+	ldDr3 : LEDdriver;
+	calFB : CalibrationFB;
+	button : ButtonType := ButtonType.notPressed;
+	
+	prevStateCal : UINT := 0;
+	changeState : BOOL := FALSE;
+	
+	init : BOOL := TRUE;
+	initOp : BOOL := TRUE;
+	
+	WPDfb : WritePersistentData;
+	ShtDNfb : FB_S_UPS_CX51x0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[ShtDNfb(sNetID:='', iPLCPort:=0, iUPSPort:=16#588, tTimeout:=DEFAULT_ADS_TIMEOUT, eUpsMode := eSUPS_ImmediateShutdown);
+IF NOT ShtDNfb.bPowerFailDetect THEN
+
+
+	btDr(buttonChannel := 1);
+	btDr.getValue(stateOut => button);
+	
+	WPDfb();
+	
+	
+	CASE JoystickGVL.state OF
+		
+		JoystickState.NoCalib:
+			IF JoystickGVL.calibration.calibrated = TRUE THEN
+				JoystickGVL.state := JoystickState.Operational;
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//zelena
+				//ldDr2(ledChannel := 2, ledBlink := LEDtype.OFF);//rumena
+				ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);//rdeca
+			ELSE
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//zelena
+				//ldDr2(ledChannel := 2, ledBlink := LEDtype.OFF);//rumena
+				IF init THEN
+					ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);//rdeca
+					init := FALSE;
+				END_IF
+				ldDr3(ledChannel := 3, ledBlink := LEDtype.BlinkContinious, blinkInterval := T#0.2S);//rdeca
+				IF button = ButtonType.hold5s THEN
+					ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//zelena
+					ldDr2(ledChannel := 2, ledBlink := LEDtype.OFF);//rumena
+					ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);//rdeca
+					JoystickGVL.state := JoystickState.Calib;
+				END_IF
+			END_IF
+				
+		JoystickState.Calib:
+			
+			
+			calFB(buttonState := button);
+			IF calFB.finished THEN
+				JoystickGVL.state := JoystickState.Operational;
+				JoystickGVL.calibration := calFB.calibrationParams;
+				//save here
+				WPDfb(START:=0);
+				WPDfb(NETID := '', 	PORT:=801, START:=1, TMOUT := T#1S);
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//zelena
+				//ldDr2(ledChannel := 2, ledBlink := LEDtype.OFF);//rumena
+				ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);//rdeca
+			END_IF
+			IF calFB.calLight THEN
+				ldDR3(ledChannel := 3, ledBLink := LEDtype.OFF);
+				ldDR3(ledChannel := 3, ledBLink := LEDtype.BlinkOnce);
+			END_IF
+			IF calFB.stage1 AND NOT (prevStateCal = 1) THEN
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//zelena
+				//ldDr2(ledChannel := 2, ledBlink := LEDtype.OFF);//rumena
+				ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);//rdeca
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.BlinkContinious, blinkInterval := T#1S);//rumena
+				prevStateCal := 1;
+			ELSIF calFB.stage2 AND NOT (prevStateCal = 2) THEN
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//zelena
+				//ldDr2(ledChannel := 2, ledBlink := LEDtype.OFF);//rumena
+				ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);//rdeca
+				//ldDr2(ledChannel := 2, ledBlink := LEDtype.BlinkContinious, blinkInterval := T#0.5S);//rumena
+				prevStateCal := 2;
+			ELSIF calFB.stage3 AND NOT (prevStateCal = 3) THEN
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//zelena
+				//ldDr2(ledChannel := 2, ledBlink := LEDtype.OFF);//rumena
+				ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);//rdeca
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.BlinkContinious, blinkInterval := T#0.2S);//rumena
+				prevStateCal := 3;
+			ELSE
+				ldDr1(ledChannel := 1);//zelena
+				//ldDr2(ledChannel := 2);//rumena
+				ldDr3(ledChannel := 3);//rdeca
+			END_IF
+			IF  button = ButtonType.hold5s THEN
+				JoystickGVL.state := JoystickState.NoCalib;
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//zelena
+				ldDr2(ledChannel := 2, ledBlink := LEDtype.OFF);//rumena
+				ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);//rdeca
+				prevStateCal := 0;
+				calFB.reset();
+				init := TRUE;
+			END_IF
+		
+		JoystickState.Operational:
+			
+			IF initOp THEN
+				initOp := FALSE;
+				JoystickGVL.intState := InternalState.passive;
+				ControlGVL.status := ControlGVL.status AND 2#11111111111111111111111111111011;
+				ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);
+				//ldDr3(ledChannel := 3, ledBlink := LEDtype.ON);
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//rumena
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.ON);//rumena
+				//ldDr2(ledChannel := 2, ledBlink := LEDtype.OFF);//rumena
+			END_IF
+			ldDr1(ledChannel := 1);
+			//ldDr2(ledChannel := 2);
+			ldDr3(ledChannel := 3);
+			axDR(calibParameters := JoystickGVL.calibration);
+			
+			JoystickGVL.xSpeed := axDr.xAxis;
+			JoystickGVL.ySpeed := axDr.yAxis;
+			JoystickGVL.zSpeed := axDr.zAxis;
+			
+			IF button = ButtonType.pressed AND JoystickGVL.speedScale = 1.0 AND JoystickGVL.intState = InternalState.override THEN
+				JoystickGVL.speedScale := 0.5;
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//rumena
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.Pulse, blinkInterval := T#1S);//rumena
+			ELSIF button = ButtonType.pressed AND JoystickGVL.speedScale = 0.5 AND JoystickGVL.intState = InternalState.override THEN
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//rumena
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.Pulse, blinkInterval := T#0.5S);//rumena
+				JoystickGVL.speedScale := 1.0;
+			ELSIF button = ButtonType.hold2s THEN
+				//change internal state
+				changeState := TRUE;
+			ELSIF button = ButtonType.hold5s THEN
+				initOp := TRUE;
+				JoystickGVL.state := JoystickState.Calib;
+				ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//zelena
+				//ldDr2(ledChannel := 2, ledBlink := LEDtype.OFF);//rumena
+				ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);//rdeca
+				prevStateCal := 0;
+				calFB.reset();
+				init := TRUE;
+			END_IF
+			
+			IF changeState THEN
+				changeState := FALSE;
+				CASE JoystickGVL.intState OF
+					InternalState.override:
+						JoystickGVL.intState := InternalState.udpOnly;
+						ControlGVL.status := ControlGVL.status AND 2#11111111111111111111111111111101;
+						ControlGVL.status := ControlGVL.status OR 2#00000000000000000000000000000100;
+						ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);
+						ldDr3(ledChannel := 3, ledBlink := LEDtype.ON);
+						ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//rumena
+						JoystickGVL.speedScale := 0.0;
+						JoystickGVL.lastUpdate := TRUE;
+					InternalState.passive:
+						JoystickGVL.intState := InternalState.override;
+						ControlGVL.status := ControlGVL.status OR 2#00000000000000000000000000000010;
+						ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);
+						ldDr3(ledChannel := 3, ledBlink := LEDtype.Pulse, blinkInterval := T#0.5S);
+						JoystickGVL.speedScale := 0.5;
+						ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//rumena
+						ldDr1(ledChannel := 1, ledBlink := LEDtype.Pulse, blinkInterval := T#1S);//rumena
+					InternalState.udpOnly:
+						JoystickGVL.intState := InternalState.passive;
+						ControlGVL.status := ControlGVL.status AND 2#11111111111111111111111111111011;
+						
+						ldDr3(ledChannel := 3, ledBlink := LEDtype.OFF);
+						//ldDr3(ledChannel := 3, ledBlink := LEDtype.ON);
+						ldDr1(ledChannel := 1, ledBlink := LEDtype.OFF);//rumena
+						ldDr1(ledChannel := 1, ledBlink := LEDtype.ON);//rumena
+						
+						JoystickGVL.speedScale := 0.0;
+						JoystickGVL.lastUpdate := TRUE;
+				END_CASE
+			END_IF
+			
+			IF JoystickGVL.intState = InternalState.udpOnly THEN
+				//Udp joystick stuff
+				IF JoystickGVL.xSpeed > 0 THEN
+					ControlGVL.status := ControlGVL.status OR 2#00000000000000000000000000001000;
+				ELSIF JoystickGVL.xSpeed < 0 THEN
+					ControlGVL.status := ControlGVL.status OR 2#00000000000000000000000000010000;
+				ELSE
+					ControlGVL.status := ControlGVL.status AND 2#11111111111111111111111111100111;
+				END_IF
+				IF JoystickGVL.ySpeed > 0 THEN
+					ControlGVL.status := ControlGVL.status OR 2#00000000000000000000000000100000;
+				ELSIF JoystickGVL.ySpeed < 0 THEN
+					ControlGVL.status := ControlGVL.status OR 2#00000000000000000000000001000000;
+				ELSE
+					ControlGVL.status := ControlGVL.status AND 2#11111111111111111111111110011111;
+				END_IF
+				IF JoystickGVL.zSpeed > 0 THEN
+					ControlGVL.status := ControlGVL.status OR 2#00000000000000000000000010000000;
+				ELSIF JoystickGVL.zSpeed < 0 THEN
+					ControlGVL.status := ControlGVL.status OR 2#00000000000000000000000100000000;
+				ELSE
+					ControlGVL.status := ControlGVL.status AND 2#11111111111111111111111001111111;
+				END_IF
+				IF button = ButtonType.pressed THEN
+					ControlGVL.status := ControlGVL.status OR 2#00000000000000000000001000000000;
+				ELSE
+					ControlGVL.status := ControlGVL.status AND 2#11111111111111111111110111111111;
+				END_IF
+			END_IF
+			
+		
+	END_CASE
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="JoystickMain">
+      <LineId Id="316" Count="0" />
+      <LineId Id="314" Count="1" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="291" Count="0" />
+      <LineId Id="290" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="312" Count="0" />
+      <LineId Id="14" Count="3" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="40" Count="1" />
+      <LineId Id="207" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="209" Count="0" />
+      <LineId Id="208" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="107" Count="1" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="32" Count="1" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="49" Count="1" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="266" Count="0" />
+      <LineId Id="270" Count="0" />
+      <LineId Id="267" Count="0" />
+      <LineId Id="113" Count="1" />
+      <LineId Id="112" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="210" Count="0" />
+      <LineId Id="91" Count="1" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="70" Count="1" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="72" Count="1" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="78" Count="3" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="82" Count="3" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="88" Count="1" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="214" Count="7" />
+      <LineId Id="213" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="223" Count="1" />
+      <LineId Id="231" Count="1" />
+      <LineId Id="356" Count="2" />
+      <LineId Id="230" Count="0" />
+      <LineId Id="240" Count="0" />
+      <LineId Id="225" Count="0" />
+      <LineId Id="120" Count="0" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="147" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="93" Count="1" />
+      <LineId Id="96" Count="3" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="121" Count="1" />
+      <LineId Id="119" Count="0" />
+      <LineId Id="123" Count="1" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="102" Count="1" />
+      <LineId Id="126" Count="0" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="226" Count="0" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="116" Count="1" />
+      <LineId Id="115" Count="0" />
+      <LineId Id="228" Count="1" />
+      <LineId Id="227" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="128" Count="2" />
+      <LineId Id="132" Count="1" />
+      <LineId Id="137" Count="0" />
+      <LineId Id="141" Count="1" />
+      <LineId Id="354" Count="1" />
+      <LineId Id="353" Count="0" />
+      <LineId Id="241" Count="0" />
+      <LineId Id="248" Count="0" />
+      <LineId Id="135" Count="0" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="345" Count="0" />
+      <LineId Id="236" Count="1" />
+      <LineId Id="359" Count="0" />
+      <LineId Id="136" Count="0" />
+      <LineId Id="139" Count="0" />
+      <LineId Id="143" Count="0" />
+      <LineId Id="348" Count="0" />
+      <LineId Id="350" Count="2" />
+      <LineId Id="349" Count="0" />
+      <LineId Id="233" Count="0" />
+      <LineId Id="245" Count="0" />
+      <LineId Id="247" Count="0" />
+      <LineId Id="134" Count="0" />
+      <LineId Id="131" Count="0" />
+      <LineId Id="150" Count="2" />
+      <LineId Id="154" Count="1" />
+      <LineId Id="157" Count="0" />
+      <LineId Id="169" Count="1" />
+      <LineId Id="158" Count="0" />
+      <LineId Id="164" Count="0" />
+      <LineId Id="172" Count="5" />
+      <LineId Id="171" Count="0" />
+      <LineId Id="179" Count="5" />
+      <LineId Id="178" Count="0" />
+      <LineId Id="185" Count="1" />
+      <LineId Id="188" Count="1" />
+      <LineId Id="187" Count="0" />
+      <LineId Id="153" Count="0" />
+      <LineId Id="95" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="317" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
