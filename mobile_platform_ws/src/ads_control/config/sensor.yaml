@@ -1,0 +1,17 @@
+host_ip : 192.168.3.3
+
+interface_ip           : 0.0.0.0
+host_udp_port          : 0
+skip                   : 0
+angle_start            : -2.3561
+angle_end              : 2.35619
+time_offset            : 0
+min_intensities        : 0.0
+channel                : 0
+channel_enabled        : True
+general_system_state   : True
+derived_settings       : True
+measurement_data       : True
+intrusion_data         : True
+application_io_data    : True
+use_persistent_config  : False

@@ -1,0 +1,8 @@
+prefix=/home/student/mobile_platform_ws/devel
+
+Name: ads_control
+Description: Description of ads_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,10 @@
+destination_frame: base_link
+cloud_destination_topic: /merged_cloud
+scan_destination_topic: /scan_multi
+laserscan_topics: /sensor_FL/sick_safetyscanners/scan /sensor_BR/sick_safetyscanners/scan
+angle_min: -3.1415
+angle_max: 3.1415
+angle_increment: 0.00296706
+scan_time: 0.0333333
+range_min: 0.0
+range_max: 10.0
