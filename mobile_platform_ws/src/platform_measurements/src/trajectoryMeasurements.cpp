@@ -15,133 +15,88 @@ publisher topic:
 
 ros::Publisher pub_cmd_goal;
 
-void chooseTrajectory(int n){
-    geometry_msgs::Vector3 v;
+#define PI 3.1416
 
-    switch (n)
-    {
-    case 11:
-        v.x = 1; v.y = 0; v.z = 0;
-        break;
-    case 12:
-        v.x = -1; v.y = 0; v.z = 0;
-        break;
-    case 21:
-        v.x = 0; v.y = 1; v.z = 0;
-        break;
-    case 22:
-        v.x = 0; v.y = -1; v.z = 0;
-        break;
-    case 31:
-        v.x = 0; v.y = 0; v.z = 3.1416/2;
-        break;
-    case 32:
-        v.x = 0; v.y = 0; v.z = -3.1416/2;
-        break;
-    case 41:
-        v.x = 2; v.y = 0; v.z = 3.1416/2;
-        break;
-    case 42:
-        v.x = -2; v.y = 0; v.z = 3.1416*3/2;
-        break;
-    case 51:
-        v.x = 2; v.y = -1; v.z = -3.1416/2;
-        break;
-    case 52:
-        v.x = 0; v.y = 1; v.z = 0;
-        break;
-    case 53:
-        v.x = -2; v.y = -1; v.z = 3.1416/2;
-        break;
-    case 54:
-        v.x = 0; v.y = 1; v.z = 0;
-        break;
-    default:
-        v.x = 0; v.y = 0; v.z = 0; 
-        break;
-    }
-
-    pub_cmd_goal.publish(v);
-}
 
 
 void waitPermission(){
-    
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cout << "Press Enter to continue ...";
     std::cin.get();
     return;
 }
 
-
+void sendGoal(double x, double y, double z ){
+    geometry_msgs::Vector3 v;
+    v.x = x; v.y = y; v.z = z;
+    pub_cmd_goal.publish(v);
+}
 
 
 int main(int argc, char** argv){
-  ros::init(argc, argv, "test_goal");
+  ros::init(argc, argv, "trajectory_measurements");
   ros::NodeHandle nh;
 
   pub_cmd_goal = nh.advertise<geometry_msgs::Vector3>("/cmd_goal", 10);
   
-  int i;
+  std::string c;
   while(ros::ok()){
     
-    std::cout << "\nPlease choose a trajectory (press 0 to see all the trajectories or 9 to quit): ";
-    std::cin >> i;
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout << "\nPlease choose a trajectory (press h for help): ";
+    std::cin >> c;
 
-
-    
-    switch (i)
-    {
-    case 9:
-        return 0;
-    case 0:
-        std::cout << "1. 1m in  the x direction\n"
-        << "2. 1m in the y direction \n"
-        << "3. rotate 90° \n"
-        << "4. round trip \n"
-        << "5. cross loop \n";
-        break;
-
-    
-    case 1:
-        chooseTrajectory(11);
-        waitPermission();
-        chooseTrajectory(12);
-        break;
-    
-    case 2:
-        chooseTrajectory(21);
-        waitPermission();
-        chooseTrajectory(22);
-        break;
-
-    case 3:
-        chooseTrajectory(31);
-        waitPermission();
-        chooseTrajectory(32);
-        break;
-
-    case 4:
-        chooseTrajectory(41);
-        waitPermission();
-        chooseTrajectory(42);
-        break;
-
-    case 5:
-        chooseTrajectory(51);
-        waitPermission();
-        chooseTrajectory(52);
-        waitPermission();
-        chooseTrajectory(53);
-        waitPermission();
-        chooseTrajectory(54);
-        break;
-    
-    default:
-        std::cout << "Not a valid trajectory\n";
-        break;
+    if(c=="h"){
+        std::cout << "h. help\n" << "q. quit \n" << "c. cancel \n"
+        << "w. 0.5m in the x direction \n" << "s. 0.5m in the -x direction \n"
+        << "d. 0.5m in the y direction \n" << "a. 0.5m in the -y direction \n"
+        << "e. rotate +90° \n" << "a. rotate -90° \n"
+        << "1. forward and backward \n" << "2. square loop \n"
+        << "2. cross loop \n";
     }
+
+    else if(c=="q"){return 0;}
+
+    else if(c=="c"){sendGoal(0,0,0);}
+
+    else if(c=="w"){sendGoal(0.5,0,0);}
+
+    else if(c=="s"){sendGoal(-0.5,0,0);}
+
+    else if(c=="d"){sendGoal(0,0.5,0);}
+
+    else if(c=="a"){sendGoal(0,-0.5,0);}
+
+    else if(c=="e"){sendGoal(0,0,PI/2);}
+
+    else if(c=="r"){sendGoal(0,0,-PI/2);}
+
+    else if(c=="1"){sendGoal(1,0,PI/2);
+                    waitPermission();
+                    sendGoal(0,-1,-PI/2);
+                    }
+
+    else if(c=="2"){sendGoal(1,0,-PI/2);
+                    waitPermission();
+                    sendGoal(1,0,-PI/2);
+                    waitPermission();
+                    sendGoal(1,0,-PI/2);
+                    waitPermission();
+                    sendGoal(1,0,-PI/2);
+                    }
+
+    else if(c=="3"){sendGoal(1.5,1,-PI/2);
+                    waitPermission();
+                    sendGoal(-1,0,0);
+                    waitPermission();
+                    sendGoal(1,1.5,PI/2);
+                    waitPermission();
+                    sendGoal(0,-1,0);
+                    }
+
+    else{std::cout << "Not a valid trajectory\n";}
+
+    
+
   }
 
 }

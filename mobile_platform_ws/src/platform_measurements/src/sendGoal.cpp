@@ -35,7 +35,7 @@ void callback_receive_goal(const geometry_msgs::Vector3& v){
 
 
 int main(int argc, char** argv){
-  ros::init(argc, argv, "test_goal");
+  ros::init(argc, argv, "send_goal");
   ros::NodeHandle nh;
   ros::Subscriber sub_ISPG = nh.subscribe("/cmd_goal", 1000, callback_receive_goal);
   ros::spin();

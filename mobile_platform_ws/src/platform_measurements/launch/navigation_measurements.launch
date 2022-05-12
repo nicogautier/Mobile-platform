@@ -52,7 +52,7 @@
 
 
    <!-- send goal to the navigation package -->
-   <node pkg="platform_measurements" type="send_goal" name="send_goal"/>
+   <node pkg="platform_measurements" type="sendGoal" name="sendGoal"/>
 
 
 
