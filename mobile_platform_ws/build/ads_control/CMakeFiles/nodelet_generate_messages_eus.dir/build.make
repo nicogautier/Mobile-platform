@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/mobile_platform_ws/src
+CMAKE_SOURCE_DIR = /home/student/Mobile-platform/mobile_platform_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/mobile_platform_ws/build
+CMAKE_BINARY_DIR = /home/student/Mobile-platform/mobile_platform_ws/build
 
 # Utility rule file for nodelet_generate_messages_eus.
 
@@ -63,10 +63,10 @@ ads_control/CMakeFiles/nodelet_generate_messages_eus.dir/build: nodelet_generate
 .PHONY : ads_control/CMakeFiles/nodelet_generate_messages_eus.dir/build
 
 ads_control/CMakeFiles/nodelet_generate_messages_eus.dir/clean:
-	cd /home/student/mobile_platform_ws/build/ads_control && $(CMAKE_COMMAND) -P CMakeFiles/nodelet_generate_messages_eus.dir/cmake_clean.cmake
+	cd /home/student/Mobile-platform/mobile_platform_ws/build/ads_control && $(CMAKE_COMMAND) -P CMakeFiles/nodelet_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : ads_control/CMakeFiles/nodelet_generate_messages_eus.dir/clean
 
 ads_control/CMakeFiles/nodelet_generate_messages_eus.dir/depend:
-	cd /home/student/mobile_platform_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/mobile_platform_ws/src /home/student/mobile_platform_ws/src/ads_control /home/student/mobile_platform_ws/build /home/student/mobile_platform_ws/build/ads_control /home/student/mobile_platform_ws/build/ads_control/CMakeFiles/nodelet_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/Mobile-platform/mobile_platform_ws/src /home/student/Mobile-platform/mobile_platform_ws/src/ads_control /home/student/Mobile-platform/mobile_platform_ws/build /home/student/Mobile-platform/mobile_platform_ws/build/ads_control /home/student/Mobile-platform/mobile_platform_ws/build/ads_control/CMakeFiles/nodelet_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ads_control/CMakeFiles/nodelet_generate_messages_eus.dir/depend
 

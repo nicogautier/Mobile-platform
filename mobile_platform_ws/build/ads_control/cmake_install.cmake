@@ -1,8 +1,8 @@
-# Install script for directory: /home/student/mobile_platform_ws/src/ads_control
+# Install script for directory: /home/student/Mobile-platform/mobile_platform_ws/src/ads_control
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/student/mobile_platform_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/student/Mobile-platform/mobile_platform_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/student/mobile_platform_ws/build/ads_control/catkin_generated/installspace/ads_control.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/student/Mobile-platform/mobile_platform_ws/build/ads_control/catkin_generated/installspace/ads_control.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ads_control/cmake" TYPE FILE FILES
-    "/home/student/mobile_platform_ws/build/ads_control/catkin_generated/installspace/ads_controlConfig.cmake"
-    "/home/student/mobile_platform_ws/build/ads_control/catkin_generated/installspace/ads_controlConfig-version.cmake"
+    "/home/student/Mobile-platform/mobile_platform_ws/build/ads_control/catkin_generated/installspace/ads_controlConfig.cmake"
+    "/home/student/Mobile-platform/mobile_platform_ws/build/ads_control/catkin_generated/installspace/ads_controlConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ads_control" TYPE FILE FILES "/home/student/mobile_platform_ws/src/ads_control/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ads_control" TYPE FILE FILES "/home/student/Mobile-platform/mobile_platform_ws/src/ads_control/package.xml")
 endif()
 

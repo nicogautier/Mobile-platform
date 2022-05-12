@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/student/mobile_platform_ws/src/ads_control/src/UDPCommunication.cpp
+/home/student/Mobile-platform/mobile_platform_ws/src/ads_control/src/UDPCommunication.cpp
 ros/ros.h
 -
 geometry_msgs/Vector3.h

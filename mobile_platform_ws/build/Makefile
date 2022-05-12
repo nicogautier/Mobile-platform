@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/mobile_platform_ws/src
+CMAKE_SOURCE_DIR = /home/student/Mobile-platform/mobile_platform_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/mobile_platform_ws/build
+CMAKE_BINARY_DIR = /home/student/Mobile-platform/mobile_platform_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/mobile_platform_ws/build/CMakeFiles /home/student/mobile_platform_ws/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles /home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/mobile_platform_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -283,32 +283,6 @@ gtest: cmake_check_build_system
 gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
-
-#=============================================================================
-# Target rules for targets named send_goal
-
-# Build rule for target.
-send_goal: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 send_goal
-.PHONY : send_goal
-
-# fast build rule for target.
-send_goal/fast:
-	$(MAKE) -f ads_control/CMakeFiles/send_goal.dir/build.make ads_control/CMakeFiles/send_goal.dir/build
-.PHONY : send_goal/fast
-
-#=============================================================================
-# Target rules for targets named create_simple_signal
-
-# Build rule for target.
-create_simple_signal: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 create_simple_signal
-.PHONY : create_simple_signal
-
-# fast build rule for target.
-create_simple_signal/fast:
-	$(MAKE) -f ads_control/CMakeFiles/create_simple_signal.dir/build.make ads_control/CMakeFiles/create_simple_signal.dir/build
-.PHONY : create_simple_signal/fast
 
 #=============================================================================
 # Target rules for targets named UDPCommunication
@@ -1051,6 +1025,45 @@ actionlib_generate_messages_py/fast:
 	$(MAKE) -f ads_control/CMakeFiles/actionlib_generate_messages_py.dir/build.make ads_control/CMakeFiles/actionlib_generate_messages_py.dir/build
 .PHONY : actionlib_generate_messages_py/fast
 
+#=============================================================================
+# Target rules for targets named simpleTrajectories
+
+# Build rule for target.
+simpleTrajectories: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simpleTrajectories
+.PHONY : simpleTrajectories
+
+# fast build rule for target.
+simpleTrajectories/fast:
+	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/build
+.PHONY : simpleTrajectories/fast
+
+#=============================================================================
+# Target rules for targets named trajectoryMeasurements
+
+# Build rule for target.
+trajectoryMeasurements: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectoryMeasurements
+.PHONY : trajectoryMeasurements
+
+# fast build rule for target.
+trajectoryMeasurements/fast:
+	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build
+.PHONY : trajectoryMeasurements/fast
+
+#=============================================================================
+# Target rules for targets named sendGoal
+
+# Build rule for target.
+sendGoal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sendGoal
+.PHONY : sendGoal
+
+# fast build rule for target.
+sendGoal/fast:
+	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/build
+.PHONY : sendGoal/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1073,8 +1086,6 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... send_goal"
-	@echo "... create_simple_signal"
 	@echo "... UDPCommunication"
 	@echo "... bond_generate_messages_nodejs"
 	@echo "... nodelet_generate_messages_nodejs"
@@ -1132,6 +1143,9 @@ help:
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_py"
+	@echo "... simpleTrajectories"
+	@echo "... trajectoryMeasurements"
+	@echo "... sendGoal"
 .PHONY : help
 
 

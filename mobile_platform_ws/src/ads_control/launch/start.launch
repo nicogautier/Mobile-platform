@@ -33,16 +33,12 @@
 
    <!-- Navigation -->
    <node pkg="move_base" type="move_base" name="move_base">
-      <param name="controller_frequency" value="2.5"/>
-      <param name="planner_frequency" value="0.5"/>
       <rosparam file="$(find ads_control)/config/costmap_common.yaml" command="load" ns="local_costmap"/>
       <rosparam file="$(find ads_control)/config/costmap_common.yaml" command="load" ns="global_costmap"/>
       <rosparam file="$(find ads_control)/config/local_costmap.yaml" command="load" />
       <rosparam file="$(find ads_control)/config/global_costmap.yaml" command="load" />
       <rosparam file="$(find ads_control)/config/local_planner.yaml" command="load" />
-      <param name="recovery_enabled" value="false"/>
-      <param name="vx_samples" value="10"/>
-      <param name="vtheta_samples" value="20"/>
+      <rosparam file="$(find ads_control)/config/navigation.yaml" command="load" />
 
       
      
