@@ -1,7 +1,7 @@
 obstacle_range: 3.0
 raytrace_range: 3.0
 footprint: [[-0.5, 0.36], [-0.45, 0.36], [-0.45, 0.31], [0.45, 0.31], [0.45, -0.31], [0.5, -0.31], [0.5, -0.36], [0.45, -0.36], [0.45, -0.31], [-0.45, -0.31], [-0.45, 0.31], [-0.5, 0.31]]
-inflation_radius: 0.15
+inflation_radius: 0.32
 observation_sources: scan1 scan2
 
 scan1: {sensor_frame: scan_FL, data_type: LaserScan, topic: sensor_FL/sick_safetyscanners/scan, marking: true, clearing: true}

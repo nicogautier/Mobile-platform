@@ -3,3 +3,6 @@ planner_frequency: 0.5
 recovery_enabled: false
 vx_samples : 10
 vtheta_samples : 20
+
+
+orientation_mode: 2
