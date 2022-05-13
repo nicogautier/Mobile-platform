@@ -2,17 +2,22 @@
 
 ## Presentation
 
-The mobile platform robot have been developped at the laboratory of robotics of University of Ljubljana.
+The mobile platform robot was developed at the Robotics Laboratory of the University of Ljubljana.
 
-The mobile platform is a robot that uses its sensors to identify and move around its environment. The final objective of the platform will be to be used in an indoor environment such as a warehouse. It will also be combined with a collaborative manipulator robot.
+The mobile platform is a robot that uses its sensors to identify and move through its environment. The final goal of the platform will be to be used in an indoor environment such as a warehouse or a retail store. It will also be combined with a collaborative manipulator robot for precise handling.
+
+| Product | Description |
+| ------ | ------ |
+|[SICK nanoScan3](https://www.sick.com/hk/en/safety-laser-scanners/safety-laser-scanners/nanoscan3/nans3-caaz30an1/p/p653980?ff_data=JmZmX2lkPXA2NTM5ODAmZmZfbWFzdGVySWQ9cDY1Mzk4MCZmZl90aXRsZT1OQU5TMy1DQUFaMzBBTjEmZmZfcXVlcnk9JmZmX3Bvcz0xJmZmX29yaWdQb3M9MSZmZl9wYWdlPTEmZmZfcGFnZVNpemU9MjQmZmZfb3JpZ1BhZ2VTaXplPTI0JmZmX3NpbWk9OTcuMA==)| Laser scanners for platform protection and localization|
+|[ Beckhoff CX5140 ](https://www.beckhoff.com/en-us/products/ipc/embedded-pcs/cx5100-intel-atom/cx5140.html)|Embedded PC for low-level control of sensors and actuators|
 
 
 ## Features
 
-| Program | Description | README |
-| ------ | ------ | ------ |
-|TwinCAT| supervises low level control of the platform (motors, joystick, laser field security) |  | 
-|ROS| supervises high level algorithms (path-finding, SLAM algorithm, ...) ||
+| Program | Description |
+| ------ | ------ | 
+|TwinCAT| supervises low level control of the platform (motors, joystick, laser field security, ... ) |  
+|ROS| supervises high level algorithms (path-finding, SLAM algorithm, ... ) |
 
 ## Installation
 
@@ -38,3 +43,4 @@ rm -rf build/ devel/
 catkin_make
 source devel/setup.bash
 ```
+
