@@ -54,6 +54,8 @@
    <!-- send goal to the navigation package -->
    <node pkg="platform_measurements" type="sendGoal" name="sendGoal"/>
 
+   <!-- Send odometry to simulink-->
+   <node pkg="platform_measurements" name="odomUDP" type="odomUDP.py" />
 
 
 
