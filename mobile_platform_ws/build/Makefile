@@ -294,7 +294,7 @@ UDPCommunication: cmake_check_build_system
 
 # fast build rule for target.
 UDPCommunication/fast:
-	$(MAKE) -f ads_control/CMakeFiles/UDPCommunication.dir/build.make ads_control/CMakeFiles/UDPCommunication.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/UDPCommunication.dir/build.make platform_communication/CMakeFiles/UDPCommunication.dir/build
 .PHONY : UDPCommunication/fast
 
 #=============================================================================
@@ -307,7 +307,7 @@ bond_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 bond_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/bond_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/bond_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/bond_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/bond_generate_messages_nodejs.dir/build
 .PHONY : bond_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -320,7 +320,7 @@ nodelet_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 nodelet_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/nodelet_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/nodelet_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/nodelet_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/nodelet_generate_messages_nodejs.dir/build
 .PHONY : nodelet_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -333,7 +333,7 @@ nodelet_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 nodelet_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/nodelet_generate_messages_eus.dir/build.make ads_control/CMakeFiles/nodelet_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/nodelet_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/nodelet_generate_messages_eus.dir/build
 .PHONY : nodelet_generate_messages_eus/fast
 
 #=============================================================================
@@ -346,7 +346,7 @@ tf2_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
 .PHONY : tf2_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -359,7 +359,7 @@ tf2_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make ads_control/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make platform_communication/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
 .PHONY : tf2_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -372,7 +372,7 @@ tf2_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
 .PHONY : tf2_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -385,7 +385,7 @@ tf2_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make ads_control/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
 .PHONY : tf2_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -398,7 +398,7 @@ tf2_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
 .PHONY : tf2_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -411,7 +411,7 @@ actionlib_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make ads_control/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make platform_communication/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
 .PHONY : actionlib_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -424,7 +424,7 @@ actionlib_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
 .PHONY : actionlib_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -437,7 +437,7 @@ actionlib_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -450,7 +450,7 @@ nodelet_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 nodelet_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/nodelet_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/nodelet_generate_messages_lisp.dir/build
 .PHONY : nodelet_generate_messages_lisp/fast
 
 #=============================================================================
@@ -463,7 +463,7 @@ actionlib_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make ads_control/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
 .PHONY : actionlib_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -476,7 +476,7 @@ std_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/std_msgs_generate_messages_py.dir/build.make ads_control/CMakeFiles/std_msgs_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/std_msgs_generate_messages_py.dir/build.make platform_communication/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -489,7 +489,7 @@ bond_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 bond_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/bond_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/bond_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/bond_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/bond_generate_messages_lisp.dir/build
 .PHONY : bond_generate_messages_lisp/fast
 
 #=============================================================================
@@ -502,7 +502,7 @@ std_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
 .PHONY : std_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -515,7 +515,7 @@ std_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make ads_control/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/std_msgs_generate_messages_eus.dir/build
 .PHONY : std_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -528,7 +528,7 @@ rosgraph_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make ads_control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make platform_communication/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -541,7 +541,7 @@ rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -554,7 +554,7 @@ nodelet_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 nodelet_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/nodelet_generate_messages_py.dir/build.make ads_control/CMakeFiles/nodelet_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/nodelet_generate_messages_py.dir/build.make platform_communication/CMakeFiles/nodelet_generate_messages_py.dir/build
 .PHONY : nodelet_generate_messages_py/fast
 
 #=============================================================================
@@ -567,7 +567,7 @@ std_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -580,7 +580,7 @@ tf_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/tf_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/tf_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/tf_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/tf_generate_messages_cpp.dir/build
 .PHONY : tf_generate_messages_cpp/fast
 
 #=============================================================================
@@ -593,7 +593,7 @@ std_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -606,7 +606,7 @@ sensor_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 sensor_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
 .PHONY : sensor_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -619,7 +619,7 @@ sensor_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 sensor_msgs_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make ads_control/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
 .PHONY : sensor_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -632,7 +632,7 @@ rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -645,7 +645,7 @@ ADSCommunication: cmake_check_build_system
 
 # fast build rule for target.
 ADSCommunication/fast:
-	$(MAKE) -f ads_control/CMakeFiles/ADSCommunication.dir/build.make ads_control/CMakeFiles/ADSCommunication.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/ADSCommunication.dir/build.make platform_communication/CMakeFiles/ADSCommunication.dir/build
 .PHONY : ADSCommunication/fast
 
 #=============================================================================
@@ -658,7 +658,7 @@ rosgraph_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make ads_control/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -671,7 +671,7 @@ bond_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 bond_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/bond_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/bond_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/bond_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/bond_generate_messages_cpp.dir/build
 .PHONY : bond_generate_messages_cpp/fast
 
 #=============================================================================
@@ -684,7 +684,7 @@ tf_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/tf_generate_messages_eus.dir/build.make ads_control/CMakeFiles/tf_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/tf_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/tf_generate_messages_eus.dir/build
 .PHONY : tf_generate_messages_eus/fast
 
 #=============================================================================
@@ -697,7 +697,7 @@ actionlib_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
 .PHONY : actionlib_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -710,7 +710,7 @@ rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -723,7 +723,7 @@ bond_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 bond_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/bond_generate_messages_eus.dir/build.make ads_control/CMakeFiles/bond_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/bond_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/bond_generate_messages_eus.dir/build
 .PHONY : bond_generate_messages_eus/fast
 
 #=============================================================================
@@ -736,7 +736,7 @@ roscpp_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 .PHONY : roscpp_generate_messages_lisp/fast
 
 #=============================================================================
@@ -749,7 +749,7 @@ tf_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/tf_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/tf_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/tf_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/tf_generate_messages_lisp.dir/build
 .PHONY : tf_generate_messages_lisp/fast
 
 #=============================================================================
@@ -762,7 +762,7 @@ geometry_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
 .PHONY : geometry_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -775,7 +775,7 @@ roscpp_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/roscpp_generate_messages_py.dir/build.make ads_control/CMakeFiles/roscpp_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/roscpp_generate_messages_py.dir/build.make platform_communication/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
 
 #=============================================================================
@@ -788,7 +788,7 @@ roscpp_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
 .PHONY : roscpp_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -801,7 +801,7 @@ roscpp_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/roscpp_generate_messages_eus.dir/build.make ads_control/CMakeFiles/roscpp_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/roscpp_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/roscpp_generate_messages_eus.dir/build
 .PHONY : roscpp_generate_messages_eus/fast
 
 #=============================================================================
@@ -814,7 +814,7 @@ geometry_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make ads_control/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 .PHONY : geometry_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -827,7 +827,7 @@ tf_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/tf_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/tf_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/tf_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/tf_generate_messages_nodejs.dir/build
 .PHONY : tf_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -840,7 +840,7 @@ geometry_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
 .PHONY : geometry_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -853,7 +853,7 @@ geometry_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -866,7 +866,7 @@ geometry_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make ads_control/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make platform_communication/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -879,7 +879,7 @@ sensor_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 sensor_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
 .PHONY : sensor_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -892,7 +892,7 @@ actionlib_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/actionlib_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/actionlib_generate_messages_cpp.dir/build
 .PHONY : actionlib_generate_messages_cpp/fast
 
 #=============================================================================
@@ -905,7 +905,7 @@ roscpp_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
 
 #=============================================================================
@@ -918,7 +918,7 @@ sensor_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 sensor_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
 .PHONY : sensor_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -931,7 +931,7 @@ actionlib_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_eus/fast:
-	$(MAKE) -f ads_control/CMakeFiles/actionlib_generate_messages_eus.dir/build.make ads_control/CMakeFiles/actionlib_generate_messages_eus.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/actionlib_generate_messages_eus.dir/build.make platform_communication/CMakeFiles/actionlib_generate_messages_eus.dir/build
 .PHONY : actionlib_generate_messages_eus/fast
 
 #=============================================================================
@@ -944,7 +944,7 @@ tf_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/tf_generate_messages_py.dir/build.make ads_control/CMakeFiles/tf_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/tf_generate_messages_py.dir/build.make platform_communication/CMakeFiles/tf_generate_messages_py.dir/build
 .PHONY : tf_generate_messages_py/fast
 
 #=============================================================================
@@ -957,7 +957,7 @@ sensor_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 sensor_msgs_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make ads_control/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make platform_communication/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
 .PHONY : sensor_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -970,7 +970,7 @@ bond_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 bond_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/bond_generate_messages_py.dir/build.make ads_control/CMakeFiles/bond_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/bond_generate_messages_py.dir/build.make platform_communication/CMakeFiles/bond_generate_messages_py.dir/build
 .PHONY : bond_generate_messages_py/fast
 
 #=============================================================================
@@ -983,7 +983,7 @@ nodelet_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 nodelet_generate_messages_cpp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make ads_control/CMakeFiles/nodelet_generate_messages_cpp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make platform_communication/CMakeFiles/nodelet_generate_messages_cpp.dir/build
 .PHONY : nodelet_generate_messages_cpp/fast
 
 #=============================================================================
@@ -996,7 +996,7 @@ actionlib_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_lisp/fast:
-	$(MAKE) -f ads_control/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make ads_control/CMakeFiles/actionlib_generate_messages_lisp.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make platform_communication/CMakeFiles/actionlib_generate_messages_lisp.dir/build
 .PHONY : actionlib_generate_messages_lisp/fast
 
 #=============================================================================
@@ -1009,7 +1009,7 @@ actionlib_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_nodejs/fast:
-	$(MAKE) -f ads_control/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make ads_control/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make platform_communication/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
 .PHONY : actionlib_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -1022,7 +1022,7 @@ actionlib_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_py/fast:
-	$(MAKE) -f ads_control/CMakeFiles/actionlib_generate_messages_py.dir/build.make ads_control/CMakeFiles/actionlib_generate_messages_py.dir/build
+	$(MAKE) -f platform_communication/CMakeFiles/actionlib_generate_messages_py.dir/build.make platform_communication/CMakeFiles/actionlib_generate_messages_py.dir/build
 .PHONY : actionlib_generate_messages_py/fast
 
 #=============================================================================

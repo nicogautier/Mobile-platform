@@ -1,0 +1,8 @@
+prefix=/home/student/Mobile-platform/mobile_platform_ws/install
+
+Name: platform_main
+Description: Description of platform_main
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

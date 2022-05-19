@@ -1,0 +1,66 @@
+<launch>
+
+   <!-- ADS communication between Beckhoff PLC and ROS program-->
+   <node pkg="platform_communication" type="ADSCommunication" name="ADSCommunication"/>
+
+
+   <!-- Back Right laser scanner -->
+    <node pkg="sick_safetyscanners" type="sick_safetyscanners_node" name="sick_safetyscanners" output="screen" ns="sensor_BR/sick_safetyscanners">
+      <rosparam file="$(find platform_main)/config/sensor.yaml" command="load"/>
+      <param name="sensor_ip" type="string" value="192.168.3.6" />
+      <param name="frame_id"  type="string" value="scan_BR" />
+   </node> 
+
+   <!-- Front Left laser scanner -->
+   <node pkg="sick_safetyscanners" type="sick_safetyscanners_node" name="sick_safetyscanners" output="screen" ns="sensor_FL/sick_safetyscanners">
+      <rosparam file="$(find platform_main)/config/sensor.yaml" command="load"/>
+      <param name="sensor_ip" type="string" value="192.168.3.5" />
+      <param name="frame_id"  type="string" value="scan_FL" />
+      
+   </node>
+
+   <!-- TF transformation base_link to sensors -->
+   <node pkg="tf2_ros" type="static_transform_publisher" name="baseLink_sensorBR" ns="sensor_BR/" args="-0.49 0.35 0 -0.3826834 -0.9238795 0 0 base_link scan_BR" />
+   <node pkg="tf2_ros" type="static_transform_publisher" name="baseLink_sensorFL" ns="sensor_FL/" args="0.49 -0.35 0 0.9238795 -0.3826834 0 0 base_link scan_FL" />
+
+    
+   
+   <!-- Merge sensors laser scans-->
+   <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
+      <rosparam file="$(find platform_main)/config/laser_merge.yaml" command="load"/>
+   </node>
+
+
+   <!-- Navigation -->
+   <node pkg="move_base" type="move_base" name="move_base">
+      <rosparam file="$(find platform_main)/config/costmap_common.yaml" command="load" ns="local_costmap"/>
+      <rosparam file="$(find platform_main)/config/costmap_common.yaml" command="load" ns="global_costmap"/>
+      <rosparam file="$(find platform_main)/config/local_costmap.yaml" command="load" />
+      <rosparam file="$(find platform_main)/config/global_costmap.yaml" command="load" />
+      <rosparam file="$(find platform_main)/config/local_planner.yaml" command="load" />
+      <rosparam file="$(find platform_main)/config/navigation.yaml" command="load" />
+
+      
+     
+
+   </node>
+
+
+   
+   <!-- Slam algorithm to graph map-->
+   <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap"  output="screen" args="--delete_db_on_start"> 
+      <rosparam file="$(find platform_main)/config/rtabmap.yaml" command="load"/>
+      <remap from="odom" to="/odom"/>
+      <remap from="scan" to="/scan_multi"/>
+   </node>
+
+   <!-- visualisation with RVIZ -->
+   <node  pkg="rviz" type="rviz" name="rviz" args="-d $(find platform_main)/config/map.rviz" output="screen"/>
+
+
+ 
+
+
+
+</launch>
+

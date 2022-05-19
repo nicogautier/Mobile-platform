@@ -1,2 +1,2 @@
-ads_control:platform_measurements
+platform_communication:platform_main:platform_measurements
 -DCATKIN_DEVEL_PREFIX=/home/student/Mobile-platform/mobile_platform_ws/devel -DCMAKE_INSTALL_PREFIX=/home/student/Mobile-platform/mobile_platform_ws/install -G Unix Makefiles
