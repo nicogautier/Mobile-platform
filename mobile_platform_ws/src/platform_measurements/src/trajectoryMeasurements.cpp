@@ -84,13 +84,13 @@ int main(int argc, char** argv){
                     sendGoal(1,0,-PI/2);
                     }
 
-    else if(c=="3"){sendGoal(1.5,1,-PI/2);
+    else if(c=="3"){sendGoal(1,0.5,-PI/2);
                     waitPermission();
-                    sendGoal(-1,0,0);
+                    sendGoal(-0.5,0,0);
                     waitPermission();
-                    sendGoal(1,1.5,PI/2);
+                    sendGoal(0.5,1,PI/2);
                     waitPermission();
-                    sendGoal(0,-1,0);
+                    sendGoal(0,-0.5,0);
                     }
 
     else{std::cout << "Not a valid trajectory\n";}
