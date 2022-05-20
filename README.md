@@ -51,6 +51,14 @@ This package was used to perform several tests: use of an external setpoint gene
 
 ### TwinCAT program
 
+#### Motors
+
+The **FB_RUN_MOTOR** controls all 4 wheels for holonomic movements. It also implements the TwinCAT external setpoint generator. It can be used by both the joystick and the ROS program. The program retrieves the values from the wheel encoders to calculate the odometry and send it to ROS.
+
+
+#### Sensors
+The **SensorsMain** program manages the communication with the two sensors. It calculates the fields to be applied according to the current direction. It also limits the maximum speed allowed according to the fields of the sensors that are triggered. There are 8 different orientations (see next section).
+
 
 
 ### SICK sensors security
