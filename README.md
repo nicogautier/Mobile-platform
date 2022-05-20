@@ -2,7 +2,7 @@
 
 ## Presentation
 
-The mobile platform robot was developed at the Robotics Laboratory of the University of Ljubljana.
+The mobile platform robot was developed at the [Robotics Laboratory](https://robolab.si/) of the University of Ljubljana.
 
 The mobile platform is a robot that uses its sensors to identify and move through its environment. The final goal of the platform will be to be used in an indoor environment such as a warehouse or a retail store. It will also be combined with a collaborative manipulator robot for precise handling.
 
@@ -32,7 +32,7 @@ git clone https://github.com/nicogautier/Mobile-platform && cd Mobile-platform
 ### ROS program
 
 #### platform_communication
-The **ADScommunication** node of the platform\_communication package allows you to communicate with the TwinCAT program. It receives commands from the **/cmd\_vel** topic and sends them to the PLC. It also publishes the odometry on the **/odom** topic according to the values of the wheel encoders. This will allow you for example to use the ROS navigation stack which required communication on these two subjects.
+The **ADScommunication** node of the platform\_communication package allows you to communicate with the TwinCAT program. It receives commands from the **/cmd\_vel** topic and sends them to the PLC. It also publishes the odometry on the **/odom** topic according to the values of the wheel encoders. This will allow you for example to use the ROS [navigation](https://wiki.ros.org/navigation) stack which required communication on these two subjects.
 
 To use it in your program, you can add and compile the platform_communication package in your ROS project. Then add this line to your launch file.  
 
@@ -40,10 +40,10 @@ To use it in your program, you can add and compile the platform_communication pa
 <node pkg="platform_communication" type="ADSCommunication" name="ADSCommunication"/>
 ```
 
-If you want to modify this node, I recommend that you consult the **ADS Beckhoff** folder which will explain how to use the ADS library. The two main arrays used to exchange data with the PLC are **"ControlGVL.robot\_odom "** received by ADS notification for odometry and **"ControlGVL.vel\_robot "** to send speed goals.
+If you want to modify this node, I recommend that you consult the [**ADS Beckhoff**](ADS&#32;Beckhoff/) folder which will explain how to use the ADS library. The two main arrays used to exchange data with the PLC are **"ControlGVL.robot\_odom "** received by ADS notification for odometry and **"ControlGVL.vel\_robot "** to send speed goals.
 
 #### platform_main
-The platform\_main package contains the main launch file and the configuration files used to implement ROS navigation stack. It uses the **sick\_safetyscanners** node to get the laserscan of the two sensors. It also uses **TEB local planner** for the local trajectories and **rtabmap** for the SLAM algorithm.
+The platform\_main package contains the main launch file and the configuration files used to implement ROS [navigation](https://wiki.ros.org/navigation) stack. It uses the [**sick\_safetyscanners**](https://wiki.ros.org/sick_safetyscanners) node to get the laserscan of the two sensors. It also uses [**TEB local planner**](https://wiki.ros.org/teb_local_planner) for the local trajectories and [**rtabmap**](http://wiki.ros.org/rtabmap_ros) for the SLAM algorithm.
 
 #### platform_measurements
 
@@ -71,4 +71,4 @@ There are also several sets of directional fields that will stop the platform (s
 
 Each sensor is connected to the TwinCAT PLC to inform about the triggering of a field and also to the safety module of the platform which will cut the power if necessary.
 
-You will find in the **safety designer** folder the fields used and the sensor configurations. In the **kicad** folder you will find the PCB diagram used to connect the sensors to the PLC.
+You will find in the [**safety designer**](safety&#32;designer/) folder the fields used and the sensor configurations. In the [**kicad**](kicad/) folder you will find the PCB diagram used to connect the sensors to the PLC.
