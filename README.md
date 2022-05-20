@@ -58,7 +58,8 @@ The objective was to have a safety field around the platform to stop it (cut the
 
 There are also several sets of directional fields that will stop the platform (software) or reduce the maximum speed of the platform depending on the field triggered. Each set has three warning fields (18 cm, 1 m and 2.5 m). The set of fields used will be adapted according to the direction in which the platform is moving.
 
-![Alt text](safety designer/fields.png)
+![plot](./safety designer/fields.png)
+
 
 Each sensor is connected to the TwinCAT PLC to inform about the triggering of a field and also to the safety module of the platform which will cut the power if necessary.
 
