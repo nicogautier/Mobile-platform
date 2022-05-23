@@ -55,7 +55,7 @@
    <node pkg="platform_measurements" type="sendGoal" name="sendGoal"/>
 
    <!-- Send odometry to simulink-->
-   <node pkg="platform_measurements" name="odomUDP2" type="odomUDP.py" />
+   <node pkg="platform_measurements" name="odomUDP" type="odomUDP.py" />
 
 
 

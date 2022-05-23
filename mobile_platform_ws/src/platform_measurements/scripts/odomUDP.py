@@ -70,8 +70,11 @@ def send2UDP():
     th = quaternion2euler(tf_map_odom[2], tf_map_odom[3])
     x_tf = tf_map_odom[0]  + math.cos(th)*tf_odom_baseLink[0] - math.sin(th)*tf_odom_baseLink[1]  
     y_tf=  tf_map_odom[1] + math.sin(th)*tf_odom_baseLink[0] + math.cos(th)*tf_odom_baseLink[1]
-    z_tf = quaternion2euler(tf_map_odom[2], tf_map_odom[3]) + quaternion2euler(tf_odom_baseLink[2], tf_odom_baseLink[3])
-    z_tf = -( (math.pi/2 + z_tf)%math.pi - math.pi/2)
+    z_tf = -quaternion2euler(tf_map_odom[2], tf_map_odom[3]) - quaternion2euler(tf_odom_baseLink[2], tf_odom_baseLink[3])
+    if(z_tf>math.pi):
+        z_tf -= math.pi*2
+    elif(z_tf<-math.pi):
+        z_tf += math.pi*2
 
     #send datas
     data = [float(x_odom),float(y_odom),float(z_odom), float(x_tf), float(y_tf), float(z_tf)]
@@ -87,7 +90,7 @@ def main():
     rospy.init_node('odomUDP', anonymous=True)
     rospy.Subscriber("odom", Odometry, callback_odom)
     rospy.Subscriber("tf", TFMessage, callback_tf)
-    rate = rospy.Rate(1) 
+    rate = rospy.Rate(100) 
 
     #send data at 100Hz through UDP
     while not rospy.is_shutdown():
