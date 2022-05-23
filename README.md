@@ -2,7 +2,7 @@
 
 ## Presentation
 
-The mobile platform robot was developed at the Robotics Laboratory of the University of Ljubljana.
+The mobile platform robot was developed at the [Robotics Laboratory](https://robolab.si/) of the University of Ljubljana.
 
 The mobile platform is a robot that uses its sensors to identify and move through its environment. The final goal of the platform will be to be used in an indoor environment such as a warehouse or a retail store. It will also be combined with a collaborative manipulator robot for precise handling.
 
@@ -16,31 +16,59 @@ The mobile platform is a robot that uses its sensors to identify and move throug
 
 | Program | Description |
 | ------ | ------ | 
-|TwinCAT| supervises low level control of the platform (motors, joystick, laser field security, ... ) |  
-|ROS| supervises high level algorithms (path-finding, SLAM algorithm, ... ) |
+|[TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/?pk_campaign=AdWords-AdWordsSearch-TwinCAT_EN&pk_kwd=twincat&gclid=EAIaIQobChMI4qSCndXt9wIVCZBoCR0AcgaeEAAYASAAEgLjsvD_BwE)| supervises low level control of the platform (motors, joystick, laser field security, ... ) |  
+|[ROS](https://www.ros.org/)| supervises high level algorithms (path-finding, SLAM algorithm, ... ) |
 
-## Installation
+## How to use it
 
 This section will explain you how to use this project.
 **Note:** You will not be able to use these programs as they are if you use another robot (this one is a custom robot created in the lab), but you can of course modify or reuse part of the programs to suit them to your application.   
 
+First you need to get the files from git:
 ```sh
 git clone https://github.com/nicogautier/Mobile-platform && cd Mobile-platform
 ```
 
-To use the ROS workspace
+### ROS program
+
+#### platform_communication
+The **ADScommunication** node of the platform\_communication package allows you to communicate with the TwinCAT program. It receives commands from the **/cmd\_vel** topic and sends them to the PLC. It also publishes the odometry on the **/odom** topic according to the values of the wheel encoders. This will allow you for example to use the ROS [navigation](https://wiki.ros.org/navigation) stack which required communication on these two subjects.
+
+To use it in your program, you can add and compile the platform_communication package in your ROS project. Then add this line to your launch file.  
 
 ```sh
-cd mobile_platform_ws/
-catkin_make
-source devel/setup.bash
+<node pkg="platform_communication" type="ADSCommunication" name="ADSCommunication"/>
 ```
 
-If you get an error, you will probably have to delete the devel/ and build/ folders.
+If you want to modify this node, I recommend that you consult the [**ADS Beckhoff**](ADS&#32;Beckhoff/) folder which will explain how to use the ADS library. The two main arrays used to exchange data with the PLC are **"ControlGVL.robot\_odom "** received by ADS notification for odometry and **"ControlGVL.vel\_robot "** to send speed goals.
 
-```sh
-rm -rf build/ devel/
-catkin_make
-source devel/setup.bash
-```
+#### platform_main
+The platform\_main package contains the main launch file and the configuration files used to implement ROS [navigation](https://wiki.ros.org/navigation) stack. It uses the [**sick\_safetyscanners**](https://wiki.ros.org/sick_safetyscanners) node to get the laserscan of the two sensors. It also uses [**TEB local planner**](https://wiki.ros.org/teb_local_planner) for the local trajectories and [**rtabmap**](http://wiki.ros.org/rtabmap_ros) for the SLAM algorithm.
 
+#### platform_measurements
+
+This package was used to perform several tests: use of an external setpoint generator in TwinCAT, accuracy of the platform movements, and accuracy of the ROS navigation implementation.  
+
+### TwinCAT program
+
+#### Motors
+
+The **FB_RUN_MOTOR** controls all 4 wheels for holonomic movements. It also implements the TwinCAT external setpoint generator. It can be used by both the joystick and the ROS program. The program retrieves the values from the wheel encoders to calculate the odometry and send it to ROS.
+
+
+#### Sensors
+The **SensorsMain** program manages the communication with the two sensors. It calculates the fields to be applied according to the current direction. It also limits the maximum speed allowed according to the fields of the sensors that are triggered. There are 8 different orientations (see next section).
+
+
+
+### SICK sensors security
+The objective was to have a safety field around the platform to stop it (cut the power safely) if there is an obstacle very close and representing a danger. 
+
+There are also several sets of directional fields that will stop the platform (software) or reduce the maximum speed of the platform depending on the field triggered. Each set has three warning fields (18 cm, 1 m and 2.5 m). The set of fields used will be adapted according to the direction in which the platform is moving.
+
+![plot](safety&#32;designer/fields.png)
+
+
+Each sensor is connected to the TwinCAT PLC to inform about the triggering of a field and also to the safety module of the platform which will cut the power if necessary.
+
+You will find in the [**safety designer**](safety&#32;designer/) folder the fields used and the sensor configurations. In the [**kicad**](kicad/) folder you will find the PCB diagram used to connect the sensors to the PLC.
