@@ -20,8 +20,8 @@ TebLocalPlannerROS:
  force_reinit_new_goal_angular: 0.78
  # Robot
          
- max_vel_x: 0.5
- max_vel_y: 0.5
+ max_vel_x: 0.4
+ max_vel_y: 0.4
  max_vel_x_backwards: 0.5
  max_vel_theta: 0.3
  acc_lim_x: 0.15
@@ -62,7 +62,7 @@ TebLocalPlannerROS:
  weight_acc_lim_x: 450
  weight_acc_lim_y: 550
  weight_acc_lim_theta: 450
- weight_kinematics_nh: 400
+ weight_kinematics_nh: 300
  weight_kinematics_forward_drive: 1
  weight_kinematics_turning_radius: 0
  weight_optimaltime: 5

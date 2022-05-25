@@ -1,4 +1,4 @@
-controller_frequency: 2.5
+controller_frequency: 50
 planner_frequency: 0.5
 recovery_enabled: false
 vx_samples : 10
