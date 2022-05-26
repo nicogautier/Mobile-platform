@@ -88,6 +88,9 @@ platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/std_msgs/Bool.h
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/std_msgs/String.h
+platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/std_srvs/SetBool.h
+platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/std_srvs/SetBoolRequest.h
+platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/std_srvs/SetBoolResponse.h
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/tf/LinearMath/Matrix3x3.h
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/tf/LinearMath/MinMax.h
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/tf/LinearMath/QuadWord.h

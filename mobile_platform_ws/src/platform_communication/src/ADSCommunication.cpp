@@ -7,6 +7,9 @@ Publisher topic:
 subscriber topic:
 	/cmd_vel (Twist) : updates velocity variables of the PLC ((lin.x, lin.y, lin.z), (ang.x, ang.y, ang.z))
 
+server service:
+	/enableJoystick (SetBool) : update use of joystick or autonomous
+
 ===============================================================*/
 
 
@@ -24,6 +27,8 @@ subscriber topic:
 #include <geometry_msgs/Twist.h>
 #include <geometry_msgs/Vector3.h>
 #include <tf/transform_broadcaster.h>
+
+#include <std_srvs/SetBool.h>
 
 
 #include <chrono>
@@ -49,15 +54,34 @@ AdsVariable<std::array<double, 4>> vel_robot{ route, "ControlGVL.vel_robot" };
 //odometry publisher
 ros::Publisher pub_odom;
 
+//use of joystick or autonomous
+bool useJoystick = false;
+
+
+
+
+//service to enable use of joystick or autonomous
+bool serviceJoystick(std_srvs::SetBool::Request  &req, std_srvs::SetBool::Response &res){
+	useJoystick = req.data;
+	res.success = true;
+	return true;
+}
 
 
 
 //get speeds from publisher and send it to the PLC 
 void callback_receive_speed_command(const geometry_msgs::Twist& t){
-	static float timeStamp = 0;
-	timeStamp += 0.05;
-	vel_robot = { t.linear.x, t.linear.y, t.angular.z };
+	if(!useJoystick){	
+		vel_robot = { t.linear.x, t.linear.y, t.angular.z };
+	}
+	
+}
 
+//get speeds from publisher (joystick) and send it to the PLC 
+void callback_receive_speed_command_joystick(const geometry_msgs::Twist& t){
+	if(useJoystick){	
+		vel_robot = { t.linear.x, t.linear.y, t.angular.z };
+	}
 }
 
 
@@ -177,6 +201,9 @@ int main(int argc, char **argv){
 
 	//publisher
 	pub_odom = nh.advertise<nav_msgs::Odometry>("/odom", 10);
+
+	//server
+	ros::ServiceServer service = nh.advertiseService("enableJoystick", serviceJoystick);
 
 
 	//notifications
