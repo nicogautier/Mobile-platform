@@ -196,8 +196,9 @@ int main(int argc, char **argv){
 	ros::init(argc, argv, "ads_communication");
 	ros::NodeHandle nh;
 
-	//subscriber
-	ros::Subscriber sub_ISPG = nh.subscribe("/cmd_vel", 1000, callback_receive_speed_command);
+	//subscribers
+	ros::Subscriber sub_cmd_vel = nh.subscribe("/cmd_vel", 1000, callback_receive_speed_command);
+	ros::Subscriber sub_cmd_vel_joy = nh.subscribe("/cmd_vel_joy", 1000, callback_receive_speed_command_joystick);
 
 	//publisher
 	pub_odom = nh.advertise<nav_msgs::Odometry>("/odom", 10);
