@@ -59,13 +59,13 @@ TebLocalPlannerROS:
  weight_max_vel_x: 200
  weight_max_vel_y: 200
  weight_max_vel_theta: 1
- weight_acc_lim_x: 450
- weight_acc_lim_y: 550
- weight_acc_lim_theta: 450
+ weight_acc_lim_x: 250
+ weight_acc_lim_y: 250
+ weight_acc_lim_theta: 250
  weight_kinematics_nh: 300
  weight_kinematics_forward_drive: 1
  weight_kinematics_turning_radius: 0
- weight_optimaltime: 5
+ weight_optimaltime: 10
  weight_obstacle: 400
  weight_dynamic_obstacle: 400 
  weight_inflation: 0.14

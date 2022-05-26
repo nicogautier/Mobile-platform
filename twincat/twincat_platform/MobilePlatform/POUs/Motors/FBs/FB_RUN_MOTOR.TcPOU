@@ -105,7 +105,7 @@ VAR CONSTANT
 	
 	timeSlice: LREAL := 0.00005;
 	
-	ACC_MAX : LREAL := 50000000;
+	ACC_MAX : LREAL := 5000000;
 	VEL_WHEEL_MAX : LREAL := 18000;
 	
 	//reductor ratio
