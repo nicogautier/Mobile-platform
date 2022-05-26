@@ -186,3 +186,60 @@ title('Difference rotation odometry/optotrak and transforms/optotrak average')
 legend('d_{odom}','d_{tf}','Location','southwest')
 
 suptitle(['Comparaison between odometry/optotrak and transforms/optotrak on ' ,num2str(n_expe) , ' experiments' ]);
+
+
+
+
+figure;
+
+d_odom = sqrt(dx_odom.*dx_odom + dy_odom.*dy_odom);
+d_tf = sqrt(dx_tf.*dx_tf + dy_tf.*dy_tf);
+d_opto = sqrt(dx_opto.*dx_opto + dy_opto.*dy_opto);
+
+%plot diff initial/final positions
+subplot(2,2,1);
+plot([d_odom,d_tf,d_opto]);
+yline(mean(d_odom),'--', ['avg d_{odom}: ', num2str(mean(d_odom)), ' mm'])
+yline(mean(d_tf),'--', ['avg d_{tf}: ', num2str(mean(d_tf)), ' mm'])
+yline(mean(d_opto),'--', ['avg d_{opto}: ', num2str(mean(d_opto)), ' mm'])
+
+xlabel('experiment')
+ylabel('difference [mm]')
+title('Difference odometry, transforms and optotrak position initial/final position')
+legend('d_{odom}','d_{tf}','d_{opto}','Location','southwest')
+
+
+
+subplot(2,2,3);
+plot([dth_odom, dth_tf,dth_opto]);
+yline(mean(dth_odom),'--', ['avg odom: ', num2str(mean(dth_odom)), ' rad'])
+yline(mean(dth_tf),'--', ['avg tf: ', num2str(mean(dth_tf)), ' rad'])
+yline(mean(dth_opto),'--', ['avg opto: ', num2str(mean(dth_opto)), ' rad'])
+xlabel('experiment')
+ylabel('difference [rad]')
+title('Difference odometry, transforms and optotrak rotation initial/final position')
+legend('odometry', 'tranforms', 'optotrak','Location','southwest')
+
+
+avg_odom_opto = sqrt(avg_dx_odom_opto.*avg_dx_odom_opto + avg_dy_odom_opto.*avg_dy_odom_opto);
+avg_tf_opto = sqrt(avg_dx_tf_opto.*avg_dx_tf_opto + avg_dy_tf_opto.*avg_dy_tf_opto);
+
+subplot(2,2,2);
+plot([avg_odom_opto,avg_tf_opto]);
+yline(mean(avg_odom_opto),'--', ['avg d_{odom/opto}: ', num2str(mean(avg_odom_opto)), ' mm'])
+yline(mean(avg_tf_opto),'--', ['avg d_{tf/opto}: ', num2str(mean(avg_tf_opto)), ' mm'])
+xlabel('experiment')
+ylabel('difference [mm]')
+title('Average difference in position odometry and transforms compared to optotrak')
+legend('d_{odom/opto}','d_{tf/opto}','Location','southwest')
+
+
+subplot(2,2,4);
+plot([avg_dth_odom_opto,avg_dth_tf_opto]);
+yline(mean(avg_dth_odom_opto),'--', ['avg d_{odom}: ', num2str(mean(avg_dth_odom_opto)), ' rad'])
+yline(mean(avg_dth_tf_opto),'--', ['avg d_{tf}: ', num2str(mean(avg_dth_tf_opto)), ' rad'])
+xlabel('experiment')
+ylabel('difference [rad]')
+title('Difference rotation odometry/optotrak and transforms/optotrak average')
+legend('d_{odom}','d_{tf}','Location','southwest')
+
