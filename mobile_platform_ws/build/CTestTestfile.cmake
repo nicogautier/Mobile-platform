@@ -6,5 +6,6 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("platform_communication")
+subdirs("platform_joystick")
 subdirs("platform_main")
 subdirs("platform_measurements")

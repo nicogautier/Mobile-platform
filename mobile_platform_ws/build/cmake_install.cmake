@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/student/Mobile-platform/mobile_platform_ws/build/gtest/cmake_install.cmake")
   include("/home/student/Mobile-platform/mobile_platform_ws/build/platform_communication/cmake_install.cmake")
+  include("/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/cmake_install.cmake")
   include("/home/student/Mobile-platform/mobile_platform_ws/build/platform_main/cmake_install.cmake")
   include("/home/student/Mobile-platform/mobile_platform_ws/build/platform_measurements/cmake_install.cmake")
 

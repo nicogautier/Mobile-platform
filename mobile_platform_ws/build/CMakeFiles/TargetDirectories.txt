@@ -99,6 +99,14 @@
 /home/student/Mobile-platform/mobile_platform_ws/build/platform_communication/CMakeFiles/test.dir
 /home/student/Mobile-platform/mobile_platform_ws/build/platform_communication/CMakeFiles/actionlib_generate_messages_nodejs.dir
 /home/student/Mobile-platform/mobile_platform_ws/build/platform_communication/CMakeFiles/actionlib_generate_messages_py.dir
+/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/install/strip.dir
+/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/install/local.dir
+/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/test.dir
+/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/joystickCmdVel.dir
+/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/list_install_components.dir
+/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/edit_cache.dir
+/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/rebuild_cache.dir
+/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/install.dir
 /home/student/Mobile-platform/mobile_platform_ws/build/platform_main/CMakeFiles/install/strip.dir
 /home/student/Mobile-platform/mobile_platform_ws/build/platform_main/CMakeFiles/edit_cache.dir
 /home/student/Mobile-platform/mobile_platform_ws/build/platform_main/CMakeFiles/list_install_components.dir

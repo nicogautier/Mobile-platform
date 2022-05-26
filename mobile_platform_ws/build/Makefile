@@ -1026,6 +1026,19 @@ actionlib_generate_messages_py/fast:
 .PHONY : actionlib_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named joystickCmdVel
+
+# Build rule for target.
+joystickCmdVel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 joystickCmdVel
+.PHONY : joystickCmdVel
+
+# fast build rule for target.
+joystickCmdVel/fast:
+	$(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/build
+.PHONY : joystickCmdVel/fast
+
+#=============================================================================
 # Target rules for targets named simpleTrajectories
 
 # Build rule for target.
@@ -1143,6 +1156,7 @@ help:
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_py"
+	@echo "... joystickCmdVel"
 	@echo "... simpleTrajectories"
 	@echo "... trajectoryMeasurements"
 	@echo "... sendGoal"

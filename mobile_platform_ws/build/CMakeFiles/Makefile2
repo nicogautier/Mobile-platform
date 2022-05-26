@@ -2314,6 +2314,61 @@ clean: platform_communication/CMakeFiles/actionlib_generate_messages_py.dir/clea
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory platform_joystick
+
+# Convenience name for "all" pass in the directory.
+platform_joystick/all: platform_joystick/CMakeFiles/joystickCmdVel.dir/all
+
+.PHONY : platform_joystick/all
+
+# Convenience name for "clean" pass in the directory.
+platform_joystick/clean: platform_joystick/CMakeFiles/joystickCmdVel.dir/clean
+
+.PHONY : platform_joystick/clean
+
+# Convenience name for "preinstall" pass in the directory.
+platform_joystick/preinstall:
+
+.PHONY : platform_joystick/preinstall
+
+#=============================================================================
+# Target rules for target platform_joystick/CMakeFiles/joystickCmdVel.dir
+
+# All Build rule for target.
+platform_joystick/CMakeFiles/joystickCmdVel.dir/all:
+	$(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/depend
+	$(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=16,17 "Built target joystickCmdVel"
+.PHONY : platform_joystick/CMakeFiles/joystickCmdVel.dir/all
+
+# Include target in all.
+all: platform_joystick/CMakeFiles/joystickCmdVel.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+platform_joystick/CMakeFiles/joystickCmdVel.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 platform_joystick/CMakeFiles/joystickCmdVel.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_joystick/CMakeFiles/joystickCmdVel.dir/rule
+
+# Convenience name for target.
+joystickCmdVel: platform_joystick/CMakeFiles/joystickCmdVel.dir/rule
+
+.PHONY : joystickCmdVel
+
+# clean rule for target.
+platform_joystick/CMakeFiles/joystickCmdVel.dir/clean:
+	$(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/clean
+.PHONY : platform_joystick/CMakeFiles/joystickCmdVel.dir/clean
+
+# clean rule for target.
+clean: platform_joystick/CMakeFiles/joystickCmdVel.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Directory level rules for directory platform_main
 
 # Convenience name for "all" pass in the directory.
@@ -2360,7 +2415,7 @@ platform_measurements/preinstall:
 platform_measurements/CMakeFiles/simpleTrajectories.dir/all:
 	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/depend
 	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=18,19 "Built target simpleTrajectories"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=20,21 "Built target simpleTrajectories"
 .PHONY : platform_measurements/CMakeFiles/simpleTrajectories.dir/all
 
 # Include target in all.
@@ -2397,7 +2452,7 @@ clean: platform_measurements/CMakeFiles/simpleTrajectories.dir/clean
 platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all:
 	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/depend
 	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=20,21 "Built target trajectoryMeasurements"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=22,23 "Built target trajectoryMeasurements"
 .PHONY : platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all
 
 # Include target in all.
@@ -2434,7 +2489,7 @@ clean: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean
 platform_measurements/CMakeFiles/sendGoal.dir/all:
 	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/depend
 	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=16,17 "Built target sendGoal"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=18,19 "Built target sendGoal"
 .PHONY : platform_measurements/CMakeFiles/sendGoal.dir/all
 
 # Include target in all.

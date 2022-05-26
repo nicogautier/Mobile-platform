@@ -1,0 +1,12 @@
+<launch>
+
+    <!-- Joystick driver-->
+    <node pkg="joy" type="joy_node" name="joy_node">
+        <param name="_d_name" type="string" value="Logitech Logitech Extreme 3D" />
+    </node>
+
+    <!-- create a /cmd_vel command based on joystick values-->
+   <node pkg="platform_joystick" type="joystickCmdVel" name="joystickCmdVel"/>
+
+
+</launch>
