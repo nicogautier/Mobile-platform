@@ -34,7 +34,14 @@ VAR
 	sensor2_UO2 AT %I* : BOOL;
 	sensor2_UO3 AT %I* : BOOL;
 	
-	tmr1 : TON;
+	tmr1 : TON; //program period
+	new_direction : INT := 0; //new direction based on velocity direction
+	direction : ARRAY [0..8] OF INT := [0,0,0,0,0,0,0,0,0]; //stock last new directions
+	lastChange : LREAL := 0; //prevent to change fields too quickly 
+	Index : INT := 0;
+	maxVal : INT := -1;
+	
+	
 	
 	
 	
@@ -44,19 +51,21 @@ VAR CONSTANT
 	PI_8 : LREAL := 0.39269908169872414;
 	VMAX : LREAL := 1.2;
 	VTHMAX : LREAL := 0.5;
-	
+	TPROG : LREAL := 0.001;
+	TWAIT : LREAL := 0.2;
+ 	
 
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[//Compute acctual direction of the mobile platform
-IF(ABS(ControlGVL.forwardReverse)<0.002) THEN
-	IF(ControlGVL.leftRight>0.002) THEN
-		SensorsGVL.platformDir := DirPlatform.PLUS_Y;
-	ELSIF(ControlGVL.leftRight<-0.002) THEN
-		SensorsGVL.platformDir := DirPlatform.MINUS_Y;
+IF(ABS(ControlGVL.forwardReverse)<0.04) THEN
+	IF(ControlGVL.leftRight>0.04) THEN
+		new_direction := DirPlatform.PLUS_Y;
+	ELSIF(ControlGVL.leftRight<-0.04) THEN
+		new_direction := DirPlatform.MINUS_Y;
 	ELSE
-		SensorsGVL.platformDir := DirPlatform.STOP;
+		new_direction := DirPlatform.STOP;
 	END_IF
 
 ELSE
@@ -66,23 +75,45 @@ ELSE
 	END_IF
 
 	IF((angleDir>=PI_8)AND(angleDir<3*PI_8)) THEN
-		SensorsGVL.platformDir := DirPlatform.PLUS_X_MINUS_Y;
+		new_direction := DirPlatform.PLUS_X_MINUS_Y;
 	ELSIF((angleDir>=3*PI_8)AND(angleDir<5*PI_8)) THEN
-		SensorsGVL.platformDir := DirPlatform.MINUS_Y;
+		new_direction := DirPlatform.MINUS_Y;
 	ELSIF((angleDir>=5*PI_8)AND(angleDir<7*PI_8)) THEN
-		SensorsGVL.platformDir := DirPlatform.MINUS_X_MINUS_Y;
+		new_direction := DirPlatform.MINUS_X_MINUS_Y;
 	ELSIF((angleDir>=7*PI_8)AND(angleDir<9*PI_8)) THEN
-		SensorsGVL.platformDir := DirPlatform.MINUS_X;
+		new_direction := DirPlatform.MINUS_X;
 	ELSIF((angleDir>=9*PI_8)AND(angleDir<11*PI_8)) THEN
-		SensorsGVL.platformDir := DirPlatform.MINUS_X_PLUS_Y;
+		new_direction := DirPlatform.MINUS_X_PLUS_Y;
 	ELSIF(((angleDir>=11*PI_8)AND(angleDir<12*PI_8))OR((angleDir>=-4*PI_8)AND(angleDir<-3*PI_8))) THEN
-		SensorsGVL.platformDir := DirPlatform.PLUS_Y;
+		new_direction := DirPlatform.PLUS_Y;
 	ELSIF((angleDir>=-3*PI_8)AND(angleDir<-1*PI_8)) THEN
-		SensorsGVL.platformDir := DirPlatform.PLUS_X_PLUS_Y;
+		new_direction := DirPlatform.PLUS_X_PLUS_Y;
 	ELSE
-		SensorsGVL.platformDir := DirPlatform.PLUS_X;
+		new_direction := DirPlatform.PLUS_X;
 	END_IF
 END_IF
+
+
+//prevent to change too often the set of fields
+lastChange := lastChange + TPROG;
+//store the new_direction of the cycle
+direction[new_direction] := direction[new_direction] +1;
+IF((lastChange>TWAIT)) THEN //possibly change only each TWAIT seconds
+	
+	maxVal := -1;
+	FOR Index := 0 TO 8 DO //find the direction most asked
+		IF direction[Index] > maxVal THEN
+			maxVal := direction[Index];
+			new_direction := Index;
+		END_IF
+		//reset variable for another cycle
+  		direction[Index] := 0;
+	END_FOR
+
+	SensorsGVL.platformDir := new_direction; //update the fields
+	lastChange := 0;
+END_IF
+
 
 
 //Select required fields for sensors
@@ -155,7 +186,29 @@ END_IF]]></ST>
       <LineId Id="337" Count="8" />
       <LineId Id="530" Count="0" />
       <LineId Id="346" Count="3" />
-      <LineId Id="352" Count="75" />
+      <LineId Id="352" Count="19" />
+      <LineId Id="669" Count="1" />
+      <LineId Id="667" Count="0" />
+      <LineId Id="671" Count="0" />
+      <LineId Id="591" Count="0" />
+      <LineId Id="590" Count="0" />
+      <LineId Id="587" Count="0" />
+      <LineId Id="646" Count="0" />
+      <LineId Id="661" Count="0" />
+      <LineId Id="657" Count="0" />
+      <LineId Id="659" Count="0" />
+      <LineId Id="662" Count="0" />
+      <LineId Id="664" Count="0" />
+      <LineId Id="663" Count="0" />
+      <LineId Id="665" Count="0" />
+      <LineId Id="658" Count="0" />
+      <LineId Id="656" Count="0" />
+      <LineId Id="647" Count="0" />
+      <LineId Id="588" Count="0" />
+      <LineId Id="592" Count="0" />
+      <LineId Id="589" Count="0" />
+      <LineId Id="584" Count="1" />
+      <LineId Id="373" Count="54" />
       <LineId Id="479" Count="0" />
       <LineId Id="428" Count="1" />
       <LineId Id="480" Count="0" />
