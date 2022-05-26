@@ -18,9 +18,11 @@ client service:
 #include <geometry_msgs/Twist.h>
 #include <sensor_msgs/Joy.h>
 
-#include <std_srvs/SetBool.h>
+#include <cob_srvs/SetInt.h>
 
-
+#define MODE_NAVIGATION 0
+#define MODE_JOYSTICK 1
+#define MODE_STOP 2
 
 
 ros::Publisher pub_cmd_vel;
@@ -35,7 +37,7 @@ void callback_receive_joystick_command(const sensor_msgs::Joy& j){
 
     static int btn2_last = 0;
     static int btn3_last = 0;
-    static bool enableJoystick = false;
+    static int joystickMode = 0;
 
     //update speed range only if buttons values changed
     if(j.buttons[2]!=btn2_last || j.buttons[3]!=btn3_last ){
@@ -58,34 +60,38 @@ void callback_receive_joystick_command(const sensor_msgs::Joy& j){
 
 
     //enable to switch between joystick mode and autonomous mode
-    std_srvs::SetBool changeMode;
-    
-    if(j.axes[3]<-0.5 && !enableJoystick){
-        enableJoystick=true;
-        changeMode.request.data = true;
+    cob_srvs::SetInt changeMode;
+
+    if(j.axes[3]>0.5 && (joystickMode != MODE_NAVIGATION)){
+        joystickMode = MODE_NAVIGATION;
+        changeMode.request.data = MODE_NAVIGATION;
         client.call(changeMode);
-
+    } 
+    else if(j.axes[3]<-0.5 && (joystickMode != MODE_JOYSTICK)){
+        joystickMode = MODE_JOYSTICK;
+        changeMode.request.data = MODE_JOYSTICK;
+        client.call(changeMode);
     }
-    else if(j.axes[3]>0.5 && enableJoystick){
-        enableJoystick=false;
-        changeMode.request.data = false;
+    else if (j.axes[3]>-0.5 && j.axes[3]<0.5 &&(joystickMode != MODE_STOP)){
+        joystickMode=MODE_STOP;
+        changeMode.request.data = MODE_STOP;
         client.call(changeMode);
     }
 
 
-    //compute command velocity and send it
-    geometry_msgs::Twist goal;
-    goal.linear.x = j.axes[1]*SpeedLinearRange;
-    goal.linear.y = -j.axes[0]*SpeedLinearRange;
+    if(joystickMode == MODE_JOYSTICK){
+        //compute command velocity and send it
+        geometry_msgs::Twist goal;
+        goal.linear.x = j.axes[1]*SpeedLinearRange;
+        goal.linear.y = -j.axes[0]*SpeedLinearRange;
 
-    //enable rotation only if button 0 not pressed
-    if(!j.buttons[0]){
-        goal.angular.z = -j.axes[2]*SpeedAngularRange;
+        //enable rotation only if button 0 not pressed
+        if(!j.buttons[0]){
+            goal.angular.z = -j.axes[2]*SpeedAngularRange;
+        }
+
+        pub_cmd_vel.publish(goal);
     }
-    
-
-    pub_cmd_vel.publish(goal);
-
 
 }
 
@@ -101,7 +107,7 @@ int main(int argc, char **argv){
 
 	//publisher and service
 	pub_cmd_vel = nh.advertise<geometry_msgs::Twist>("/cmd_vel_joy", 10);
-    client = nh.serviceClient<std_srvs::SetBool>("enableJoystick");
+    client = nh.serviceClient<cob_srvs::SetInt>("changeModeJoystick");
 
 
 	ros::spin();

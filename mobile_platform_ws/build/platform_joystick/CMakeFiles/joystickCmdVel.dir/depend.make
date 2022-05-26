@@ -62,9 +62,6 @@ platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o: /opt/r
 platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
 platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o: /opt/ros/melodic/include/sensor_msgs/Joy.h
 platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
-platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o: /opt/ros/melodic/include/std_srvs/SetBool.h
-platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o: /opt/ros/melodic/include/std_srvs/SetBoolRequest.h
-platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o: /opt/ros/melodic/include/std_srvs/SetBoolResponse.h
 platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
 platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h
 

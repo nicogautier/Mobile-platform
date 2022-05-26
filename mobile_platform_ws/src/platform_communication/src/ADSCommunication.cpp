@@ -8,7 +8,7 @@ subscriber topic:
 	/cmd_vel (Twist) : updates velocity variables of the PLC ((lin.x, lin.y, lin.z), (ang.x, ang.y, ang.z))
 
 server service:
-	/enableJoystick (SetBool) : update use of joystick or autonomous
+	/changeModeJoystick (SetInt) : update joystick mode (joystick, autonomous or stop)
 
 ===============================================================*/
 
@@ -28,7 +28,7 @@ server service:
 #include <geometry_msgs/Vector3.h>
 #include <tf/transform_broadcaster.h>
 
-#include <std_srvs/SetBool.h>
+#include <cob_srvs/SetInt.h>
 
 
 #include <chrono>
@@ -55,14 +55,18 @@ AdsVariable<std::array<double, 4>> vel_robot{ route, "ControlGVL.vel_robot" };
 ros::Publisher pub_odom;
 
 //use of joystick or autonomous
-bool useJoystick = false;
+int joystickMode = 0;
 
 
 
 
 //service to enable use of joystick or autonomous
-bool serviceJoystick(std_srvs::SetBool::Request  &req, std_srvs::SetBool::Response &res){
-	useJoystick = req.data;
+bool serviceJoystick(cob_srvs::SetInt::Request  &req, cob_srvs::SetInt::Response &res){
+	joystickMode = req.data;
+	//if stop mode reset speed
+	if(req.data==2){
+		vel_robot = { 0, 0, 0 };
+	}
 	res.success = true;
 	return true;
 }
@@ -71,7 +75,7 @@ bool serviceJoystick(std_srvs::SetBool::Request  &req, std_srvs::SetBool::Respon
 
 //get speeds from publisher and send it to the PLC 
 void callback_receive_speed_command(const geometry_msgs::Twist& t){
-	if(!useJoystick){	
+	if(joystickMode==0){	
 		vel_robot = { t.linear.x, t.linear.y, t.angular.z };
 	}
 	
@@ -79,7 +83,7 @@ void callback_receive_speed_command(const geometry_msgs::Twist& t){
 
 //get speeds from publisher (joystick) and send it to the PLC 
 void callback_receive_speed_command_joystick(const geometry_msgs::Twist& t){
-	if(useJoystick){	
+	if(joystickMode==1){	
 		vel_robot = { t.linear.x, t.linear.y, t.angular.z };
 	}
 }
@@ -204,7 +208,7 @@ int main(int argc, char **argv){
 	pub_odom = nh.advertise<nav_msgs::Odometry>("/odom", 10);
 
 	//server
-	ros::ServiceServer service = nh.advertiseService("enableJoystick", serviceJoystick);
+	ros::ServiceServer service = nh.advertiseService("changeModeJoystick", serviceJoystick);
 
 
 	//notifications
