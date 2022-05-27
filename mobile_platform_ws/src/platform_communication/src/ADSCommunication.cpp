@@ -60,21 +60,10 @@ int joystickMode = 0;
 
 
 
-//service to enable use of joystick or autonomous
-bool serviceJoystick(cob_srvs::SetInt::Request  &req, cob_srvs::SetInt::Response &res){
-	joystickMode = req.data;
-	//if stop mode reset speed
-	if(req.data==2){
-		vel_robot = { 0, 0, 0 };
-	}
-	res.success = true;
-	return true;
-}
-
-
 
 //get speeds from publisher and send it to the PLC 
 void callback_receive_speed_command(const geometry_msgs::Twist& t){
+	ros::param::getCached("/joystickMode", joystickMode);
 	if(joystickMode==0){	
 		vel_robot = { t.linear.x, t.linear.y, t.angular.z };
 	}
@@ -83,8 +72,12 @@ void callback_receive_speed_command(const geometry_msgs::Twist& t){
 
 //get speeds from publisher (joystick) and send it to the PLC 
 void callback_receive_speed_command_joystick(const geometry_msgs::Twist& t){
+	ros::param::getCached("/joystickMode", joystickMode);
 	if(joystickMode==1){	
 		vel_robot = { t.linear.x, t.linear.y, t.angular.z };
+	}
+	else if(joystickMode==2){
+		vel_robot={0,0,0};
 	}
 }
 
@@ -207,8 +200,8 @@ int main(int argc, char **argv){
 	//publisher
 	pub_odom = nh.advertise<nav_msgs::Odometry>("/odom", 10);
 
-	//server
-	ros::ServiceServer service = nh.advertiseService("changeModeJoystick", serviceJoystick);
+	//joystick mode (default navigation)
+	ros::param::set("/joystickMode", 0);
 
 
 	//notifications

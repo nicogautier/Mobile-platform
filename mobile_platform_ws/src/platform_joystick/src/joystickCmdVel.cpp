@@ -26,7 +26,6 @@ client service:
 
 
 ros::Publisher pub_cmd_vel;
-ros::ServiceClient client;
 
 double SpeedLinearRange = 0.2;
 double SpeedAngularRange = 0.4;
@@ -59,23 +58,23 @@ void callback_receive_joystick_command(const sensor_msgs::Joy& j){
     }
 
 
-    //enable to switch between joystick mode and autonomous mode
-    cob_srvs::SetInt changeMode;
+     ros::param::get("/joystickMode", joystickMode);
 
     if(j.axes[3]>0.5 && (joystickMode != MODE_NAVIGATION)){
         joystickMode = MODE_NAVIGATION;
-        changeMode.request.data = MODE_NAVIGATION;
-        client.call(changeMode);
+        ros::param::set("/joystickMode", MODE_NAVIGATION);
     } 
     else if(j.axes[3]<-0.5 && (joystickMode != MODE_JOYSTICK)){
         joystickMode = MODE_JOYSTICK;
-        changeMode.request.data = MODE_JOYSTICK;
-        client.call(changeMode);
+        ros::param::set("/joystickMode", MODE_JOYSTICK);
+
     }
     else if (j.axes[3]>-0.5 && j.axes[3]<0.5 &&(joystickMode != MODE_STOP)){
         joystickMode=MODE_STOP;
-        changeMode.request.data = MODE_STOP;
-        client.call(changeMode);
+        ros::param::set("/joystickMode", MODE_STOP);
+        ros::Duration(0.1).sleep();
+        pub_cmd_vel.publish(geometry_msgs::Twist {});
+
     }
 
 
@@ -107,7 +106,6 @@ int main(int argc, char **argv){
 
 	//publisher and service
 	pub_cmd_vel = nh.advertise<geometry_msgs::Twist>("/cmd_vel_joy", 10);
-    client = nh.serviceClient<cob_srvs::SetInt>("changeModeJoystick");
 
 
 	ros::spin();

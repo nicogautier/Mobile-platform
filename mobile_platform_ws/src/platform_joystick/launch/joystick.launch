@@ -1,6 +1,9 @@
 <launch>
 
-    
+    <!-- enable used without any other launchfile-->
+    <arg name="joystickOnly" default="false" />
+
+
 
     <!-- Joystick driver-->
     <node pkg="joy" type="joy_node" name="joy_node">
@@ -10,5 +13,13 @@
     <!-- create a /cmd_vel command based on joystick values-->
    <node pkg="platform_joystick" type="joystickCmdVel" name="joystickCmdVel"/>
 
+
+    <!-- only if joystick used alone-->
+    <group if="$(arg joystickOnly)">
+    <!-- ADS communication between Beckhoff PLC and ROS program-->
+        <node pkg="platform_communication" type="ADSCommunication" name="ADSCommunication"/>
+    </group>
+    
+   
 
 </launch>
