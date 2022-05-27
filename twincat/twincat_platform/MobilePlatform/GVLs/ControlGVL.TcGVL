@@ -24,7 +24,7 @@ VAR_GLOBAL
 	
 	TimeStamp : LREAL := 0.0;
 	
-	vel_robot : ARRAY [1..4] OF LREAL := [0,0,0,0]; //commands platform velocity x-y-th + timestamp	from ROS
+	vel_robot : ARRAY [1..3] OF LREAL := [0,0,0]; //commands platform velocity x-y-th + timestamp	from ROS
 	robot_odom : ARRAY [1..6] OF LREAL := [0,0,0,0,0,0]; //acctual position and velocity robot order pos-vel x-y-th
 	
 	
