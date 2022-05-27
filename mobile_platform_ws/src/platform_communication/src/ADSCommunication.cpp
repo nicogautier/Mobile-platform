@@ -49,7 +49,7 @@ AdsDevice route{ remoteIpV4, remoteNetId, AMSPORT_R0_PLC_TC3 };
 
 
 //init PLC variables (velocity stream)
-AdsVariable<std::array<double, 4>> vel_robot{ route, "ControlGVL.vel_robot" };
+AdsVariable<std::array<double, 3>> vel_robot{ route, "ControlGVL.vel_robot" };
 
 //odometry publisher
 ros::Publisher pub_odom;

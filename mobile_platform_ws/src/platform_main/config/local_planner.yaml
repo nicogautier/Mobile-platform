@@ -66,7 +66,7 @@ TebLocalPlannerROS:
  weight_kinematics_forward_drive: 0
  weight_kinematics_turning_radius: 0
  weight_optimaltime: 5
- weight_obstacle: 400
+ weight_obstacle: 300
  weight_dynamic_obstacle: 400 
  weight_inflation: 0.14
  weight_shortest_path: 5
