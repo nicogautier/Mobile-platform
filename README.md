@@ -59,6 +59,18 @@ The **FB_RUN_MOTOR** controls all 4 wheels for holonomic movements. It also impl
 #### Sensors
 The **SensorsMain** program manages the communication with the two sensors. It calculates the fields to be applied according to the current direction. It also limits the maximum speed allowed according to the fields of the sensors that are triggered. There are 8 different orientations (see next section).
 
+#### Variables you might want to adjust
+
+For future people who will work on the platform, here are some variables that you will probably have to adapt to your new constraints.
+
+| Name| Type | Description |
+|------|------|------|
+|ControlGVL.vel_robot| LReal[3]| Velocity command sent by the ROS program.|
+|ControlGVL.robot_odom|LReal[6]|Odometry send to the ROS program.|
+|FB_RUN_MOTOR.ACC_MAX| LReal| Maximum acceleration allowed for the motors.|
+|FB_RUN_MOTOR.VEL_WHEEL_MAX|LReal|Maximum speed allowed for the motors.|
+|SensorsMain.VMAX|LReal|Maximum speed allowed for the platform when no safety field is triggered (other maximum speeds are also based on this value.)|
+|SensorsMain.VTHMAX|LReal|Maximum permissible rotation speed of the platform when the first safety field is not triggered.|
 
 
 ### SICK sensors security
