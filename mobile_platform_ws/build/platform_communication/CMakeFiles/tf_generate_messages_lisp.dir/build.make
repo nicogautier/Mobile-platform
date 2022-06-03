@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/Mobile-platform/mobile_platform_ws/src
+CMAKE_SOURCE_DIR = /home/student/Desktop/Mobile-platform/mobile_platform_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/Mobile-platform/mobile_platform_ws/build
+CMAKE_BINARY_DIR = /home/student/Desktop/Mobile-platform/mobile_platform_ws/build
 
 # Utility rule file for tf_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ platform_communication/CMakeFiles/tf_generate_messages_lisp.dir/build: tf_genera
 .PHONY : platform_communication/CMakeFiles/tf_generate_messages_lisp.dir/build
 
 platform_communication/CMakeFiles/tf_generate_messages_lisp.dir/clean:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build/platform_communication && $(CMAKE_COMMAND) -P CMakeFiles/tf_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_communication && $(CMAKE_COMMAND) -P CMakeFiles/tf_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : platform_communication/CMakeFiles/tf_generate_messages_lisp.dir/clean
 
 platform_communication/CMakeFiles/tf_generate_messages_lisp.dir/depend:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/Mobile-platform/mobile_platform_ws/src /home/student/Mobile-platform/mobile_platform_ws/src/platform_communication /home/student/Mobile-platform/mobile_platform_ws/build /home/student/Mobile-platform/mobile_platform_ws/build/platform_communication /home/student/Mobile-platform/mobile_platform_ws/build/platform_communication/CMakeFiles/tf_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/Desktop/Mobile-platform/mobile_platform_ws/src /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_communication /home/student/Desktop/Mobile-platform/mobile_platform_ws/build /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_communication /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_communication/CMakeFiles/tf_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : platform_communication/CMakeFiles/tf_generate_messages_lisp.dir/depend
 

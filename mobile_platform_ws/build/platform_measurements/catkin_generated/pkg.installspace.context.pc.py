@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "platform_measurements"
-PROJECT_SPACE_DIR = "/home/student/Mobile-platform/mobile_platform_ws/install"
+PROJECT_SPACE_DIR = "/home/student/Desktop/Mobile-platform/mobile_platform_ws/install"
 PROJECT_VERSION = "0.0.0"

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/student/Mobile-platform/mobile_platform_ws/src/platform_measurements/src/simpleTrajectories.cpp
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_measurements/src/simpleTrajectories.cpp
 ros/ros.h
 -
 geometry_msgs/Vector3.h

@@ -7,4 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export PWD='/home/student/Mobile-platform/mobile_platform_ws/build'
+export LD_LIBRARY_PATH='/home/student/catkin_ws/devel/lib:/opt/ros/melodic/lib'
+export PKG_CONFIG_PATH='/opt/ros/melodic/lib/pkgconfig'
+export PWD='/home/student/Desktop/Mobile-platform/mobile_platform_ws/build'
+export ROS_PACKAGE_PATH='/home/student/Desktop/Mobile-platform/mobile_platform_ws/src:/home/student/catkin_ws/src:/opt/ros/melodic/share'

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/simpleTrajectories.dir/src/simpleTrajectories.cpp.o"
-  "/home/student/Mobile-platform/mobile_platform_ws/devel/lib/platform_measurements/simpleTrajectories.pdb"
-  "/home/student/Mobile-platform/mobile_platform_ws/devel/lib/platform_measurements/simpleTrajectories"
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/platform_measurements/simpleTrajectories.pdb"
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/platform_measurements/simpleTrajectories"
 )
 
 # Per-language clean rules from dependency scanning.

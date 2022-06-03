@@ -1,4 +1,4 @@
-prefix=/home/student/Mobile-platform/mobile_platform_ws/devel
+prefix=/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel
 
 Name: platform_measurements
 Description: Description of platform_measurements

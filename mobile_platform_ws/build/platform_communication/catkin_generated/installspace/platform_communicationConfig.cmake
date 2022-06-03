@@ -67,14 +67,14 @@ set(platform_communication_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(platform_communication_SOURCE_PREFIX /home/student/Mobile-platform/mobile_platform_ws/src/platform_communication)
-  set(platform_communication_DEVEL_PREFIX /home/student/Mobile-platform/mobile_platform_ws/devel)
+  set(platform_communication_SOURCE_PREFIX /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_communication)
+  set(platform_communication_DEVEL_PREFIX /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel)
   set(platform_communication_INSTALL_PREFIX "")
   set(platform_communication_PREFIX ${platform_communication_DEVEL_PREFIX})
 else()
   set(platform_communication_SOURCE_PREFIX "")
   set(platform_communication_DEVEL_PREFIX "")
-  set(platform_communication_INSTALL_PREFIX /home/student/Mobile-platform/mobile_platform_ws/install)
+  set(platform_communication_INSTALL_PREFIX /home/student/Desktop/Mobile-platform/mobile_platform_ws/install)
   set(platform_communication_PREFIX ${platform_communication_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/student/Mobile-platform/mobile_platform_ws/install/lib;/home/student/Mobile-platform/mobile_platform_ws/devel/lib;/home/student/catkin_ws_vr_sk2/devel/lib;/home/student/catkin_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/student/Desktop/Mobile-platform/mobile_platform_ws/install/lib;/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib;/home/student/catkin_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

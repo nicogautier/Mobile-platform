@@ -1,8 +1,8 @@
-# Install script for directory: /home/student/Mobile-platform/mobile_platform_ws/src/platform_measurements
+# Install script for directory: /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_measurements
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/student/Mobile-platform/mobile_platform_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/student/Desktop/Mobile-platform/mobile_platform_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/student/Mobile-platform/mobile_platform_ws/build/platform_measurements/catkin_generated/installspace/platform_measurements.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_measurements/catkin_generated/installspace/platform_measurements.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_measurements/cmake" TYPE FILE FILES
-    "/home/student/Mobile-platform/mobile_platform_ws/build/platform_measurements/catkin_generated/installspace/platform_measurementsConfig.cmake"
-    "/home/student/Mobile-platform/mobile_platform_ws/build/platform_measurements/catkin_generated/installspace/platform_measurementsConfig-version.cmake"
+    "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_measurements/catkin_generated/installspace/platform_measurementsConfig.cmake"
+    "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_measurements/catkin_generated/installspace/platform_measurementsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_measurements" TYPE FILE FILES "/home/student/Mobile-platform/mobile_platform_ws/src/platform_measurements/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_measurements" TYPE FILE FILES "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_measurements/package.xml")
 endif()
 

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o"
-  "/home/student/Mobile-platform/mobile_platform_ws/devel/lib/platform_joystick/joystickCmdVel.pdb"
-  "/home/student/Mobile-platform/mobile_platform_ws/devel/lib/platform_joystick/joystickCmdVel"
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/platform_joystick/joystickCmdVel.pdb"
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/platform_joystick/joystickCmdVel"
 )
 
 # Per-language clean rules from dependency scanning.

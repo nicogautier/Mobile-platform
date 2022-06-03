@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/student/Mobile-platform/mobile_platform_ws/src/platform_joystick/src/joystickCmdVel.cpp" "/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o"
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_joystick/src/joystickCmdVel.cpp" "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

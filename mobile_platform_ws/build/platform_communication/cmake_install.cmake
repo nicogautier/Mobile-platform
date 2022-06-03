@@ -1,8 +1,8 @@
-# Install script for directory: /home/student/Mobile-platform/mobile_platform_ws/src/platform_communication
+# Install script for directory: /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_communication
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/student/Mobile-platform/mobile_platform_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/student/Desktop/Mobile-platform/mobile_platform_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/student/Mobile-platform/mobile_platform_ws/build/platform_communication/catkin_generated/installspace/platform_communication.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_communication/catkin_generated/installspace/platform_communication.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_communication/cmake" TYPE FILE FILES
-    "/home/student/Mobile-platform/mobile_platform_ws/build/platform_communication/catkin_generated/installspace/platform_communicationConfig.cmake"
-    "/home/student/Mobile-platform/mobile_platform_ws/build/platform_communication/catkin_generated/installspace/platform_communicationConfig-version.cmake"
+    "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_communication/catkin_generated/installspace/platform_communicationConfig.cmake"
+    "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_communication/catkin_generated/installspace/platform_communicationConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_communication" TYPE FILE FILES "/home/student/Mobile-platform/mobile_platform_ws/src/platform_communication/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_communication" TYPE FILE FILES "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_communication/package.xml")
 endif()
 

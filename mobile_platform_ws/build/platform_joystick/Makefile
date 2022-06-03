@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/Mobile-platform/mobile_platform_ws/src
+CMAKE_SOURCE_DIR = /home/student/Desktop/Mobile-platform/mobile_platform_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/Mobile-platform/mobile_platform_ws/build
+CMAKE_BINARY_DIR = /home/student/Desktop/Mobile-platform/mobile_platform_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles /home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/progress.marks
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_joystick/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_joystick/CMakeFiles/progress.marks
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_joystick/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_joystick/clean
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_joystick/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_joystick/preinstall
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_joystick/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_joystick/preinstall
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_joystick/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 platform_joystick/CMakeFiles/joystickCmdVel.dir/rule:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_joystick/CMakeFiles/joystickCmdVel.dir/rule
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_joystick/CMakeFiles/joystickCmdVel.dir/rule
 .PHONY : platform_joystick/CMakeFiles/joystickCmdVel.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ joystickCmdVel: platform_joystick/CMakeFiles/joystickCmdVel.dir/rule
 
 # fast build rule for target.
 joystickCmdVel/fast:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/build
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/build
 .PHONY : joystickCmdVel/fast
 
 src/joystickCmdVel.o: src/joystickCmdVel.cpp.o
@@ -188,7 +188,7 @@ src/joystickCmdVel.o: src/joystickCmdVel.cpp.o
 
 # target to build an object file
 src/joystickCmdVel.cpp.o:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.o
 .PHONY : src/joystickCmdVel.cpp.o
 
 src/joystickCmdVel.i: src/joystickCmdVel.cpp.i
@@ -197,7 +197,7 @@ src/joystickCmdVel.i: src/joystickCmdVel.cpp.i
 
 # target to preprocess a source file
 src/joystickCmdVel.cpp.i:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.i
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.i
 .PHONY : src/joystickCmdVel.cpp.i
 
 src/joystickCmdVel.s: src/joystickCmdVel.cpp.s
@@ -206,7 +206,7 @@ src/joystickCmdVel.s: src/joystickCmdVel.cpp.s
 
 # target to generate assembly for a file
 src/joystickCmdVel.cpp.s:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.s
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_joystick/CMakeFiles/joystickCmdVel.dir/build.make platform_joystick/CMakeFiles/joystickCmdVel.dir/src/joystickCmdVel.cpp.s
 .PHONY : src/joystickCmdVel.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/student/Mobile-platform/mobile_platform_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

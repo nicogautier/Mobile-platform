@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/student/Mobile-platform/mobile_platform_ws/src/platform_joystick/src/joystickCmdVel.cpp
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_joystick/src/joystickCmdVel.cpp
 ros/ros.h
 -
 geometry_msgs/Twist.h
@@ -14,46 +14,6 @@ geometry_msgs/Twist.h
 sensor_msgs/Joy.h
 -
 cob_srvs/SetInt.h
--
-
-/opt/ros/melodic/include/cob_srvs/SetInt.h
-ros/service_traits.h
--
-cob_srvs/SetIntRequest.h
--
-cob_srvs/SetIntResponse.h
--
-
-/opt/ros/melodic/include/cob_srvs/SetIntRequest.h
-string
--
-vector
--
-map
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-
-/opt/ros/melodic/include/cob_srvs/SetIntResponse.h
-string
--
-vector
--
-map
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
 -
 
 /opt/ros/melodic/include/geometry_msgs/Twist.h

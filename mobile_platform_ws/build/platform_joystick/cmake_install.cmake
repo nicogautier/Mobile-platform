@@ -1,8 +1,8 @@
-# Install script for directory: /home/student/Mobile-platform/mobile_platform_ws/src/platform_joystick
+# Install script for directory: /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_joystick
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/student/Mobile-platform/mobile_platform_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/student/Desktop/Mobile-platform/mobile_platform_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/catkin_generated/installspace/platform_joystick.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_joystick/catkin_generated/installspace/platform_joystick.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_joystick/cmake" TYPE FILE FILES
-    "/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/catkin_generated/installspace/platform_joystickConfig.cmake"
-    "/home/student/Mobile-platform/mobile_platform_ws/build/platform_joystick/catkin_generated/installspace/platform_joystickConfig-version.cmake"
+    "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_joystick/catkin_generated/installspace/platform_joystickConfig.cmake"
+    "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_joystick/catkin_generated/installspace/platform_joystickConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_joystick" TYPE FILE FILES "/home/student/Mobile-platform/mobile_platform_ws/src/platform_joystick/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_joystick" TYPE FILE FILES "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_joystick/package.xml")
 endif()
 
