@@ -3,18 +3,20 @@ import rospy
 import serial
 import crc16
 
-def rcv_data_serial(ser):
+from std_msgs.msg import Int16
+
+def rcv_data_serial():
     data_rcv = []
+    while(True):
+        data = ser.read()
+        print(data, data.encode('hex'))
     return
 
 
-def rcv_serial(ser, cmd):
+def rcv_serial(cmd):
     
     #receive command
-    cmd_rcv = ''
-    cmd_rcv+=ser.read()
-    cmd_rcv+=ser.read()
-    print("received command: " + cmd_rcv)
+    cmd_rcv=ser.read(2)
     
     #assert received the same command
     if(cmd_rcv != cmd):
@@ -22,11 +24,9 @@ def rcv_serial(ser, cmd):
     
     #receive reply parameter
     reply=ser.read()
-    print("reply: " + reply +" "+ reply.encode('hex'))
     
     if(reply=='\x06'): #ACK
-        data = rcv_data_serial(ser)
-        return True, data
+        return True, "ACK"
     elif(reply=='\x80'): #CSE
         return False, "Checksum error"
     elif(reply=='\x81'): #PDE
@@ -41,10 +41,7 @@ def rcv_serial(ser, cmd):
     return False, "Did not receive correct communication error or acknowledge codes"
 
 
-def send_serial(ser, cmd, data):
-    
-    #little endian data
-    data = data[::-1]
+def send_serial(cmd, data):
     
     #command + request parameter
     send = cmd
@@ -53,41 +50,99 @@ def send_serial(ser, cmd, data):
         
     #checksum
     crc = crc16.crc16xmodem(send)
-    print("checksum: " + str(crc))
     send += chr(crc%256) + chr(crc/256)
     
     #send serial
-    print("data send str: " +send + "  hex: "+ send.encode('hex'))
+    #print("data send str: " +send + "  hex: "+ send.encode('hex'))
     ser.write(send)
     
+  
+  
+def exch_serial(cmd, option = ''):
+    if(cmd=="RO"):
+        param = [0]
+    elif(cmd=="RC"):
+        param=[1, 0, 255]
+    elif(cmd=="RG"):
+        if(option== "position"):
+            param=[17,0]
+        elif(option== "status"):
+            param=[113,1]
+        else:
+            return False
+    elif(cmd=="RE"):
+        param=[0,9,255]
+    else:
+        return
+    
+    send_serial(cmd, param)  
+    success, rcv = rcv_serial(cmd)
+    print("command " + cmd + " sucess: " + str(success) + " informations: " + rcv)
+    
+    data = ''
+    
+    if(cmd=="RG"):
+        if(option== "position"):
+            data_rcv = ser.read(2)
+            if(data_rcv.encode('hex')!= '0400'):
+                print("Wrong reply parameter")
+                return False
+
+            data_rcv = ser.read(4)
+            data = int(data_rcv[::-1].encode('hex'), 16)*900/1500
+            print("position lift " + str(data) )    
+        elif(option== "status"):
+            data_rcv = ser.read(2)
+            if(data_rcv.encode('hex')!= '0100'):
+                print("Wrong reply parameter")
+                return False
+            data_rcv = ser.read()
+            print("status: " + data_rcv.encode('hex'))
+    
+    checksum = ser.read(2)
+    
+    return success, data
+
+
+def callback(data):
+    print(data)
     
 
 def main():
     rospy.init_node('lift_communication', anonymous=True)
-    
+    pub_pos = rospy.Publisher('lift_pos', Int16, queue_size=10)
    
     
-    rate = rospy.Rate(1) 
-    
-    #initialize serial communication
-    ser = serial.Serial(port='/dev/ttyUSB0',baudrate=38400,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS)
-    print("Connected to serial: " + str(ser.is_open) )
+    rate = rospy.Rate(4) 
     
     
     
-    cmd ="RO"
-    send_serial(ser, "RO", [0])
-
-
-    success, rcv = rcv_serial(ser, cmd)
-    print(success, rcv)
+    
+    
+    exch_serial("RO")
+    exch_serial("RC")
+    #exch_serial("RE")
+    
+    exch_serial("RG", "status")
     
 
-    #while not rospy.is_shutdown():
-    #    rate.sleep()
+    
+    while not rospy.is_shutdown():
+        if(not exch_serial("RC")):
+            break
+        sucess, data = exch_serial("RG", "position")
+        if(sucess):
+            pub_pos.publish(data)
+            
+        
+        rate.sleep()
         
 
+    send_serial("RA", [])
     ser.close()
 
 if __name__ == '__main__':
+    #initialize serial communication
+    ser = serial.Serial(port='/dev/ttyUSB0',baudrate=38400,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS)
+    print("Connected to serial: " + str(ser.is_open) )
     main()
