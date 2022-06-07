@@ -5,15 +5,10 @@ import crc16
 
 from std_msgs.msg import Int16
 
-def rcv_data_serial():
-    data_rcv = []
-    while(True):
-        data = ser.read()
-        print(data, data.encode('hex'))
-    return
 
 
-def rcv_serial(cmd):
+
+def rcv_codes(cmd):
     
     #receive command
     cmd_rcv=ser.read(2)
@@ -41,6 +36,39 @@ def rcv_serial(cmd):
     return False, "Did not receive correct communication error or acknowledge codes"
 
 
+
+
+
+def rcv_datas(cmd, option):
+    data = ''
+    
+    #get the datas if there is one
+    if(cmd=="RG"):
+        if(option== "position"):
+            data_rcv = ser.read(2)
+            if(data_rcv.encode('hex')!= '0400'): #assert we will receive 4 bytes
+                print("Wrong reply parameter")
+                return False
+            data_rcv = ser.read(4)
+            data = int(data_rcv[::-1].encode('hex'), 16)*900/1500
+            print("position lift " + str(data) )  
+              
+        elif(option== "status"):
+            data_rcv = ser.read(2)
+            if(data_rcv.encode('hex')!= '0100'): #assert we will receive 1 byte
+                print("Wrong reply parameter")
+                return False
+            data_rcv = ser.read()
+            data = int(data_rcv.encode('hex'), 16)
+            print("status: " + str(data))
+            
+              
+    checksum = ser.read(2)
+    return True, data  
+
+
+
+
 def send_serial(cmd, data):
     
     #command + request parameter
@@ -53,59 +81,56 @@ def send_serial(cmd, data):
     send += chr(crc%256) + chr(crc/256)
     
     #send serial
-    #print("data send str: " +send + "  hex: "+ send.encode('hex'))
     ser.write(send)
     
-  
-  
-def exch_serial(cmd, option = ''):
-    if(cmd=="RO"):
-        param = [0]
-    elif(cmd=="RC"):
-        param=[1, 0, 255]
+    
+    
+    
+    
+def get_param_from_command(cmd, option): 
+    if(cmd=="RO"): #open remote mode
+        param = [0] 
+    elif(cmd=="RC"): #remote cyclic
+        param=[1, 0, 255] 
     elif(cmd=="RG"):
-        if(option== "position"):
+        if(option== "position"): #get position
             param=[17,0]
-        elif(option== "status"):
+        elif(option== "status"): #get status
             param=[113,1]
         else:
             return False
-    elif(cmd=="RE"):
+    elif(cmd=="RE"): #move
         param=[0,9,255]
     else:
-        return
+        return False
+    
+    return True, param
+
+
+
+
+  
+def exch_serial(cmd, option = ''):
+    
+    sucess, param = get_param_from_command(cmd, option)
+    if(not sucess):
+        return False, "Wrong command send"
     
     send_serial(cmd, param)  
-    success, rcv = rcv_serial(cmd)
+    
+    success, rcv = rcv_codes(cmd)
     print("command " + cmd + " sucess: " + str(success) + " informations: " + rcv)
+    if(not success):
+        return False, rcv 
     
-    data = ''
     
-    if(cmd=="RG"):
-        if(option== "position"):
-            data_rcv = ser.read(2)
-            if(data_rcv.encode('hex')!= '0400'):
-                print("Wrong reply parameter")
-                return False
-
-            data_rcv = ser.read(4)
-            data = int(data_rcv[::-1].encode('hex'), 16)*900/1500
-            print("position lift " + str(data) )    
-        elif(option== "status"):
-            data_rcv = ser.read(2)
-            if(data_rcv.encode('hex')!= '0100'):
-                print("Wrong reply parameter")
-                return False
-            data_rcv = ser.read()
-            print("status: " + data_rcv.encode('hex'))
-    
-    checksum = ser.read(2)
-    
+    success, data = rcv_datas(cmd, option)
     return success, data
 
 
-def callback(data):
-    print(data)
+
+
+
     
 
 def main():
@@ -125,9 +150,11 @@ def main():
     
     exch_serial("RG", "status")
     
+    
+    
 
     
-    while not rospy.is_shutdown():
+    """while not rospy.is_shutdown():
         if(not exch_serial("RC")):
             break
         sucess, data = exch_serial("RG", "position")
@@ -135,7 +162,7 @@ def main():
             pub_pos.publish(data)
             
         
-        rate.sleep()
+        rate.sleep()"""
         
 
     send_serial("RA", [])
