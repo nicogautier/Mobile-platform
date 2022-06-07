@@ -4,91 +4,12 @@ import serial
 import crc16
 import signal
 
+
 from std_msgs.msg import Int16
 
 
 
-
-def rcv_codes(cmd):
-    
-    #receive command
-    cmd_rcv=ser.read(2)
-    
-    #assert received the same command
-    if(cmd_rcv != cmd):
-        return False, "Did not received same command"
-    
-    #receive reply parameter
-    reply=ser.read()
-    
-    if(reply=='\x06'): #ACK
-        return True, "ACK"
-    elif(reply=='\x80'): #CSE
-        return False, "Checksum error"
-    elif(reply=='\x81'): #PDE
-        return False, "Parameter data error"
-    elif(reply=='\x82'): #PCE
-        return False, "Parameter count error"
-    elif(reply=='\x83'): #ICE
-        return False, "Invalid command error"
-    elif(reply=='\x84'): #PE
-        return False, "Permission error"
-    
-    return False, "Did not receive correct communication error or acknowledge codes"
-
-
-
-
-
-def rcv_parameters(cmd, option):
-    data = ''
-    
-    #get the datas if there is one
-    if(cmd=="RG"):
-        if(option== "position"):
-            data_rcv = ser.read(2)
-            if(data_rcv.encode('hex')!= '0400'): #assert we will receive 4 bytes
-                print("Wrong reply parameter")
-                return False
-            data_rcv = ser.read(4)
-            data = int(data_rcv[::-1].encode('hex'), 16)*3/5
-             
-              
-        elif(option== "status"):
-            data_rcv = ser.read(2)
-            if(data_rcv.encode('hex')!= '0100'): #assert we will receive 1 byte
-                print("Wrong reply parameter")
-                return False
-            data_rcv = ser.read()
-            data = int(data_rcv.encode('hex'), 16)
-            
-            
-    #get the checksum          
-    checksum = ser.read(2)
-    return True, data  
-
-
-
-
-def send_serial(cmd, data):
-    
-    #command + request parameter
-    send = cmd
-    for i in data:
-        send += chr(i)
-        
-    #checksum
-    crc = crc16.crc16xmodem(send)
-    send += chr(crc%256) + chr(crc/256)
-    
-    #send serial
-    ser.write(send)
-    
-    
-    
-    
-    
-def get_param_from_command(cmd, option, data = 0): 
+def get_param(cmd, option, data = 0): 
     if(cmd=="RO"): #open remote mode
         param = [0] 
     elif(cmd=="RC"): #remote cyclic
@@ -124,6 +45,8 @@ def get_param_from_command(cmd, option, data = 0):
             elif(data>900):
                 data = 900
             param = [6, 0, 33, 48, data%256, (data/256)%256, data/(256*256), 0 ]
+    elif(cmd=="RS"):
+        param = [0, 255]
     else:
         return False
     
@@ -132,10 +55,90 @@ def get_param_from_command(cmd, option, data = 0):
 
 
 
+
+def send_serial(cmd, data):
+    
+    #command + request parameter
+    send = cmd
+    for i in data:
+        send += chr(i)
+        
+    #checksum
+    crc = crc16.crc16xmodem(send)
+    send += chr(crc%256) + chr(crc/256)
+    
+    #send serial
+    ser.write(send)
+    
+    
+    
+    
+    
+
+def rcv_codes(cmd):
+    
+    #receive command
+    cmd_rcv=ser.read(2)
+    
+    #assert received the same command
+    if(cmd_rcv != cmd):
+        return False, "Did not received same command"
+    
+    #receive reply parameter
+    reply=ser.read()
+    
+    if(reply=='\x06'): #ACK
+        return True, "ACK"
+    elif(reply=='\x80'): #CSE
+        return False, "Checksum error"
+    elif(reply=='\x81'): #PDE
+        return False, "Parameter data error"
+    elif(reply=='\x82'): #PCE
+        return False, "Parameter count error"
+    elif(reply=='\x83'): #ICE
+        return False, "Invalid command error"
+    elif(reply=='\x84'): #PE
+        return False, "Permission error"
+    
+    return False, "Did not receive correct communication error or acknowledge codes"
+
+
+
+
+
+
+def rcv_data(option):
+    
+    if(option== "position"):
+        data_rcv = ser.read(2)
+        if(data_rcv.encode('hex')!= '0400'): #assert we will receive 4 bytes
+            print("Wrong reply parameter")
+            return False
+        data_rcv = ser.read(4)
+        data = int(data_rcv[::-1].encode('hex'), 16)*3/5
+         
+          
+    elif(option== "status"):
+        data_rcv = ser.read(2)
+        if(data_rcv.encode('hex')!= '0100'): #assert we will receive 1 byte
+            print("Wrong reply parameter")
+            return False
+        data_rcv = ser.read()
+        data = int(data_rcv.encode('hex'), 16)
+    
+    else:
+        return False, "Wrong option"
+            
+    
+    return True, data  
+
+
+
+
   
 def exch_serial(cmd, option = '', arg= 0):
     
-    sucess, param = get_param_from_command(cmd, option, arg)
+    sucess, param = get_param(cmd, option, arg)
     if(not sucess):
         return False, "Wrong command send"
     
@@ -145,8 +148,14 @@ def exch_serial(cmd, option = '', arg= 0):
     if(not success):
         return False, rcv 
     
+    data = ""
+    if(cmd=="RG"):
+        success, data = rcv_data(option)
     
-    success, data = rcv_parameters(cmd, option)
+    
+    #get the checksum          
+    checksum = ser.read(2)
+    
     return success, data
 
 
@@ -202,32 +211,55 @@ def main():
     rate = rospy.Rate(4) 
     
     init_serial()
+    exch_serial("RS")
     
-    
-    print("RE stop",exch_serial("RE", "stop"))
-    #s,v = exch_serial("RE", "position")
 
+    reach_goal = True
     
     while not rospy.is_shutdown():
         
-        
-        if(not exch_serial("RC")):
+
+        if(not exch_serial("RC")): #cyclic 
             break
-        sucess, data = exch_serial("RG", "position")
+        
+        """
+        sucess, data = exch_serial("RG", "position") 
         if(sucess):
             pub_pos.publish(data)
             print("position lift: " + str(data) + " mm")
+            sucess
         else:
             break    
+        """
         
-        global new_goal, pos_goal
-        if(new_goal):
-            new_goal = False
-           
+        #reset movement function if reach final position
+        if(not reach_goal):
+            sucess, status = exch_serial("RG", "status")
+            if(sucess):
+                if(not (status&16)): #stop motion -> reach final position
+                    exch_serial("RS") #reset function
+                    reach_goal=True
+            else:
+                break
             
-            print("RT pos",exch_serial("RT", "position", pos_goal))
-            print("RE pos",exch_serial("RE", "position"))
-            #print("RC",exch_serial("RC"))
+            
+        #apply new position goal
+        global new_goal, pos_goal
+        if(new_goal): 
+            new_goal = False
+            
+            if(not reach_goal): #if already in movement reset 
+                exch_serial("RS") 
+                rate.sleep()
+  
+                
+            reach_goal = False
+            
+            #set desired position and start function
+            exch_serial("RT", "position", pos_goal)  
+            rate.sleep()
+            exch_serial("RE", "position")    
+
             
         
         rate.sleep()
@@ -254,6 +286,7 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, handler)
     
     new_goal = False
+    
     pos_goal = 0
     
     main()
