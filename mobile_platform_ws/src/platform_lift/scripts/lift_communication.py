@@ -19,6 +19,8 @@ def get_param(cmd, option, data = 0):
             param=[17,0]
         elif(option== "status"): #get status
             param=[113,1]
+        elif(option=="factor"):
+            param = [17, 16]
         else:
             return False, []
     elif(cmd=="RE"): #remote execute
@@ -42,8 +44,9 @@ def get_param(cmd, option, data = 0):
         elif(option=="position"): #position 
             if(data<0):
                 data=0
-            elif(data>900):
-                data = 900
+            elif(data>450):
+                data = 450
+            data = int(data/0.3)
             param = [6, 0, 33, 48, data%256, (data/256)%256, data/(256*256), 0 ]
     elif(cmd=="RS"):
         param = [0, 255]
@@ -82,6 +85,7 @@ def rcv_codes(cmd):
     
     #assert received the same command
     if(cmd_rcv != cmd):
+        print(cmd_rcv.encode('hex'))
         return False, "Did not received same command"
     
     #receive reply parameter
@@ -115,7 +119,7 @@ def rcv_data(option):
             print("Wrong reply parameter")
             return False
         data_rcv = ser.read(4)
-        data = int(data_rcv[::-1].encode('hex'), 16)*3/5
+        data = int(data_rcv[::-1].encode('hex'), 16)*0.3
          
           
     elif(option== "status"):
@@ -128,6 +132,7 @@ def rcv_data(option):
     
     else:
         return False, "Wrong option"
+    
             
     
     return True, data  
@@ -196,11 +201,14 @@ def init_serial():
         print("Error communication")
         exit(1)
         
+    
     if(not exch_serial("RT", "speed", 100)):
         print("Error set speed")
         exit(1)
-  
+        
 
+
+    
 def main():
     rospy.init_node('lift_communication', anonymous=True)
     pub_pos = rospy.Publisher('pos_lift', Int16, queue_size=10)
@@ -212,25 +220,30 @@ def main():
     
     init_serial()
     exch_serial("RS")
-    
-
     reach_goal = True
     
+    
+    exch_serial("RE", "dow")
+    
+    
+    
+    
     while not rospy.is_shutdown():
+        
         
 
         if(not exch_serial("RC")): #cyclic 
             break
         
-        """
+        
         sucess, data = exch_serial("RG", "position") 
         if(sucess):
-            pub_pos.publish(data)
+            #pub_pos.publish(data)
             print("position lift: " + str(data) + " mm")
-            sucess
+            
         else:
             break    
-        """
+        
         
         #reset movement function if reach final position
         if(not reach_goal):
@@ -288,5 +301,9 @@ if __name__ == '__main__':
     new_goal = False
     
     pos_goal = 0
+    
+    
+    
+    
     
     main()
