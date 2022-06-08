@@ -3,6 +3,12 @@ import rospy
 import serial
 import crc16
 import signal
+import threading
+
+
+
+global sem
+
 
 
 from std_msgs.msg import Int16
@@ -22,9 +28,11 @@ def get_param(cmd, option, data = 0):
         elif(option== "status"): #get status
             if((data!=0) and (data!=1)):
                 return False, []
-            param=[113,1+data]
+            param=[113+data,1]
         elif(option=="factor"):
             param = [17, 16]
+        elif(option=="speed"):
+            param=[26, 48]
         else:
             return False, []
     elif(cmd=="RE"): #remote execute
@@ -63,7 +71,7 @@ def get_param(cmd, option, data = 0):
                 data = 450
             data = int(data/0.3)
             param = [6, 0, 34, 48, data%256, (data/256)%256, data/(256*256), 0 ]
-    elif(cmd=="RS"):
+    elif(cmd=="RS"): #reset function
         if(option=="A1"):
             param = [0, 255]
         elif(option=="A2"):
@@ -101,6 +109,7 @@ def rcv_codes(ser, cmd):
     #receive command
     cmd_rcv=ser.read(2)
     
+        
     #assert received the same command
     if(cmd_rcv != cmd):
         return False, "Did not received same command"
@@ -130,6 +139,8 @@ def rcv_codes(ser, cmd):
 
 def rcv_data(ser, option):
     
+    
+    
     if(option== "position"):
         data_rcv = ser.read(2)
         if(data_rcv.encode('hex')!= '0400'): #assert we will receive 4 bytes
@@ -146,11 +157,17 @@ def rcv_data(ser, option):
             return False
         data_rcv = ser.read()
         data = int(data_rcv.encode('hex'), 16)
+        
+    elif(option=="speed"):
+        data_rcv = ser.read(2)
+        if(data_rcv.encode('hex')!= '0200'): #assert we will receive 4 bytes
+            print("Wrong reply parameter")
+            return False
+        data_rcv = ser.read(2)
+        data = int(data_rcv[::-1].encode('hex'), 16)
     
     else:
         return False, "Wrong option"
-    
-            
     
     return True, data  
 
@@ -159,6 +176,9 @@ def rcv_data(ser, option):
 
   
 def exch_serial(ser, cmd, option = '', arg= 0):
+    global sem
+    if(cmd!="RA"):
+        sem.acquire()
     
     sucess, param = get_param(cmd, option, arg)
     if(not sucess):
@@ -177,6 +197,10 @@ def exch_serial(ser, cmd, option = '', arg= 0):
     
     #get the checksum          
     checksum = ser.read(2)
+    
+    sem.release()
+
+
     
     return success, data
 
@@ -199,6 +223,9 @@ def callback_cmd_lift(data):
     
     
 def init_serial_communication(ser):
+    global sem
+    sem = threading.Semaphore()
+    
     if(exch_serial(ser,"RO")):
         print("Remote Mode open")
     else:
@@ -211,18 +238,10 @@ def init_serial_communication(ser):
         print("failed to activate remote cyclic")
         exit(1)
     
-    sucess, status = exch_serial(ser,"RG", "status")
-    if(sucess):
-        print("status: " + str(status))
-    else:
-        print("Error communication")
-        exit(1)
+
         
     
-    if(not exch_serial(ser,"RT", "speed", 10)):
-        print("Error set speed")
-        exit(1)
-        
+   
 
 
     
@@ -251,7 +270,12 @@ def main():
     reach_goal = True
     
     
-
+    
+    if(not exch_serial(ser,"RT", "speed", 30)):
+        print("Error set speed")
+        exit(1)
+        
+    print(exch_serial(ser,"RG", "speed"))
     
     
     

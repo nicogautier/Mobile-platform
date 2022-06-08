@@ -13,7 +13,7 @@ def close_serial(ser):
     ser.close()
 
 def get_pos_A1(ser):
-    sucess, pos = exch_serial("RG", "position",0) 
+    sucess, pos = exch_serial(ser,"RG", "position",0) 
     if(sucess):
         return pos
     else:
@@ -23,7 +23,7 @@ def get_pos_A1(ser):
 
 
 def get_pos_A2(ser):
-    sucess, pos = exch_serial("RG", "position",1) 
+    sucess, pos = exch_serial(ser, "RG", "position",1) 
     if(sucess):
         return pos
     else:
@@ -75,7 +75,7 @@ def start_move_A1(ser):
     
     
 def start_move_A2(ser):
-    if(not exch_serial(ser,"RE", "position_A1") ):
+    if(not exch_serial(ser,"RE", "position_A2") ):
         close_serial(ser)
         return False
     return True   
