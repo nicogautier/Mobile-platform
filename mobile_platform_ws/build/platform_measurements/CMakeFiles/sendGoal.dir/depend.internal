@@ -23,7 +23,18 @@ platform_measurements/CMakeFiles/sendGoal.dir/src/sendGoal.cpp.o
  /opt/ros/melodic/include/actionlib_msgs/GoalID.h
  /opt/ros/melodic/include/actionlib_msgs/GoalStatus.h
  /opt/ros/melodic/include/actionlib_msgs/GoalStatusArray.h
+ /opt/ros/melodic/include/geometry_msgs/Point.h
+ /opt/ros/melodic/include/geometry_msgs/Pose.h
+ /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
+ /opt/ros/melodic/include/geometry_msgs/Quaternion.h
  /opt/ros/melodic/include/geometry_msgs/Vector3.h
+ /opt/ros/melodic/include/move_base_msgs/MoveBaseAction.h
+ /opt/ros/melodic/include/move_base_msgs/MoveBaseActionFeedback.h
+ /opt/ros/melodic/include/move_base_msgs/MoveBaseActionGoal.h
+ /opt/ros/melodic/include/move_base_msgs/MoveBaseActionResult.h
+ /opt/ros/melodic/include/move_base_msgs/MoveBaseFeedback.h
+ /opt/ros/melodic/include/move_base_msgs/MoveBaseGoal.h
+ /opt/ros/melodic/include/move_base_msgs/MoveBaseResult.h
  /opt/ros/melodic/include/ros/advertise_options.h
  /opt/ros/melodic/include/ros/advertise_service_options.h
  /opt/ros/melodic/include/ros/assert.h

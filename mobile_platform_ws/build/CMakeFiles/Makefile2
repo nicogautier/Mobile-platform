@@ -2372,12 +2372,29 @@ clean: platform_joystick/CMakeFiles/joystickCmdVel.dir/clean
 # Directory level rules for directory platform_lift
 
 # Convenience name for "all" pass in the directory.
-platform_lift/all:
+platform_lift/all: platform_lift/CMakeFiles/platform_lift_generate_messages.dir/all
 
 .PHONY : platform_lift/all
 
 # Convenience name for "clean" pass in the directory.
-platform_lift/clean:
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_genpy.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_generate_messages.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_genlisp.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_gencpp.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_geneus.dir/clean
+platform_lift/clean: platform_lift/CMakeFiles/platform_lift_gennodejs.dir/clean
 
 .PHONY : platform_lift/clean
 
@@ -2385,6 +2402,631 @@ platform_lift/clean:
 platform_lift/preinstall:
 
 .PHONY : platform_lift/preinstall
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_genpy.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_genpy.dir/all: platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_genpy.dir/build.make platform_lift/CMakeFiles/platform_lift_genpy.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_genpy.dir/build.make platform_lift/CMakeFiles/platform_lift_genpy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target platform_lift_genpy"
+.PHONY : platform_lift/CMakeFiles/platform_lift_genpy.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_genpy.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_genpy.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_genpy.dir/rule
+
+# Convenience name for target.
+platform_lift_genpy: platform_lift/CMakeFiles/platform_lift_genpy.dir/rule
+
+.PHONY : platform_lift_genpy
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_genpy.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_genpy.dir/build.make platform_lift/CMakeFiles/platform_lift_genpy.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_genpy.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_genpy.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all: platform_communication/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all: platform_communication/CMakeFiles/std_msgs_generate_messages_py.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=47,48,49,50,51,52,53,54 "Built target platform_lift_generate_messages_py"
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/rule
+
+# Convenience name for target.
+platform_lift_generate_messages_py: platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/rule
+
+.PHONY : platform_lift_generate_messages_py
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/all:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target _platform_lift_generate_messages_check_deps_MoveLiftFeedback"
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/rule
+
+# Convenience name for target.
+_platform_lift_generate_messages_check_deps_MoveLiftFeedback: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/rule
+
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftFeedback
+
+# clean rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/clean
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/all:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target _platform_lift_generate_messages_check_deps_MoveLiftAction"
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule
+
+# Convenience name for target.
+_platform_lift_generate_messages_check_deps_MoveLiftAction: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule
+
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftAction
+
+# clean rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/clean
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_generate_messages.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages.dir/all: platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages.dir/all: platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages.dir/all: platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages.dir/all: platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages.dir/all: platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target platform_lift_generate_messages"
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages.dir/all
+
+# Include target in all.
+all: platform_lift/CMakeFiles/platform_lift_generate_messages.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 37
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_generate_messages.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages.dir/rule
+
+# Convenience name for target.
+platform_lift_generate_messages: platform_lift/CMakeFiles/platform_lift_generate_messages.dir/rule
+
+.PHONY : platform_lift_generate_messages
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_generate_messages.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all: platform_communication/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all: platform_communication/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=33,34,35,36,37,38,39 "Built target platform_lift_generate_messages_lisp"
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+platform_lift_generate_messages_lisp: platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/rule
+
+.PHONY : platform_lift_generate_messages_lisp
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/all:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target _platform_lift_generate_messages_check_deps_MoveLiftGoal"
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule
+
+# Convenience name for target.
+_platform_lift_generate_messages_check_deps_MoveLiftGoal: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule
+
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftGoal
+
+# clean rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/clean
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/all:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target _platform_lift_generate_messages_check_deps_MoveLiftActionGoal"
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/rule
+
+# Convenience name for target.
+_platform_lift_generate_messages_check_deps_MoveLiftActionGoal: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/rule
+
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftActionGoal
+
+# clean rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/clean
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/all:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target _platform_lift_generate_messages_check_deps_MoveLiftActionResult"
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/rule
+
+# Convenience name for target.
+_platform_lift_generate_messages_check_deps_MoveLiftActionResult: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/rule
+
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftActionResult
+
+# clean rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/clean
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all: platform_communication/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all: platform_communication/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=18,19,20,21,22,23,24 "Built target platform_lift_generate_messages_cpp"
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+platform_lift_generate_messages_cpp: platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/rule
+
+.PHONY : platform_lift_generate_messages_cpp
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_genlisp.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_genlisp.dir/all: platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_genlisp.dir/build.make platform_lift/CMakeFiles/platform_lift_genlisp.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_genlisp.dir/build.make platform_lift/CMakeFiles/platform_lift_genlisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target platform_lift_genlisp"
+.PHONY : platform_lift/CMakeFiles/platform_lift_genlisp.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_genlisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_genlisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_genlisp.dir/rule
+
+# Convenience name for target.
+platform_lift_genlisp: platform_lift/CMakeFiles/platform_lift_genlisp.dir/rule
+
+.PHONY : platform_lift_genlisp
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_genlisp.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_genlisp.dir/build.make platform_lift/CMakeFiles/platform_lift_genlisp.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_genlisp.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_genlisp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/all:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target _platform_lift_generate_messages_check_deps_MoveLiftActionFeedback"
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/rule
+
+# Convenience name for target.
+_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/rule
+
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftActionFeedback
+
+# clean rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/clean
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_gencpp.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_gencpp.dir/all: platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_gencpp.dir/build.make platform_lift/CMakeFiles/platform_lift_gencpp.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_gencpp.dir/build.make platform_lift/CMakeFiles/platform_lift_gencpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target platform_lift_gencpp"
+.PHONY : platform_lift/CMakeFiles/platform_lift_gencpp.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_gencpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_gencpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_gencpp.dir/rule
+
+# Convenience name for target.
+platform_lift_gencpp: platform_lift/CMakeFiles/platform_lift_gencpp.dir/rule
+
+.PHONY : platform_lift_gencpp
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_gencpp.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_gencpp.dir/build.make platform_lift/CMakeFiles/platform_lift_gencpp.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_gencpp.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_gencpp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all: platform_communication/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all: platform_communication/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=25,26,27,28,29,30,31,32 "Built target platform_lift_generate_messages_eus"
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+platform_lift_generate_messages_eus: platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/rule
+
+.PHONY : platform_lift_generate_messages_eus
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all: platform_communication/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all: platform_communication/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionResult.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback.dir/all
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=40,41,42,43,44,45,46 "Built target platform_lift_generate_messages_nodejs"
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+platform_lift_generate_messages_nodejs: platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/rule
+
+.PHONY : platform_lift_generate_messages_nodejs
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/all:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target _platform_lift_generate_messages_check_deps_MoveLiftResult"
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/rule
+
+# Convenience name for target.
+_platform_lift_generate_messages_check_deps_MoveLiftResult: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/rule
+
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftResult
+
+# clean rule for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/clean
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_geneus.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_geneus.dir/all: platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_geneus.dir/build.make platform_lift/CMakeFiles/platform_lift_geneus.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_geneus.dir/build.make platform_lift/CMakeFiles/platform_lift_geneus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target platform_lift_geneus"
+.PHONY : platform_lift/CMakeFiles/platform_lift_geneus.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_geneus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_geneus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_geneus.dir/rule
+
+# Convenience name for target.
+platform_lift_geneus: platform_lift/CMakeFiles/platform_lift_geneus.dir/rule
+
+.PHONY : platform_lift_geneus
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_geneus.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_geneus.dir/build.make platform_lift/CMakeFiles/platform_lift_geneus.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_geneus.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_geneus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_lift/CMakeFiles/platform_lift_gennodejs.dir
+
+# All Build rule for target.
+platform_lift/CMakeFiles/platform_lift_gennodejs.dir/all: platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/all
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_gennodejs.dir/depend
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num= "Built target platform_lift_gennodejs"
+.PHONY : platform_lift/CMakeFiles/platform_lift_gennodejs.dir/all
+
+# Build rule for subdir invocation for target.
+platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_gennodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule
+
+# Convenience name for target.
+platform_lift_gennodejs: platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule
+
+.PHONY : platform_lift_gennodejs
+
+# clean rule for target.
+platform_lift/CMakeFiles/platform_lift_gennodejs.dir/clean:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_gennodejs.dir/clean
+.PHONY : platform_lift/CMakeFiles/platform_lift_gennodejs.dir/clean
+
+# clean rule for target.
+clean: platform_lift/CMakeFiles/platform_lift_gennodejs.dir/clean
+
+.PHONY : clean
 
 #=============================================================================
 # Directory level rules for directory platform_main
@@ -2433,7 +3075,7 @@ platform_measurements/preinstall:
 platform_measurements/CMakeFiles/simpleTrajectories.dir/all:
 	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/depend
 	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=20,21 "Built target simpleTrajectories"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=57,58 "Built target simpleTrajectories"
 .PHONY : platform_measurements/CMakeFiles/simpleTrajectories.dir/all
 
 # Include target in all.
@@ -2470,7 +3112,7 @@ clean: platform_measurements/CMakeFiles/simpleTrajectories.dir/clean
 platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all:
 	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/depend
 	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=22,23 "Built target trajectoryMeasurements"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=59,60 "Built target trajectoryMeasurements"
 .PHONY : platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all
 
 # Include target in all.
@@ -2507,7 +3149,7 @@ clean: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean
 platform_measurements/CMakeFiles/sendGoal.dir/all:
 	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/depend
 	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=18,19 "Built target sendGoal"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=55,56 "Built target sendGoal"
 .PHONY : platform_measurements/CMakeFiles/sendGoal.dir/all
 
 # Include target in all.

@@ -2,6 +2,10 @@
 from serial_interface import *
 import rospy
 
+import roslib
+roslib.load_manifest('platform_lift')
+#from platform_lift.msg import MoveLift
+
 
 def main():
     rospy.init_node('lift_communication', anonymous=True)

@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(platform_lift_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "include " STREQUAL " ")
   set(platform_lift_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/student/Desktop/Mobile-platform/mobile_platform_ws/install/lib;/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib;/home/student/catkin_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/student/Desktop/Mobile-platform/mobile_platform_ws/install/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(platform_lift_EXPORTED_TARGETS "")
+set(platform_lift_EXPORTED_TARGETS "platform_lift_generate_messages_cpp;platform_lift_generate_messages_eus;platform_lift_generate_messages_lisp;platform_lift_generate_messages_nodejs;platform_lift_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${platform_lift_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${platform_lift_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "actionlib_msgs;std_msgs;message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   list(APPEND platform_lift_EXPORTED_TARGETS ${${platform_lift_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "platform_lift-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${platform_lift_DIR}/${extra})

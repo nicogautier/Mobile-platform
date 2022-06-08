@@ -3,6 +3,6 @@ prefix=/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel
 Name: platform_lift
 Description: Description of platform_lift
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: actionlib_msgs std_msgs message_runtime

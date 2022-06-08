@@ -14,6 +14,9 @@ platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_communication/AdsLib/wrap_endian.h
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_communication/AdsLib/wrap_socket.h
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_communication/src/ADSCommunication.cpp
+platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/cob_srvs/SetInt.h
+platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/cob_srvs/SetIntRequest.h
+platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/cob_srvs/SetIntResponse.h
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/geometry_msgs/PointStamped.h
 platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h

@@ -1,0 +1,7 @@
+uint16 goal_position  
+---
+
+uint16 current_position
+---
+
+bool succeed

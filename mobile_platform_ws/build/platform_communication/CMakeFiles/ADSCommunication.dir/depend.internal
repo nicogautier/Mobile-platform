@@ -15,6 +15,9 @@ platform_communication/CMakeFiles/ADSCommunication.dir/src/ADSCommunication.cpp.
  /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_communication/AdsLib/wrap_endian.h
  /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_communication/AdsLib/wrap_socket.h
  /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_communication/src/ADSCommunication.cpp
+ /opt/ros/melodic/include/cob_srvs/SetInt.h
+ /opt/ros/melodic/include/cob_srvs/SetIntRequest.h
+ /opt/ros/melodic/include/cob_srvs/SetIntResponse.h
  /opt/ros/melodic/include/geometry_msgs/Point.h
  /opt/ros/melodic/include/geometry_msgs/PointStamped.h
  /opt/ros/melodic/include/geometry_msgs/Pose.h
