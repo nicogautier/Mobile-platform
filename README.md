@@ -32,7 +32,7 @@ git clone https://github.com/nicogautier/Mobile-platform && cd Mobile-platform
 ### ROS program
 
 #### platform_communication
-The **ADScommunication** node of the platform\_communication package allows you to communicate with the TwinCAT program. It receives commands from the **/cmd\_vel** topic and sends them to the PLC. It also publishes the odometry on the **/odom** topic according to the values of the wheel encoders. This will allow you for example to use the ROS [navigation](https://wiki.ros.org/navigation) stack which required communication on these two subjects.
+The **ADScommunication** node of the platform\_communication package allows to communicate with the TwinCAT program. It receives commands from the **/cmd\_vel** topic and sends them to the PLC. It also publishes the odometry on the **/odom** topic according to the values of the wheel encoders. This will allow you for example to use the ROS [navigation](https://wiki.ros.org/navigation) stack which required communication on these two subjects.
 
 To use it in your program, you can add and compile the platform_communication package in your ROS project. Then add this line to your launch file.  
 
@@ -44,6 +44,22 @@ If you want to modify this node, I recommend that you consult the [**ADS Beckhof
 
 #### platform_main
 The platform\_main package contains the main launch file and the configuration files used to implement ROS [navigation](https://wiki.ros.org/navigation) stack. It uses the [**sick\_safetyscanners**](https://wiki.ros.org/sick_safetyscanners) node to get the laserscan of the two sensors. It also uses [**TEB local planner**](https://wiki.ros.org/teb_local_planner) for the local trajectories and [**rtabmap**](http://wiki.ros.org/rtabmap_ros) for the SLAM algorithm.
+
+#### platform_lift
+
+The **lift_communication.py** node of the package allows to communicate with the SCU control unit through the RS232 serial [**interface**](https://medialibrary.ewellix.com/asset/16222) that manage the lift actuators . It implements a **/moveLift** action server that moves the lift to the desired position and sends a success message when reaching the final position. It also implements a **/posLift** service that returns the position of the lift.
+
+
+You can add this line to your launch file to use the node. 
+```sh
+<node pkg="platform_lift" type="lift_communication.py" name="lift_communication"/>
+```
+You may have to change the port for serial communication which is currently "*/dev/ttyUSB0*" in the init_serial() function of serial_interface.py. 
+
+
+#### platform_joystick
+
+This package allows the use of a [**Logitech Extreme 3D**](https://www.logitechg.com/fr-fr/products/space/extreme-3d-pro-joystick.942-000031.html) joystick to control the mobile platform. It implements additional features compared to the joystick connected to the Beckhoff controller. You can use the **joystick.launch** file alone or in addition to the **platform_main** launchfile (to enable the use of the joystick you must put the third axis down).
 
 #### platform_measurements
 
