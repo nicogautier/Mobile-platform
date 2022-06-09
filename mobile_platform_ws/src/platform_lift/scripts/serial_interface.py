@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+
+
+""" ===================== serial_interface.py ====================
+This program implements an interface to use serial communication functions developped in serial_communication.py
+
+==================================================================="""
 from serial_communication import *
 import signal
 import os
@@ -12,6 +18,7 @@ import os
 def close_serial(ser):
     exch_serial(ser,"RA") 
     ser.close()
+    
 
 def get_pos_A1(ser):
     sucess, pos = exch_serial(ser,"RG", "position",0) 
@@ -181,7 +188,7 @@ def init_serial():
         send_serial(ser, "RA", [])
         ser.close()
         os._exit(1)
-        quit()
+        
         
     signal.signal(signal.SIGINT, handler)
 

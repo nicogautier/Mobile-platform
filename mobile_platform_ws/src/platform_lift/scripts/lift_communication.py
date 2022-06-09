@@ -1,4 +1,16 @@
 #!/usr/bin/env python
+
+""" ===================== lift_communication.py ====================
+This program allows the communication between ROS and the lift
+
+Action server:
+    /moveLift (MoveLift): move the lift to the desired position
+    
+
+==============================================================="""
+
+
+
 from serial_interface import *
 import rospy
 import roslib
@@ -9,7 +21,7 @@ roslib.load_manifest('platform_lift')
 
 
 
-
+#ActionServer to move the lift to the desired position
 class MoveLiftServer:
   _result = MoveLiftResult()
 
@@ -26,9 +38,10 @@ class MoveLiftServer:
     move_pos(ser,goal.goal_position)
     success = True
     
+    #while didn't reach its final position
     while(not (reach_final_a1 and reach_final_a2)):
         
-        #receive cancelled goal request
+        #check if received cancelled goal request
         if self.server.is_preempt_requested():
             reset_move_A1(ser)
             reset_move_A2(ser)
@@ -36,13 +49,13 @@ class MoveLiftServer:
             success = False
             break
         
-        #check if reach final position and stop function
+        #check if A1 reach final position and stop function
         if(not reach_final_a1):
             reach_final_a1 = reach_pos_A1(ser)
             if(reach_final_a1):
                 reset_move_A1(ser)
     
-        #check if reach final position and stop function
+        #check if A2 reach final position and stop function
         if(not reach_final_a2):
             reach_final_a2 = reach_pos_A2(ser)
             if(reach_final_a2):

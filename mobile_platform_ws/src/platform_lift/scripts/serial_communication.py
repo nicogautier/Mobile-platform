@@ -1,20 +1,21 @@
 #!/usr/bin/env python
-import rospy
+
+""" ===================== serial_communication.py ====================
+This program allows the serial communication with the SCU to control the lift (Actuator 1 and 2)
+
+Documentation on the interface: https://medialibrary.ewellix.com/asset/16222
+
+==================================================================="""
+
 import serial
 import crc16
-import signal
 import threading
-
-
 
 global sem
 
 
 
-from std_msgs.msg import Int16
-
-
-
+#get appropriate parameters for request based on command
 def get_param(cmd, option, data = 0): 
     if(cmd=="RO"): #open remote mode
         param = [0] 
@@ -84,7 +85,7 @@ def get_param(cmd, option, data = 0):
 
 
 
-
+#send the request to the SCU
 def send_serial(ser, cmd, data):
     
     #command + request parameter
@@ -103,7 +104,7 @@ def send_serial(ser, cmd, data):
     
     
     
-
+#receive codes from reply and check if there is an error
 def rcv_codes(ser, cmd):
     
     #receive command
@@ -136,10 +137,8 @@ def rcv_codes(ser, cmd):
 
 
 
-
+#Receive requested data if RG command
 def rcv_data(ser, option):
-    
-    
     
     if(option== "position"):
         data_rcv = ser.read(2)
@@ -174,8 +173,9 @@ def rcv_data(ser, option):
 
 
 
-  
+#one exchange (request + reply) with serial   
 def exch_serial(ser, cmd, option = '', arg= 0):
+    #use semaphore to assert only one exchange at the same time (enable multithreading)
     global sem
     sem.acquire()
     
@@ -193,31 +193,14 @@ def exch_serial(ser, cmd, option = '', arg= 0):
     if(cmd=="RG"):
         success, data = rcv_data(ser, option)
     
-    
-    #get the checksum          
+            
     checksum = ser.read(2)
     
     sem.release()
-
-
     
     return success, data
 
 
-
-def callback_cmd_lift(data):
-    
-    pos = data.data
-    if(pos>900):
-        pos = 900
-    elif(pos<0):
-        pos = 0
-
-    print("new position goal: " + str(pos))
-    global new_goal, pos_goal
-    new_goal = True
-    pos_goal = pos
-       
     
     
     
@@ -240,125 +223,3 @@ def init_serial_communication(ser):
 
         
     
-   
-
-
-    
-def main():
-    rospy.init_node('lift_communication', anonymous=True)
-    pub_pos = rospy.Publisher('pos_lift', Int16, queue_size=10)
-    rospy.Subscriber("cmd_lift", Int16, callback_cmd_lift)
-
-   
-    
-    rate = rospy.Rate(4) 
-    ser = serial.Serial(port='/dev/ttyUSB0',baudrate=38400,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS)
-    print("Connected to serial: " + str(ser.is_open) )
-    
-    def handler(signum, frame):
-        print("Close communication and exit")
-        exch_serial(ser,"RA")
-        ser.close()
-        exit(1)
-        
-    signal.signal(signal.SIGINT, handler)
-    
-    init_serial_communication(ser)
-    exch_serial(ser,"RS", "A1")
-    exch_serial(ser,"RS", "A2")
-    reach_goal = True
-    
-    
-    
-    if(not exch_serial(ser,"RT", "speed", 30)):
-        print("Error set speed")
-        exit(1)
-        
-    print(exch_serial(ser,"RG", "speed"))
-    
-    
-    
-    
-    while not rospy.is_shutdown():
-        
-        
-
-        if(not exch_serial(ser,"RC")): #cyclic 
-            break
-        
-        
-        sucess, pos1 = exch_serial(ser,"RG", "position",0) 
-        if(sucess):
-            sucess, pos2 = exch_serial(ser,"RG", "position", 1) 
-            if(sucess):
-            #pub_pos.publish(data)
-                print("position lift: " + str(pos1) + " " + str(pos2) + " " + str(pos1+pos2) + " mm")
-            
-        else:
-            break    
-        
-        
-        #reset movement function if reach final position
-        if(not reach_goal):
-            sucess, status = exch_serial(ser,"RG", "status", 0)
-            if(sucess):
-                if(not (status&16)): #stop motion -> reach final position
-                    exch_serial(ser,"RS", "A1") #reset function
-                    exch_serial(ser,"RS", "A2") #reset function
-                    reach_goal=True
-            else:
-                break
-            
-            
-        #apply new position goal
-        global new_goal, pos_goal
-        if(new_goal): 
-            new_goal = False
-            
-            if(not reach_goal): #if already in movement reset 
-                exch_serial(ser,"RS") 
-                rate.sleep()
-  
-                
-            reach_goal = False
-            
-            #set desired position and start function
-            exch_serial(ser,"RT", "position_A1", pos_goal/2) 
-            exch_serial(ser,"RT", "position_A2", pos_goal/2)   
-            rate.sleep()
-            exch_serial(ser,"RE", "position_A1")  
-            exch_serial(ser,"RE", "position_A2")  
-            rate.sleep()
-            
-            
-
-            
-        
-        rate.sleep()
-        
-
-    #close communication
-    exch_serial(ser,"RA") 
-    ser.close()
-    
-    
-#Enable to quit program with ctrl+c and close all communication
-
- 
-
-
-if __name__ == '__main__':
-    #initialize serial communication
-    
-    
-    
-    
-    new_goal = False
-    
-    pos_goal = 0
-    
-    
-    
-    
-    
-    main()
