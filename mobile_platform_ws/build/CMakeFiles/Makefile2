@@ -2369,6 +2369,157 @@ clean: platform_joystick/CMakeFiles/joystickCmdVel.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory platform_main
+
+# Convenience name for "all" pass in the directory.
+platform_main/all:
+
+.PHONY : platform_main/all
+
+# Convenience name for "clean" pass in the directory.
+platform_main/clean:
+
+.PHONY : platform_main/clean
+
+# Convenience name for "preinstall" pass in the directory.
+platform_main/preinstall:
+
+.PHONY : platform_main/preinstall
+
+#=============================================================================
+# Directory level rules for directory platform_measurements
+
+# Convenience name for "all" pass in the directory.
+platform_measurements/all: platform_measurements/CMakeFiles/simpleTrajectories.dir/all
+platform_measurements/all: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all
+platform_measurements/all: platform_measurements/CMakeFiles/sendGoal.dir/all
+
+.PHONY : platform_measurements/all
+
+# Convenience name for "clean" pass in the directory.
+platform_measurements/clean: platform_measurements/CMakeFiles/simpleTrajectories.dir/clean
+platform_measurements/clean: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean
+platform_measurements/clean: platform_measurements/CMakeFiles/sendGoal.dir/clean
+
+.PHONY : platform_measurements/clean
+
+# Convenience name for "preinstall" pass in the directory.
+platform_measurements/preinstall:
+
+.PHONY : platform_measurements/preinstall
+
+#=============================================================================
+# Target rules for target platform_measurements/CMakeFiles/simpleTrajectories.dir
+
+# All Build rule for target.
+platform_measurements/CMakeFiles/simpleTrajectories.dir/all:
+	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/depend
+	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=57,58 "Built target simpleTrajectories"
+.PHONY : platform_measurements/CMakeFiles/simpleTrajectories.dir/all
+
+# Include target in all.
+all: platform_measurements/CMakeFiles/simpleTrajectories.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+platform_measurements/CMakeFiles/simpleTrajectories.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 platform_measurements/CMakeFiles/simpleTrajectories.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_measurements/CMakeFiles/simpleTrajectories.dir/rule
+
+# Convenience name for target.
+simpleTrajectories: platform_measurements/CMakeFiles/simpleTrajectories.dir/rule
+
+.PHONY : simpleTrajectories
+
+# clean rule for target.
+platform_measurements/CMakeFiles/simpleTrajectories.dir/clean:
+	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/clean
+.PHONY : platform_measurements/CMakeFiles/simpleTrajectories.dir/clean
+
+# clean rule for target.
+clean: platform_measurements/CMakeFiles/simpleTrajectories.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_measurements/CMakeFiles/trajectoryMeasurements.dir
+
+# All Build rule for target.
+platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all:
+	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/depend
+	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=59,60 "Built target trajectoryMeasurements"
+.PHONY : platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all
+
+# Include target in all.
+all: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+platform_measurements/CMakeFiles/trajectoryMeasurements.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_measurements/CMakeFiles/trajectoryMeasurements.dir/rule
+
+# Convenience name for target.
+trajectoryMeasurements: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/rule
+
+.PHONY : trajectoryMeasurements
+
+# clean rule for target.
+platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean:
+	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean
+.PHONY : platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean
+
+# clean rule for target.
+clean: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target platform_measurements/CMakeFiles/sendGoal.dir
+
+# All Build rule for target.
+platform_measurements/CMakeFiles/sendGoal.dir/all:
+	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/depend
+	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=55,56 "Built target sendGoal"
+.PHONY : platform_measurements/CMakeFiles/sendGoal.dir/all
+
+# Include target in all.
+all: platform_measurements/CMakeFiles/sendGoal.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+platform_measurements/CMakeFiles/sendGoal.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 platform_measurements/CMakeFiles/sendGoal.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
+.PHONY : platform_measurements/CMakeFiles/sendGoal.dir/rule
+
+# Convenience name for target.
+sendGoal: platform_measurements/CMakeFiles/sendGoal.dir/rule
+
+.PHONY : sendGoal
+
+# clean rule for target.
+platform_measurements/CMakeFiles/sendGoal.dir/clean:
+	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/clean
+.PHONY : platform_measurements/CMakeFiles/sendGoal.dir/clean
+
+# clean rule for target.
+clean: platform_measurements/CMakeFiles/sendGoal.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Directory level rules for directory platform_lift
 
 # Convenience name for "all" pass in the directory.
@@ -3025,157 +3176,6 @@ platform_lift/CMakeFiles/platform_lift_gennodejs.dir/clean:
 
 # clean rule for target.
 clean: platform_lift/CMakeFiles/platform_lift_gennodejs.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory platform_main
-
-# Convenience name for "all" pass in the directory.
-platform_main/all:
-
-.PHONY : platform_main/all
-
-# Convenience name for "clean" pass in the directory.
-platform_main/clean:
-
-.PHONY : platform_main/clean
-
-# Convenience name for "preinstall" pass in the directory.
-platform_main/preinstall:
-
-.PHONY : platform_main/preinstall
-
-#=============================================================================
-# Directory level rules for directory platform_measurements
-
-# Convenience name for "all" pass in the directory.
-platform_measurements/all: platform_measurements/CMakeFiles/simpleTrajectories.dir/all
-platform_measurements/all: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all
-platform_measurements/all: platform_measurements/CMakeFiles/sendGoal.dir/all
-
-.PHONY : platform_measurements/all
-
-# Convenience name for "clean" pass in the directory.
-platform_measurements/clean: platform_measurements/CMakeFiles/simpleTrajectories.dir/clean
-platform_measurements/clean: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean
-platform_measurements/clean: platform_measurements/CMakeFiles/sendGoal.dir/clean
-
-.PHONY : platform_measurements/clean
-
-# Convenience name for "preinstall" pass in the directory.
-platform_measurements/preinstall:
-
-.PHONY : platform_measurements/preinstall
-
-#=============================================================================
-# Target rules for target platform_measurements/CMakeFiles/simpleTrajectories.dir
-
-# All Build rule for target.
-platform_measurements/CMakeFiles/simpleTrajectories.dir/all:
-	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/depend
-	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=57,58 "Built target simpleTrajectories"
-.PHONY : platform_measurements/CMakeFiles/simpleTrajectories.dir/all
-
-# Include target in all.
-all: platform_measurements/CMakeFiles/simpleTrajectories.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-platform_measurements/CMakeFiles/simpleTrajectories.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 platform_measurements/CMakeFiles/simpleTrajectories.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
-.PHONY : platform_measurements/CMakeFiles/simpleTrajectories.dir/rule
-
-# Convenience name for target.
-simpleTrajectories: platform_measurements/CMakeFiles/simpleTrajectories.dir/rule
-
-.PHONY : simpleTrajectories
-
-# clean rule for target.
-platform_measurements/CMakeFiles/simpleTrajectories.dir/clean:
-	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/clean
-.PHONY : platform_measurements/CMakeFiles/simpleTrajectories.dir/clean
-
-# clean rule for target.
-clean: platform_measurements/CMakeFiles/simpleTrajectories.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target platform_measurements/CMakeFiles/trajectoryMeasurements.dir
-
-# All Build rule for target.
-platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all:
-	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/depend
-	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=59,60 "Built target trajectoryMeasurements"
-.PHONY : platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all
-
-# Include target in all.
-all: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-platform_measurements/CMakeFiles/trajectoryMeasurements.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 platform_measurements/CMakeFiles/trajectoryMeasurements.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
-.PHONY : platform_measurements/CMakeFiles/trajectoryMeasurements.dir/rule
-
-# Convenience name for target.
-trajectoryMeasurements: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/rule
-
-.PHONY : trajectoryMeasurements
-
-# clean rule for target.
-platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean:
-	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean
-.PHONY : platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean
-
-# clean rule for target.
-clean: platform_measurements/CMakeFiles/trajectoryMeasurements.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target platform_measurements/CMakeFiles/sendGoal.dir
-
-# All Build rule for target.
-platform_measurements/CMakeFiles/sendGoal.dir/all:
-	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/depend
-	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=55,56 "Built target sendGoal"
-.PHONY : platform_measurements/CMakeFiles/sendGoal.dir/all
-
-# Include target in all.
-all: platform_measurements/CMakeFiles/sendGoal.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-platform_measurements/CMakeFiles/sendGoal.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 platform_measurements/CMakeFiles/sendGoal.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles 0
-.PHONY : platform_measurements/CMakeFiles/sendGoal.dir/rule
-
-# Convenience name for target.
-sendGoal: platform_measurements/CMakeFiles/sendGoal.dir/rule
-
-.PHONY : sendGoal
-
-# clean rule for target.
-platform_measurements/CMakeFiles/sendGoal.dir/clean:
-	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/clean
-.PHONY : platform_measurements/CMakeFiles/sendGoal.dir/clean
-
-# clean rule for target.
-clean: platform_measurements/CMakeFiles/sendGoal.dir/clean
 
 .PHONY : clean
 

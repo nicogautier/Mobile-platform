@@ -1,4 +1,4 @@
 (cl:in-package platform_lift-msg)
-(cl:export '(SUCCEED-VAL
-          SUCCEED
+(cl:export '(CURRENT_POSITION-VAL
+          CURRENT_POSITION
 ))

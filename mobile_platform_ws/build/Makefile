@@ -1039,6 +1039,45 @@ joystickCmdVel/fast:
 .PHONY : joystickCmdVel/fast
 
 #=============================================================================
+# Target rules for targets named simpleTrajectories
+
+# Build rule for target.
+simpleTrajectories: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simpleTrajectories
+.PHONY : simpleTrajectories
+
+# fast build rule for target.
+simpleTrajectories/fast:
+	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/build
+.PHONY : simpleTrajectories/fast
+
+#=============================================================================
+# Target rules for targets named trajectoryMeasurements
+
+# Build rule for target.
+trajectoryMeasurements: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectoryMeasurements
+.PHONY : trajectoryMeasurements
+
+# fast build rule for target.
+trajectoryMeasurements/fast:
+	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build
+.PHONY : trajectoryMeasurements/fast
+
+#=============================================================================
+# Target rules for targets named sendGoal
+
+# Build rule for target.
+sendGoal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sendGoal
+.PHONY : sendGoal
+
+# fast build rule for target.
+sendGoal/fast:
+	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/build
+.PHONY : sendGoal/fast
+
+#=============================================================================
 # Target rules for targets named platform_lift_genpy
 
 # Build rule for target.
@@ -1272,45 +1311,6 @@ platform_lift_gennodejs/fast:
 	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build
 .PHONY : platform_lift_gennodejs/fast
 
-#=============================================================================
-# Target rules for targets named simpleTrajectories
-
-# Build rule for target.
-simpleTrajectories: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 simpleTrajectories
-.PHONY : simpleTrajectories
-
-# fast build rule for target.
-simpleTrajectories/fast:
-	$(MAKE) -f platform_measurements/CMakeFiles/simpleTrajectories.dir/build.make platform_measurements/CMakeFiles/simpleTrajectories.dir/build
-.PHONY : simpleTrajectories/fast
-
-#=============================================================================
-# Target rules for targets named trajectoryMeasurements
-
-# Build rule for target.
-trajectoryMeasurements: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectoryMeasurements
-.PHONY : trajectoryMeasurements
-
-# fast build rule for target.
-trajectoryMeasurements/fast:
-	$(MAKE) -f platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build.make platform_measurements/CMakeFiles/trajectoryMeasurements.dir/build
-.PHONY : trajectoryMeasurements/fast
-
-#=============================================================================
-# Target rules for targets named sendGoal
-
-# Build rule for target.
-sendGoal: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sendGoal
-.PHONY : sendGoal
-
-# fast build rule for target.
-sendGoal/fast:
-	$(MAKE) -f platform_measurements/CMakeFiles/sendGoal.dir/build.make platform_measurements/CMakeFiles/sendGoal.dir/build
-.PHONY : sendGoal/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1391,6 +1391,9 @@ help:
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_py"
 	@echo "... joystickCmdVel"
+	@echo "... simpleTrajectories"
+	@echo "... trajectoryMeasurements"
+	@echo "... sendGoal"
 	@echo "... platform_lift_genpy"
 	@echo "... platform_lift_generate_messages_py"
 	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftFeedback"
@@ -1409,9 +1412,6 @@ help:
 	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftResult"
 	@echo "... platform_lift_geneus"
 	@echo "... platform_lift_gennodejs"
-	@echo "... simpleTrajectories"
-	@echo "... trajectoryMeasurements"
-	@echo "... sendGoal"
 .PHONY : help
 
 

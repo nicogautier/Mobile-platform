@@ -7,6 +7,6 @@
 subdirs("gtest")
 subdirs("platform_communication")
 subdirs("platform_joystick")
-subdirs("platform_lift")
 subdirs("platform_main")
 subdirs("platform_measurements")
+subdirs("platform_lift")

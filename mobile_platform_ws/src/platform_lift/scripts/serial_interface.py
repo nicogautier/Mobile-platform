@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from serial_communication import *
 import signal
+import os
 
 
 
@@ -177,11 +178,13 @@ def init_serial():
     #enable to use ctrl-C to leave program and close communication
     def handler(signum, frame):
         print("Close communication and exit")
-        exch_serial(ser,"RA")
+        send_serial(ser, "RA", [])
         ser.close()
-        exit(1)
+        os._exit(1)
+        quit()
         
     signal.signal(signal.SIGINT, handler)
+
     
     init_serial_communication(ser)
     reset_move(ser)

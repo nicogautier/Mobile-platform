@@ -2,15 +2,20 @@ cmake_minimum_required(VERSION 3.0.2)
 project(platform_lift)
 
 
+
+
+
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
-  actionlib_msgs                
-  std_msgs                      
+  actionlib_msgs
+  actionlib                
+  std_msgs
+  genmsg                      
   message_generation  
 )
 
-add_action_files(
+add_action_files(DIRECTORY action
   FILES
   MoveLift.action
 )

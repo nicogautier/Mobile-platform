@@ -133,9 +133,9 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/gtest/cmake_install.cmake")
   include("/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_communication/cmake_install.cmake")
   include("/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_joystick/cmake_install.cmake")
-  include("/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift/cmake_install.cmake")
   include("/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_main/cmake_install.cmake")
   include("/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_measurements/cmake_install.cmake")
+  include("/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift/cmake_install.cmake")
 
 endif()
 

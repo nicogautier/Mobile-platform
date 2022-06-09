@@ -177,8 +177,7 @@ def rcv_data(ser, option):
   
 def exch_serial(ser, cmd, option = '', arg= 0):
     global sem
-    if(cmd!="RA"):
-        sem.acquire()
+    sem.acquire()
     
     sucess, param = get_param(cmd, option, arg)
     if(not sucess):
