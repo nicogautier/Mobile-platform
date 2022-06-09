@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftAction.h"
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftActionFeedback.h"
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftActionResult.h"
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/PositionLift.h"
 )
 
 # Per-language clean rules from dependency scanning.

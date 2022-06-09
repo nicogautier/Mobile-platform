@@ -1104,6 +1104,32 @@ platform_lift_generate_messages_py/fast:
 .PHONY : platform_lift_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named platform_lift_gennodejs
+
+# Build rule for target.
+platform_lift_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 platform_lift_gennodejs
+.PHONY : platform_lift_gennodejs
+
+# fast build rule for target.
+platform_lift_gennodejs/fast:
+	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build
+.PHONY : platform_lift_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named _platform_lift_generate_messages_check_deps_MoveLiftGoal
+
+# Build rule for target.
+_platform_lift_generate_messages_check_deps_MoveLiftGoal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _platform_lift_generate_messages_check_deps_MoveLiftGoal
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftGoal
+
+# fast build rule for target.
+_platform_lift_generate_messages_check_deps_MoveLiftGoal/fast:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftGoal/fast
+
+#=============================================================================
 # Target rules for targets named _platform_lift_generate_messages_check_deps_MoveLiftFeedback
 
 # Build rule for target.
@@ -1117,17 +1143,17 @@ _platform_lift_generate_messages_check_deps_MoveLiftFeedback/fast:
 .PHONY : _platform_lift_generate_messages_check_deps_MoveLiftFeedback/fast
 
 #=============================================================================
-# Target rules for targets named _platform_lift_generate_messages_check_deps_MoveLiftAction
+# Target rules for targets named _platform_lift_generate_messages_check_deps_PositionLift
 
 # Build rule for target.
-_platform_lift_generate_messages_check_deps_MoveLiftAction: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _platform_lift_generate_messages_check_deps_MoveLiftAction
-.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftAction
+_platform_lift_generate_messages_check_deps_PositionLift: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _platform_lift_generate_messages_check_deps_PositionLift
+.PHONY : _platform_lift_generate_messages_check_deps_PositionLift
 
 # fast build rule for target.
-_platform_lift_generate_messages_check_deps_MoveLiftAction/fast:
-	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build
-.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftAction/fast
+_platform_lift_generate_messages_check_deps_PositionLift/fast:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_PositionLift.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_PositionLift.dir/build
+.PHONY : _platform_lift_generate_messages_check_deps_PositionLift/fast
 
 #=============================================================================
 # Target rules for targets named platform_lift_generate_messages
@@ -1143,6 +1169,19 @@ platform_lift_generate_messages/fast:
 .PHONY : platform_lift_generate_messages/fast
 
 #=============================================================================
+# Target rules for targets named _platform_lift_generate_messages_check_deps_MoveLiftAction
+
+# Build rule for target.
+_platform_lift_generate_messages_check_deps_MoveLiftAction: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _platform_lift_generate_messages_check_deps_MoveLiftAction
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftAction
+
+# fast build rule for target.
+_platform_lift_generate_messages_check_deps_MoveLiftAction/fast:
+	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftAction/fast
+
+#=============================================================================
 # Target rules for targets named platform_lift_generate_messages_lisp
 
 # Build rule for target.
@@ -1154,19 +1193,6 @@ platform_lift_generate_messages_lisp: cmake_check_build_system
 platform_lift_generate_messages_lisp/fast:
 	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/build
 .PHONY : platform_lift_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named _platform_lift_generate_messages_check_deps_MoveLiftGoal
-
-# Build rule for target.
-_platform_lift_generate_messages_check_deps_MoveLiftGoal: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _platform_lift_generate_messages_check_deps_MoveLiftGoal
-.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftGoal
-
-# fast build rule for target.
-_platform_lift_generate_messages_check_deps_MoveLiftGoal/fast:
-	$(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build
-.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftGoal/fast
 
 #=============================================================================
 # Target rules for targets named _platform_lift_generate_messages_check_deps_MoveLiftActionGoal
@@ -1298,19 +1324,6 @@ platform_lift_geneus/fast:
 	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_geneus.dir/build.make platform_lift/CMakeFiles/platform_lift_geneus.dir/build
 .PHONY : platform_lift_geneus/fast
 
-#=============================================================================
-# Target rules for targets named platform_lift_gennodejs
-
-# Build rule for target.
-platform_lift_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 platform_lift_gennodejs
-.PHONY : platform_lift_gennodejs
-
-# fast build rule for target.
-platform_lift_gennodejs/fast:
-	$(MAKE) -f platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build
-.PHONY : platform_lift_gennodejs/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1396,11 +1409,13 @@ help:
 	@echo "... sendGoal"
 	@echo "... platform_lift_genpy"
 	@echo "... platform_lift_generate_messages_py"
-	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftFeedback"
-	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftAction"
-	@echo "... platform_lift_generate_messages"
-	@echo "... platform_lift_generate_messages_lisp"
+	@echo "... platform_lift_gennodejs"
 	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftGoal"
+	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftFeedback"
+	@echo "... _platform_lift_generate_messages_check_deps_PositionLift"
+	@echo "... platform_lift_generate_messages"
+	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftAction"
+	@echo "... platform_lift_generate_messages_lisp"
 	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftActionGoal"
 	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftActionResult"
 	@echo "... platform_lift_generate_messages_cpp"
@@ -1411,7 +1426,6 @@ help:
 	@echo "... platform_lift_generate_messages_nodejs"
 	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftResult"
 	@echo "... platform_lift_geneus"
-	@echo "... platform_lift_gennodejs"
 .PHONY : help
 
 

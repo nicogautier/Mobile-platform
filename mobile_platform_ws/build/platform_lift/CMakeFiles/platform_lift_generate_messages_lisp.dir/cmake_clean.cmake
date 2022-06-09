@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/msg/MoveLiftAction.lisp"
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/msg/MoveLiftActionFeedback.lisp"
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/msg/MoveLiftActionResult.lisp"
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/srv/PositionLift.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

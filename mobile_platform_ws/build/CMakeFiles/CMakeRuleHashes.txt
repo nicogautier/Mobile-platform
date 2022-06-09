@@ -6,6 +6,7 @@ bcd0403d3d1d8e0362bf356f64f5ef5b /home/student/Desktop/Mobile-platform/mobile_pl
 59003d1114a307d993da0e7c645ecab5 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftFeedback.h
 d675b9faa7b1fdd3383a49502c98586d /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftGoal.h
 8ba0c9dc765e1207e5dfb6d991dfa484 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftResult.h
+76c9465041516c6829aaa4e9bfb8936e /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/PositionLift.h
 9adfe68dcec6c5e0b812edaf2ff927b9 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftAction.py
 bf35684415f9f3d88113bb7660f6a937 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionFeedback.py
 d3b43055a8756dc895e4a0753b12f1fd /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionGoal.py
@@ -14,6 +15,8 @@ d3b43055a8756dc895e4a0753b12f1fd /home/student/Desktop/Mobile-platform/mobile_pl
 066744a26830850e146ac19bd9892266 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftGoal.py
 099c4ab93ad60ca40d9b5cc46c541b2e /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftResult.py
 0a74bcf5e5dc68beff8ff304534c4201 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py
+505c10b759888bc585f08656c2e8ceca /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/_PositionLift.py
+c8efbe2dc090a4a76634cf3fea9f921a /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py
 a96b38e21c992f91a0a0f7e349ee9d70 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/msg/MoveLiftAction.lisp
 731c2c57b2bb43a7384365bf0a071f64 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/msg/MoveLiftActionFeedback.lisp
 b3130e6584bdc42c9844a2f9be15744c /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/msg/MoveLiftActionGoal.lisp
@@ -21,6 +24,7 @@ bac7c36fc5a61e921faad27d38531c67 /home/student/Desktop/Mobile-platform/mobile_pl
 c1e5ab4e61448fa549729f596e07f75d /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/msg/MoveLiftFeedback.lisp
 8abb4b06680a87cc3e3ea8b7d5134712 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/msg/MoveLiftGoal.lisp
 66cec07d4044dd305181ec095a2fb7d7 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/msg/MoveLiftResult.lisp
+7fcf243ff79ac5fd925f613aae062e61 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/common-lisp/ros/platform_lift/srv/PositionLift.lisp
 4d82f2961b8fbd2f4590d40757cc6f32 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftAction.js
 0f9b92afedafd7b66cd7e397696f019f /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftActionFeedback.js
 90bb0ff067fe52fbc012f4edb84c41b6 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftActionGoal.js
@@ -28,6 +32,7 @@ d4dce22b7bd8eeac7b9973145f106483 /home/student/Desktop/Mobile-platform/mobile_pl
 33d7abf0ed7d2ecc0be80b6009635938 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftFeedback.js
 59582d3eaea241be03de4ed463399931 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftGoal.js
 b73da4f9e0fb496174d76e8f3a780c37 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftResult.js
+ad735717635dab5c69847fb9738d4530 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/srv/PositionLift.js
 a5e82895aa723467f7da0dd4bed95622 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/manifest.l
 47500d2a3dff593de348a88af2495906 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftAction.l
 3a8b69bcc37a08051cea0b2fb36a767c /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftActionFeedback.l
@@ -36,6 +41,7 @@ e373f2c68f333c2b70277102b936134d /home/student/Desktop/Mobile-platform/mobile_pl
 67ddb78f0da38a6de94ea49056ffb165 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftFeedback.l
 9160244b50f39aca2c4336de2a6b323a /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftGoal.l
 a48f409374de2b297cca44a72804a2c1 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftResult.l
+121fca20fc37200dac95cbbe5f27aa41 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/srv/PositionLift.l
 18318a0df654ebb096d1eef2ce546960 CMakeFiles/clean_test_results
 36ee2ac607b1a9694df6efa7031f6cc7 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction
 eafff867b17509b3e4d08a864169f635 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionFeedback
@@ -44,6 +50,7 @@ c5d1f0f1e48b59707d14ec69f2955941 platform_lift/CMakeFiles/_platform_lift_generat
 08008e6501d6658b042095f79f9bf81b platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback
 8d03a949b5d54dd26b6c57f934842419 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal
 5274be7cc9854607fff260c3f83f8fcc platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftResult
+ffc0ebe7ed2bf5218e33ee10a77b0b15 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_PositionLift
 1c4c90fc0b681e90c5cf2afd9c8ed78f platform_lift/CMakeFiles/platform_lift_generate_messages_cpp
 1c4c90fc0b681e90c5cf2afd9c8ed78f platform_lift/CMakeFiles/platform_lift_generate_messages_eus
 1c4c90fc0b681e90c5cf2afd9c8ed78f platform_lift/CMakeFiles/platform_lift_generate_messages_lisp

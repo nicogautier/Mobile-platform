@@ -60,6 +60,7 @@ platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs: /home/student/D
 platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftAction.js
 platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftActionFeedback.js
 platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftActionResult.js
+platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/srv/PositionLift.js
 
 
 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftActionGoal.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
@@ -117,6 +118,11 @@ platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs: /home/student/D
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from platform_lift/MoveLiftActionResult.msg"
 	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionResult.msg -Iplatform_lift:/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p platform_lift -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg
 
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/srv/PositionLift.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/srv/PositionLift.js: /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Javascript code from platform_lift/PositionLift.srv"
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv -Iplatform_lift:/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p platform_lift -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/srv
+
 platform_lift_generate_messages_nodejs: platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs
 platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftActionGoal.js
 platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftGoal.js
@@ -125,6 +131,7 @@ platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mo
 platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftAction.js
 platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftActionFeedback.js
 platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/msg/MoveLiftActionResult.js
+platform_lift_generate_messages_nodejs: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/gennodejs/ros/platform_lift/srv/PositionLift.js
 platform_lift_generate_messages_nodejs: platform_lift/CMakeFiles/platform_lift_generate_messages_nodejs.dir/build.make
 
 .PHONY : platform_lift_generate_messages_nodejs

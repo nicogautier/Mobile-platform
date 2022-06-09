@@ -6,7 +6,9 @@ This program allows the communication between ROS and the lift
 Action server:
     /moveLift (MoveLift): move the lift to the desired position
     
-
+Service server:
+    /posLift (PositionLift): return position of the lift
+    
 ==============================================================="""
 
 
@@ -15,7 +17,9 @@ from serial_interface import *
 import rospy
 import roslib
 from platform_lift.msg import MoveLiftAction, MoveLiftResult
+from platform_lift.srv import PositionLift, PositionLiftResponse
 import actionlib
+
 
 roslib.load_manifest('platform_lift')
 
@@ -32,6 +36,7 @@ class MoveLiftServer:
   def execute(self, goal):
       
     global ser
+    reset_move(ser)
     rate = rospy.Rate(4)
     
     reach_final_a1, reach_final_a2 = False, False
@@ -43,8 +48,7 @@ class MoveLiftServer:
         
         #check if received cancelled goal request
         if self.server.is_preempt_requested():
-            reset_move_A1(ser)
-            reset_move_A2(ser)
+            reset_move(ser)
             self.server.set_preempted()
             success = False
             break
@@ -69,6 +73,13 @@ class MoveLiftServer:
         self.server.set_succeeded(self._result)
 
 
+def sentPosition(req):
+    global ser
+    pos =  get_pos(ser)
+    if(pos==-1):
+        pos = 9999
+    return PositionLiftResponse(pos)
+
 def main():
     rospy.init_node('lift_communication', anonymous=True)
     global ser
@@ -76,6 +87,7 @@ def main():
     rate = rospy.Rate(4) 
     
     server = MoveLiftServer()
+    service = rospy.Service('posLift', PositionLift, sentPosition)
     
 
     

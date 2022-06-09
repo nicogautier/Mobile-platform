@@ -54,6 +54,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_lift/srv" TYPE FILE FILES "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/platform_lift/cmake" TYPE FILE FILES "/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift/catkin_generated/installspace/platform_lift-msg-paths.cmake")
 endif()
 

@@ -7,7 +7,9 @@ file(REMOVE_RECURSE
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftAction.py"
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionFeedback.py"
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionResult.py"
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/_PositionLift.py"
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py"
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py"
 )
 
 # Per-language clean rules from dependency scanning.

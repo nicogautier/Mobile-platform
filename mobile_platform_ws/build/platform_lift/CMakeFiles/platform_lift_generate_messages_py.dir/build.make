@@ -60,7 +60,9 @@ platform_lift/CMakeFiles/platform_lift_generate_messages_py: /home/student/Deskt
 platform_lift/CMakeFiles/platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftAction.py
 platform_lift/CMakeFiles/platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionFeedback.py
 platform_lift/CMakeFiles/platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionResult.py
+platform_lift/CMakeFiles/platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/_PositionLift.py
 platform_lift/CMakeFiles/platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py
+platform_lift/CMakeFiles/platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py
 
 
 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionGoal.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
@@ -118,6 +120,11 @@ platform_lift/CMakeFiles/platform_lift_generate_messages_py: /home/student/Deskt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python from MSG platform_lift/MoveLiftActionResult"
 	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionResult.msg -Iplatform_lift:/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p platform_lift -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg
 
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/_PositionLift.py: /opt/ros/melodic/lib/genpy/gensrv_py.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/_PositionLift.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python code from SRV platform_lift/PositionLift"
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv -Iplatform_lift:/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p platform_lift -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv
+
 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionGoal.py
 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftGoal.py
@@ -126,8 +133,21 @@ platform_lift/CMakeFiles/platform_lift_generate_messages_py: /home/student/Deskt
 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftAction.py
 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionFeedback.py
 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionResult.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python msg __init__.py for platform_lift"
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/_PositionLift.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Python msg __init__.py for platform_lift"
 	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg --initpy
+
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionGoal.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftGoal.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftFeedback.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftResult.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftAction.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionFeedback.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionResult.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/_PositionLift.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Python srv __init__.py for platform_lift"
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv --initpy
 
 platform_lift_generate_messages_py: platform_lift/CMakeFiles/platform_lift_generate_messages_py
 platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionGoal.py
@@ -137,7 +157,9 @@ platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile
 platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftAction.py
 platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionFeedback.py
 platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/_MoveLiftActionResult.py
+platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/_PositionLift.py
 platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/msg/__init__.py
+platform_lift_generate_messages_py: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/lib/python2.7/dist-packages/platform_lift/srv/__init__.py
 platform_lift_generate_messages_py: platform_lift/CMakeFiles/platform_lift_generate_messages_py.dir/build.make
 
 .PHONY : platform_lift_generate_messages_py

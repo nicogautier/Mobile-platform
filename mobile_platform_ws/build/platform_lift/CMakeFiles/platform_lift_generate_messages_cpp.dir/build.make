@@ -60,6 +60,7 @@ platform_lift/CMakeFiles/platform_lift_generate_messages_cpp: /home/student/Desk
 platform_lift/CMakeFiles/platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftAction.h
 platform_lift/CMakeFiles/platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftActionFeedback.h
 platform_lift/CMakeFiles/platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftActionResult.h
+platform_lift/CMakeFiles/platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/PositionLift.h
 
 
 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftActionGoal.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -124,6 +125,13 @@ platform_lift/CMakeFiles/platform_lift_generate_messages_cpp: /home/student/Desk
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from platform_lift/MoveLiftActionResult.msg"
 	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift && /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionResult.msg -Iplatform_lift:/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p platform_lift -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift -e /opt/ros/melodic/share/gencpp/cmake/..
 
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/PositionLift.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/PositionLift.h: /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/PositionLift.h: /opt/ros/melodic/share/gencpp/msg.h.template
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/PositionLift.h: /opt/ros/melodic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from platform_lift/PositionLift.srv"
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift && /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv -Iplatform_lift:/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p platform_lift -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift -e /opt/ros/melodic/share/gencpp/cmake/..
+
 platform_lift_generate_messages_cpp: platform_lift/CMakeFiles/platform_lift_generate_messages_cpp
 platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftActionGoal.h
 platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftGoal.h
@@ -132,6 +140,7 @@ platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobil
 platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftAction.h
 platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftActionFeedback.h
 platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/MoveLiftActionResult.h
+platform_lift_generate_messages_cpp: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/include/platform_lift/PositionLift.h
 platform_lift_generate_messages_cpp: platform_lift/CMakeFiles/platform_lift_generate_messages_cpp.dir/build.make
 
 .PHONY : platform_lift_generate_messages_cpp

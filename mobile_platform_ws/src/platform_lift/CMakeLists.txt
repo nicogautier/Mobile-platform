@@ -20,6 +20,12 @@ add_action_files(DIRECTORY action
   MoveLift.action
 )
 
+add_service_files(
+  FILES
+  PositionLift.srv
+  
+)
+
 generate_messages(
   DEPENDENCIES
   actionlib_msgs

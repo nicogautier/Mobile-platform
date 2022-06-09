@@ -68,18 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -124,6 +112,18 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -198,6 +198,36 @@ platform_lift_generate_messages_py/fast:
 .PHONY : platform_lift_generate_messages_py/fast
 
 # Convenience name for target.
+platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule:
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule
+.PHONY : platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule
+
+# Convenience name for target.
+platform_lift_gennodejs: platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule
+
+.PHONY : platform_lift_gennodejs
+
+# fast build rule for target.
+platform_lift_gennodejs/fast:
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build
+.PHONY : platform_lift_gennodejs/fast
+
+# Convenience name for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule:
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule
+
+# Convenience name for target.
+_platform_lift_generate_messages_check_deps_MoveLiftGoal: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule
+
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftGoal
+
+# fast build rule for target.
+_platform_lift_generate_messages_check_deps_MoveLiftGoal/fast:
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftGoal/fast
+
+# Convenience name for target.
 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/rule:
 	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/rule
 .PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftFeedback.dir/rule
@@ -213,19 +243,19 @@ _platform_lift_generate_messages_check_deps_MoveLiftFeedback/fast:
 .PHONY : _platform_lift_generate_messages_check_deps_MoveLiftFeedback/fast
 
 # Convenience name for target.
-platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule:
-	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule
-.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_PositionLift.dir/rule:
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_PositionLift.dir/rule
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_PositionLift.dir/rule
 
 # Convenience name for target.
-_platform_lift_generate_messages_check_deps_MoveLiftAction: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule
+_platform_lift_generate_messages_check_deps_PositionLift: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_PositionLift.dir/rule
 
-.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftAction
+.PHONY : _platform_lift_generate_messages_check_deps_PositionLift
 
 # fast build rule for target.
-_platform_lift_generate_messages_check_deps_MoveLiftAction/fast:
-	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build
-.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftAction/fast
+_platform_lift_generate_messages_check_deps_PositionLift/fast:
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_PositionLift.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_PositionLift.dir/build
+.PHONY : _platform_lift_generate_messages_check_deps_PositionLift/fast
 
 # Convenience name for target.
 platform_lift/CMakeFiles/platform_lift_generate_messages.dir/rule:
@@ -243,6 +273,21 @@ platform_lift_generate_messages/fast:
 .PHONY : platform_lift_generate_messages/fast
 
 # Convenience name for target.
+platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule:
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule
+.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule
+
+# Convenience name for target.
+_platform_lift_generate_messages_check_deps_MoveLiftAction: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/rule
+
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftAction
+
+# fast build rule for target.
+_platform_lift_generate_messages_check_deps_MoveLiftAction/fast:
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftAction.dir/build
+.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftAction/fast
+
+# Convenience name for target.
 platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/rule:
 	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/rule
 .PHONY : platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/rule
@@ -256,21 +301,6 @@ platform_lift_generate_messages_lisp: platform_lift/CMakeFiles/platform_lift_gen
 platform_lift_generate_messages_lisp/fast:
 	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/build.make platform_lift/CMakeFiles/platform_lift_generate_messages_lisp.dir/build
 .PHONY : platform_lift_generate_messages_lisp/fast
-
-# Convenience name for target.
-platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule:
-	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule
-.PHONY : platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule
-
-# Convenience name for target.
-_platform_lift_generate_messages_check_deps_MoveLiftGoal: platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/rule
-
-.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftGoal
-
-# fast build rule for target.
-_platform_lift_generate_messages_check_deps_MoveLiftGoal/fast:
-	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build.make platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftGoal.dir/build
-.PHONY : _platform_lift_generate_messages_check_deps_MoveLiftGoal/fast
 
 # Convenience name for target.
 platform_lift/CMakeFiles/_platform_lift_generate_messages_check_deps_MoveLiftActionGoal.dir/rule:
@@ -422,21 +452,6 @@ platform_lift_geneus/fast:
 	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_lift/CMakeFiles/platform_lift_geneus.dir/build.make platform_lift/CMakeFiles/platform_lift_geneus.dir/build
 .PHONY : platform_lift_geneus/fast
 
-# Convenience name for target.
-platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule:
-	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f CMakeFiles/Makefile2 platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule
-.PHONY : platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule
-
-# Convenience name for target.
-platform_lift_gennodejs: platform_lift/CMakeFiles/platform_lift_gennodejs.dir/rule
-
-.PHONY : platform_lift_gennodejs
-
-# fast build rule for target.
-platform_lift_gennodejs/fast:
-	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build && $(MAKE) -f platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build.make platform_lift/CMakeFiles/platform_lift_gennodejs.dir/build
-.PHONY : platform_lift_gennodejs/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -444,18 +459,20 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... install"
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... rebuild_cache"
 	@echo "... platform_lift_genpy"
 	@echo "... platform_lift_generate_messages_py"
-	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftFeedback"
-	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftAction"
-	@echo "... platform_lift_generate_messages"
-	@echo "... platform_lift_generate_messages_lisp"
+	@echo "... platform_lift_gennodejs"
 	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftGoal"
+	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftFeedback"
+	@echo "... install/local"
+	@echo "... _platform_lift_generate_messages_check_deps_PositionLift"
+	@echo "... platform_lift_generate_messages"
+	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftAction"
+	@echo "... platform_lift_generate_messages_lisp"
 	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftActionGoal"
 	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftActionResult"
 	@echo "... platform_lift_generate_messages_cpp"
@@ -467,7 +484,6 @@ help:
 	@echo "... platform_lift_generate_messages_nodejs"
 	@echo "... _platform_lift_generate_messages_check_deps_MoveLiftResult"
 	@echo "... platform_lift_geneus"
-	@echo "... platform_lift_gennodejs"
 .PHONY : help
 
 

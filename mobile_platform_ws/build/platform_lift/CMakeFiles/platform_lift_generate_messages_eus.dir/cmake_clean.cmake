@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftAction.l"
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftActionFeedback.l"
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftActionResult.l"
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/srv/PositionLift.l"
   "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/manifest.l"
 )
 

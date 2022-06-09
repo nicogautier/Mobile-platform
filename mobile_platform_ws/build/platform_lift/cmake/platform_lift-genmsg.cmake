@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "platform_lift: 7 messages, 0 services")
+message(STATUS "platform_lift: 7 messages, 1 services")
 
 set(MSG_I_FLAGS "-Iplatform_lift:/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg;-Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -20,6 +20,11 @@ add_custom_target(platform_lift_generate_messages ALL)
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionGoal.msg" NAME_WE)
 add_custom_target(_platform_lift_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "platform_lift" "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionGoal.msg" "actionlib_msgs/GoalID:platform_lift/MoveLiftGoal:std_msgs/Header"
+)
+
+get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv" NAME_WE)
+add_custom_target(_platform_lift_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "platform_lift" "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv" ""
 )
 
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftGoal.msg" NAME_WE)
@@ -102,6 +107,12 @@ _generate_msg_cpp(platform_lift
 )
 
 ### Generating Services
+_generate_srv_cpp(platform_lift
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/platform_lift
+)
 
 ### Generating Module File
 _generate_module_cpp(platform_lift
@@ -116,6 +127,8 @@ add_dependencies(platform_lift_generate_messages platform_lift_generate_messages
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionGoal.msg" NAME_WE)
+add_dependencies(platform_lift_generate_messages_cpp _platform_lift_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv" NAME_WE)
 add_dependencies(platform_lift_generate_messages_cpp _platform_lift_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftGoal.msg" NAME_WE)
 add_dependencies(platform_lift_generate_messages_cpp _platform_lift_generate_messages_check_deps_${_filename})
@@ -183,6 +196,12 @@ _generate_msg_eus(platform_lift
 )
 
 ### Generating Services
+_generate_srv_eus(platform_lift
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/platform_lift
+)
 
 ### Generating Module File
 _generate_module_eus(platform_lift
@@ -197,6 +216,8 @@ add_dependencies(platform_lift_generate_messages platform_lift_generate_messages
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionGoal.msg" NAME_WE)
+add_dependencies(platform_lift_generate_messages_eus _platform_lift_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv" NAME_WE)
 add_dependencies(platform_lift_generate_messages_eus _platform_lift_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftGoal.msg" NAME_WE)
 add_dependencies(platform_lift_generate_messages_eus _platform_lift_generate_messages_check_deps_${_filename})
@@ -264,6 +285,12 @@ _generate_msg_lisp(platform_lift
 )
 
 ### Generating Services
+_generate_srv_lisp(platform_lift
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/platform_lift
+)
 
 ### Generating Module File
 _generate_module_lisp(platform_lift
@@ -278,6 +305,8 @@ add_dependencies(platform_lift_generate_messages platform_lift_generate_messages
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionGoal.msg" NAME_WE)
+add_dependencies(platform_lift_generate_messages_lisp _platform_lift_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv" NAME_WE)
 add_dependencies(platform_lift_generate_messages_lisp _platform_lift_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftGoal.msg" NAME_WE)
 add_dependencies(platform_lift_generate_messages_lisp _platform_lift_generate_messages_check_deps_${_filename})
@@ -345,6 +374,12 @@ _generate_msg_nodejs(platform_lift
 )
 
 ### Generating Services
+_generate_srv_nodejs(platform_lift
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/platform_lift
+)
 
 ### Generating Module File
 _generate_module_nodejs(platform_lift
@@ -359,6 +394,8 @@ add_dependencies(platform_lift_generate_messages platform_lift_generate_messages
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionGoal.msg" NAME_WE)
+add_dependencies(platform_lift_generate_messages_nodejs _platform_lift_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv" NAME_WE)
 add_dependencies(platform_lift_generate_messages_nodejs _platform_lift_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftGoal.msg" NAME_WE)
 add_dependencies(platform_lift_generate_messages_nodejs _platform_lift_generate_messages_check_deps_${_filename})
@@ -426,6 +463,12 @@ _generate_msg_py(platform_lift
 )
 
 ### Generating Services
+_generate_srv_py(platform_lift
+  "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/platform_lift
+)
 
 ### Generating Module File
 _generate_module_py(platform_lift
@@ -440,6 +483,8 @@ add_dependencies(platform_lift_generate_messages platform_lift_generate_messages
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionGoal.msg" NAME_WE)
+add_dependencies(platform_lift_generate_messages_py _platform_lift_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv" NAME_WE)
 add_dependencies(platform_lift_generate_messages_py _platform_lift_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftGoal.msg" NAME_WE)
 add_dependencies(platform_lift_generate_messages_py _platform_lift_generate_messages_check_deps_${_filename})

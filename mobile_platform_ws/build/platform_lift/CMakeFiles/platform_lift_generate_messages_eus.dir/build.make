@@ -60,6 +60,7 @@ platform_lift/CMakeFiles/platform_lift_generate_messages_eus: /home/student/Desk
 platform_lift/CMakeFiles/platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftAction.l
 platform_lift/CMakeFiles/platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftActionFeedback.l
 platform_lift/CMakeFiles/platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftActionResult.l
+platform_lift/CMakeFiles/platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/srv/PositionLift.l
 platform_lift/CMakeFiles/platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/manifest.l
 
 
@@ -118,8 +119,13 @@ platform_lift/CMakeFiles/platform_lift_generate_messages_eus: /home/student/Desk
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from platform_lift/MoveLiftActionResult.msg"
 	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg/MoveLiftActionResult.msg -Iplatform_lift:/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p platform_lift -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg
 
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/srv/PositionLift.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/srv/PositionLift.l: /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp code from platform_lift/PositionLift.srv"
+	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/student/Desktop/Mobile-platform/mobile_platform_ws/src/platform_lift/srv/PositionLift.srv -Iplatform_lift:/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/platform_lift/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p platform_lift -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/srv
+
 /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp manifest code for platform_lift"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/Desktop/Mobile-platform/mobile_platform_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp manifest code for platform_lift"
 	cd /home/student/Desktop/Mobile-platform/mobile_platform_ws/build/platform_lift && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift platform_lift actionlib_msgs std_msgs
 
 platform_lift_generate_messages_eus: platform_lift/CMakeFiles/platform_lift_generate_messages_eus
@@ -130,6 +136,7 @@ platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobil
 platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftAction.l
 platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftActionFeedback.l
 platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/msg/MoveLiftActionResult.l
+platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/srv/PositionLift.l
 platform_lift_generate_messages_eus: /home/student/Desktop/Mobile-platform/mobile_platform_ws/devel/share/roseus/ros/platform_lift/manifest.l
 platform_lift_generate_messages_eus: platform_lift/CMakeFiles/platform_lift_generate_messages_eus.dir/build.make
 
