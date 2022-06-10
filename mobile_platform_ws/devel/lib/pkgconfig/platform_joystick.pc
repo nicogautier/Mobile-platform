@@ -1,8 +1,0 @@
-prefix=/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel
-
-Name: platform_joystick
-Description: Description of platform_joystick
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

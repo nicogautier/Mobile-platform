@@ -1,8 +1,0 @@
-prefix=/home/student/Desktop/Mobile-platform/mobile_platform_ws/install
-
-Name: platform_lift
-Description: Description of platform_lift
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: actionlib_msgs std_msgs message_runtime

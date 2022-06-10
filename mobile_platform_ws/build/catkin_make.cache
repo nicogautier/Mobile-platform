@@ -1,2 +1,0 @@
-platform_communication:platform_joystick:platform_lift:platform_main:platform_measurements
--DCATKIN_DEVEL_PREFIX=/home/student/Desktop/Mobile-platform/mobile_platform_ws/devel -DCMAKE_INSTALL_PREFIX=/home/student/Desktop/Mobile-platform/mobile_platform_ws/install -G Unix Makefiles

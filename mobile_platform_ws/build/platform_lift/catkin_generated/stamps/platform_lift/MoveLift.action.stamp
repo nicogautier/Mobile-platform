@@ -1,7 +1,0 @@
-uint16 goal_position  
----
-
-bool success
----
-
-uint16 current_position
