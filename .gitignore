@@ -1,0 +1,5 @@
+*.pyc
+
+mobile_platform_ws/devel/
+mobile_platform_ws/build/
+mobile_platform_ws/.vscode/
