@@ -59,7 +59,14 @@ You may have to change the port for serial communication which is currently "*/d
 
 #### platform_joystick
 
-This package allows the use of a [**Logitech Extreme 3D**](https://www.logitechg.com/fr-fr/products/space/extreme-3d-pro-joystick.942-000031.html) joystick to control the mobile platform. It implements additional features compared to the joystick connected to the Beckhoff controller. You can use the **joystick.launch** file alone or in addition to the **platform_main** launchfile (to enable the use of the joystick you must put the third axis down).
+This package allows the use of a [**Logitech Extreme 3D**](https://www.logitechg.com/fr-fr/products/space/extreme-3d-pro-joystick.942-000031.html) joystick to control the mobile platform. It implements additional features compared to the joystick connected to the Beckhoff controller. You can use the **joystick.launch** file alone:
+
+```sh
+roslaunch platform_joystick joystick.launch joystickOnly:="true"
+```
+
+or in addition to the **platform_main** launchfile. Note: to enable the use of the joystick you must put the third axis down (up: ros navigation, middle: stop).
+
 
 #### platform_measurements
 
