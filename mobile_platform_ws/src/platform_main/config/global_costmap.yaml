@@ -9,8 +9,8 @@ global_costmap:
    map_type: costmap
    inflation_radius: 1
 
-   width: 15.0
-   height: 15.0
+   width: 50.0
+   height: 50.0
 
 
 
