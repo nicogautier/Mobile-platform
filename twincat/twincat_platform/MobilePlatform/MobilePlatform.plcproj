@@ -51,9 +51,6 @@
     <Compile Include="DUTs\RealDword.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\SensorField.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DUTs\ST_Calibration_Parameters.TcDUT">
       <SubType>Code</SubType>
     </Compile>

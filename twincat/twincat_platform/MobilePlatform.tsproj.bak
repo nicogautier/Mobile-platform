@@ -2837,15 +2837,15 @@ External Setpoint Generation:
 							<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
 						<Var>
+							<Name>MOTORS.fbAxisRef_BR.NcToPlc</Name>
+							<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+						</Var>
+						<Var>
 							<Name>MOTORS.fbAxisRef_FL.NcToPlc</Name>
 							<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
 						<Var>
 							<Name>MOTORS.fbAxisRef_FR.NcToPlc</Name>
-							<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>MOTORS.fbAxisRef_BR.NcToPlc</Name>
 							<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
 						<Var>
@@ -2868,11 +2868,11 @@ External Setpoint Generation:
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
 						<Var>
-							<Name>MOTORS.fbAxisRef_FL.PlcToNc</Name>
+							<Name>MOTORS.fbAxisRef_FR.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
 						<Var>
-							<Name>MOTORS.fbAxisRef_FR.PlcToNc</Name>
+							<Name>MOTORS.fbAxisRef_FL.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
 						<Var>
@@ -2910,51 +2910,27 @@ External Setpoint Generation:
 					<Vars VarGrpType="2" ContextId="1" AreaNo="17">
 						<Name>Task_2 Outputs</Name>
 						<Var>
-							<Name>SensorsMain.sensor1_D</Name>
+							<Name>SensorsMain.sensor_D</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>SensorsMain.sensor1_E</Name>
+							<Name>SensorsMain.sensor_E</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>SensorsMain.sensor1_F</Name>
+							<Name>SensorsMain.sensor_F</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>SensorsMain.sensor2_D</Name>
+							<Name>SensorsMain.en_sensor_D</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>SensorsMain.sensor2_E</Name>
+							<Name>SensorsMain.en_sensor_E</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>SensorsMain.sensor2_F</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>SensorsMain.en_sensor1_D</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>SensorsMain.en_sensor1_E</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>SensorsMain.en_sensor1_F</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>SensorsMain.en_sensor2_D</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>SensorsMain.en_sensor2_E</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>SensorsMain.en_sensor2_F</Name>
+							<Name>SensorsMain.en_sensor_F</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>
@@ -7012,7 +6988,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 								<Entry Name="Ctrl__">
 									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Output order counter" Index="#x7051" Sub="#x09">
+								<Entry Name="Ctrl__Output order counter" Index="#x7051" Sub="#x09" Flags="#x00008020">
 									<Type>USINT</Type>
 								</Entry>
 								<Entry Name="Ctrl__No of output events" Index="#x7051" Sub="#x11">
@@ -7227,7 +7203,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 								<Entry Name="Ctrl__Manual output state" Index="#x7061" Sub="#x02" Flags="#x00008020">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Force order" Index="#x7061" Sub="#x03">
+								<Entry Name="Ctrl__Force order" Index="#x7061" Sub="#x03" Flags="#x00008020">
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Ctrl__Enable manual operation" Index="#x7061" Sub="#x04" Flags="#x00008020">
@@ -7236,7 +7212,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 								<Entry Name="Ctrl__">
 									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Output order counter" Index="#x7061" Sub="#x09">
+								<Entry Name="Ctrl__Output order counter" Index="#x7061" Sub="#x09" Flags="#x00008020">
 									<Type>USINT</Type>
 								</Entry>
 								<Entry Name="Ctrl__No of output events" Index="#x7061" Sub="#x11">
@@ -11711,18 +11687,12 @@ Bit 8 - 15 : reserved]]></Comment>
 				<Link VarA="Task_2 Inputs^SensorsMain.sensor2_UO1" VarB="MTI Inputs 10x Channel 2^Status^Input state"/>
 				<Link VarA="Task_2 Inputs^SensorsMain.sensor2_UO2" VarB="MTI Inputs 10x Channel 3^Status^Input state"/>
 				<Link VarA="Task_2 Inputs^SensorsMain.sensor2_UO3" VarB="MTI Inputs 10x Channel 7^Status^Input state"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.en_sensor1_D" VarB="MTO Outputs 10x Channel 6^Ctrl^Enable manual operation"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.en_sensor1_E" VarB="MTO Outputs 10x Channel 7^Ctrl^Enable manual operation"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.en_sensor1_F" VarB="MTO Outputs 10x Channel 8^Ctrl^Enable manual operation"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.en_sensor2_D" VarB="MTO Outputs 10x Channel 5^Ctrl^Enable manual operation"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.en_sensor2_E" VarB="MTO Outputs 10x Channel 4^Ctrl^Enable manual operation"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.en_sensor2_F" VarB="MTO Outputs 10x Channel 2^Ctrl^Enable manual operation"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.sensor1_D" VarB="MTO Outputs 10x Channel 6^Ctrl^Manual output state"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.sensor1_E" VarB="MTO Outputs 10x Channel 7^Ctrl^Manual output state"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.sensor1_F" VarB="MTO Outputs 10x Channel 8^Ctrl^Manual output state"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.sensor2_D" VarB="MTO Outputs 10x Channel 5^Ctrl^Manual output state"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.sensor2_E" VarB="MTO Outputs 10x Channel 4^Ctrl^Manual output state"/>
-				<Link VarA="Task_2 Outputs^SensorsMain.sensor2_F" VarB="MTO Outputs 10x Channel 2^Ctrl^Manual output state"/>
+				<Link VarA="Task_2 Outputs^SensorsMain.en_sensor_D" VarB="MTO Outputs 10x Channel 8^Ctrl^Enable manual operation"/>
+				<Link VarA="Task_2 Outputs^SensorsMain.en_sensor_E" VarB="MTO Outputs 10x Channel 7^Ctrl^Enable manual operation"/>
+				<Link VarA="Task_2 Outputs^SensorsMain.en_sensor_F" VarB="MTO Outputs 10x Channel 6^Ctrl^Enable manual operation"/>
+				<Link VarA="Task_2 Outputs^SensorsMain.sensor_D" VarB="MTO Outputs 10x Channel 8^Ctrl^Manual output state"/>
+				<Link VarA="Task_2 Outputs^SensorsMain.sensor_E" VarB="MTO Outputs 10x Channel 7^Ctrl^Manual output state"/>
+				<Link VarA="Task_2 Outputs^SensorsMain.sensor_F" VarB="MTO Outputs 10x Channel 6^Ctrl^Manual output state"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Wheel_Back_Left">
 				<Link VarA="Task1 Inputs^MOTORS.fbAxisRef_BL.NcToPlc" VarB="Outputs^ToPlc"/>

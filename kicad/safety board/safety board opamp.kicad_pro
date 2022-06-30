@@ -119,7 +119,8 @@
         "use_height_for_length_calcs": true
       },
       "track_widths": [
-        0.0
+        0.0,
+        0.5
       ],
       "via_dimensions": [
         {
@@ -346,7 +347,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "circuit.kicad_pro",
+    "filename": "safety board opamp.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -364,45 +365,6 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.25,
-        "via_diameter": 0.8,
-        "via_drill": 0.4,
-        "wire_width": 6.0
-      },
-      {
-        "bus_width": 12.0,
-        "clearance": 0.2,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "+24V",
-        "nets": [
-          "+24V",
-          "GND",
-          "S1_11",
-          "S1_12",
-          "S1_13",
-          "S1_14",
-          "S1_15",
-          "S1_16",
-          "S1_D",
-          "S1_E",
-          "S1_F",
-          "S2_11",
-          "S2_12",
-          "S2_13",
-          "S2_14",
-          "S2_15",
-          "S2_16",
-          "S2_D",
-          "S2_E",
-          "S2_F"
-        ],
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.4,
         "via_diameter": 0.8,
         "via_drill": 0.4,
         "wire_width": 6.0
@@ -464,7 +426,7 @@
   },
   "sheets": [
     [
-      "9538e4ed-27e6-4c37-b989-9859dc0d49e8",
+      "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55",
       ""
     ]
   ],

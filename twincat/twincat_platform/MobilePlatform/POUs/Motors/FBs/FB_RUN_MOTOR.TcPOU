@@ -105,7 +105,7 @@ VAR CONSTANT
 	
 	timeSlice: LREAL := 0.00005;
 	
-	ACC_MAX : LREAL := 5000000;
+	ACC_MAX : LREAL := 7000000;
 	VEL_WHEEL_MAX : LREAL := 18000;
 	
 	//reductor ratio
@@ -318,6 +318,11 @@ END_VAR
 			v_BR := v_BR*normWheels;
 			v_FL := v_FL*normWheels;
 			v_FR := v_FR*normWheels;
+			
+			a_BL := (v_BL - ControlGVL.vel_BL*RED)/timeSlice;
+			a_BR := (v_BR - ControlGVL.vel_BR*RED)/timeSlice;
+			a_FL := (v_FL -  ControlGVL.vel_FL*RED)/timeSlice;
+			a_FR := (v_FR - ControlGVL.vel_FR*RED)/timeSlice;
 		END_IF
 		
 		//integrate to get new position
@@ -419,6 +424,9 @@ END_CASE]]></ST>
       <LineId Id="4618" Count="0" />
       <LineId Id="4756" Count="4" />
       <LineId Id="4626" Count="0" />
+      <LineId Id="4872" Count="0" />
+      <LineId Id="4874" Count="2" />
+      <LineId Id="4873" Count="0" />
       <LineId Id="3999" Count="0" />
       <LineId Id="4627" Count="0" />
       <LineId Id="3741" Count="4" />

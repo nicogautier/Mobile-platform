@@ -8,23 +8,17 @@ VAR
 	
 
 	
-	sensor1_D AT %Q* : BOOL;
-	sensor1_E AT %Q* : BOOL;
-	sensor1_F AT %Q* : BOOL;
-	
-	
-	sensor2_D AT %Q* : BOOL;
-	sensor2_E AT %Q* : BOOL;
-	sensor2_F AT %Q* : BOOL;
+	sensor_D AT %Q* : BOOL;
+	sensor_E AT %Q* : BOOL;
+	sensor_F AT %Q* : BOOL;
 	
 	
 	
-	en_sensor1_D AT %Q* : BOOL ;
-	en_sensor1_E AT %Q* : BOOL ;
-	en_sensor1_F AT %Q* : BOOL ;
-	en_sensor2_D AT %Q* : BOOL ;
-	en_sensor2_E AT %Q* : BOOL ;
-	en_sensor2_F AT %Q* : BOOL ;	
+	
+	en_sensor_D AT %Q* : BOOL ;
+	en_sensor_E AT %Q* : BOOL ;
+	en_sensor_F AT %Q* : BOOL ;
+
 
 	sensor1_UO1 AT %I* : BOOL;
 	sensor1_UO2 AT %I* : BOOL;
@@ -65,7 +59,7 @@ IF(ABS(ControlGVL.forwardReverse)<0.04) THEN
 	ELSIF(ControlGVL.leftRight<-0.04) THEN
 		new_direction := DirPlatform.MINUS_Y;
 	ELSE
-		new_direction := DirPlatform.STOP;
+		new_direction := DirPlatform.PLUS_X; //assume default field is Plus X
 	END_IF
 
 ELSE
@@ -116,54 +110,21 @@ END_IF
 
 
 
-//Select required fields for sensors
-IF(SensorsGVL.platformDir = DirPlatform.PLUS_X) THEN
-	SensorsGVL.sensor1_MonitoringCase := SensorField.UP;
-	SensorsGVL.sensor2_MonitoringCase := SensorField.DEFAULT;
-ELSIF(SensorsGVL.platformDir = DirPlatform.PLUS_X_MINUS_Y) THEN
-	SensorsGVL.sensor1_MonitoringCase := SensorField.UP_LEFT;
-	SensorsGVL.sensor2_MonitoringCase := SensorField.DEFAULT;
-ELSIF(SensorsGVL.platformDir = DirPlatform.MINUS_Y) THEN
-	SensorsGVL.sensor1_MonitoringCase := SensorField.LEFT;
-	SensorsGVL.sensor2_MonitoringCase := SensorField.DEFAULT;
-ELSIF(SensorsGVL.platformDir = DirPlatform.MINUS_X_MINUS_Y) THEN
-	SensorsGVL.sensor1_MonitoringCase := SensorField.DOWN_LEFT;
-	SensorsGVL.sensor2_MonitoringCase := SensorField.UP_RIGHT;
-ELSIF(SensorsGVL.platformDir = DirPlatform.MINUS_X) THEN
-	SensorsGVL.sensor1_MonitoringCase := SensorField.DEFAULT;
-	SensorsGVL.sensor2_MonitoringCase := SensorField.UP;
-ELSIF(SensorsGVL.platformDir = DirPlatform.MINUS_X_PLUS_Y) THEN
-	SensorsGVL.sensor1_MonitoringCase := SensorField.DEFAULT;
-	SensorsGVL.sensor2_MonitoringCase := SensorField.UP_LEFT;
-ELSIF(SensorsGVL.platformDir = DirPlatform.PLUS_Y) THEN
-	SensorsGVL.sensor1_MonitoringCase := SensorField.DEFAULT;
-	SensorsGVL.sensor2_MonitoringCase := SensorField.LEFT;
-ELSIF(SensorsGVL.platformDir = DirPlatform.PLUS_X_PLUS_Y) THEN
-	SensorsGVL.sensor1_MonitoringCase := SensorField.UP_RIGHT;
-	SensorsGVL.sensor2_MonitoringCase := SensorField.DOWN_LEFT;
-ELSE
-	SensorsGVL.sensor1_MonitoringCase := SensorField.DEFAULT;
-	SensorsGVL.sensor2_MonitoringCase := SensorField.DEFAULT;
-END_IF
+
 
 
 //emable writting output
-en_sensor1_D := TRUE;
-en_sensor1_E := TRUE;
-en_sensor1_F := TRUE;
-en_sensor2_D := TRUE;
-en_sensor2_E := TRUE;
-en_sensor2_F := TRUE;
+en_sensor_D := TRUE;
+en_sensor_E := TRUE;
+en_sensor_F := TRUE;
+
 
 
 //Update fields on sensors
-sensor1_D := (SensorsGVL.sensor1_MonitoringCase / 4)>0;
-sensor1_E := ((SensorsGVL.sensor1_MonitoringCase MOD 4)/2)>0;
-sensor1_F := (SensorsGVL.sensor1_MonitoringCase MOD 2) >0;
+sensor_D := (SensorsGVL.platformDir / 4)>0;
+sensor_E := ((SensorsGVL.platformDir MOD 4)/2)>0;
+sensor_F := (SensorsGVL.platformDir MOD 2) >0;
 
-sensor2_D := (SensorsGVL.sensor2_MonitoringCase / 4)>0;
-sensor2_E := ((SensorsGVL.sensor2_MonitoringCase MOD 4)/2)>0;
-sensor2_F := (SensorsGVL.sensor2_MonitoringCase MOD 2) >0;
 
 
 
@@ -180,7 +141,10 @@ ELSIF (sensor1_UO3 OR sensor2_UO3) THEN
 ELSE
 	ControlGVL.currentVelMax := VMAX;
 	ControlGVL.currentThVelMax :=VTHMAX;
-END_IF]]></ST>
+END_IF
+
+ControlGVL.currentVelMax := VMAX/2;
+ControlGVL.currentThVelMax :=VTHMAX;]]></ST>
     </Implementation>
     <LineIds Name="SensorsMain">
       <LineId Id="337" Count="8" />
@@ -208,7 +172,10 @@ END_IF]]></ST>
       <LineId Id="592" Count="0" />
       <LineId Id="589" Count="0" />
       <LineId Id="584" Count="1" />
-      <LineId Id="373" Count="54" />
+      <LineId Id="373" Count="0" />
+      <LineId Id="402" Count="6" />
+      <LineId Id="411" Count="7" />
+      <LineId Id="422" Count="5" />
       <LineId Id="479" Count="0" />
       <LineId Id="428" Count="1" />
       <LineId Id="480" Count="0" />
@@ -217,6 +184,8 @@ END_IF]]></ST>
       <LineId Id="432" Count="1" />
       <LineId Id="483" Count="0" />
       <LineId Id="208" Count="0" />
+      <LineId Id="722" Count="1" />
+      <LineId Id="721" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
