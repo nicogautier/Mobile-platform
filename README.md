@@ -6,6 +6,9 @@ The mobile platform robot was developed at the [Robotics Laboratory](https://rob
 
 The mobile platform is a robot that uses its sensors to identify and move through its environment. The final goal of the platform will be to be used in an indoor environment such as a warehouse or a retail store. It will also be combined with a collaborative manipulator robot for precise handling.
 
+[![Alt text](https://img.youtube.com/vi/F0u8bdqzKDY/0.jpg)](https://www.youtube.com/watch?v=F0u8bdqzKDY)
+
+
 | Product | Description |
 | ------ | ------ |
 |[SICK nanoScan3](https://www.sick.com/hk/en/safety-laser-scanners/safety-laser-scanners/nanoscan3/nans3-caaz30an1/p/p653980?ff_data=JmZmX2lkPXA2NTM5ODAmZmZfbWFzdGVySWQ9cDY1Mzk4MCZmZl90aXRsZT1OQU5TMy1DQUFaMzBBTjEmZmZfcXVlcnk9JmZmX3Bvcz0xJmZmX29yaWdQb3M9MSZmZl9wYWdlPTEmZmZfcGFnZVNpemU9MjQmZmZfb3JpZ1BhZ2VTaXplPTI0JmZmX3NpbWk9OTcuMA==)| Laser scanners for platform protection and localization|
